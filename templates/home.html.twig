@@ -1,0 +1,19 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <h1>Home</h1>
+        <p>Hej jag heter David Palmgren och jag gillar att spela datorspel och är teknik intresserad det är en av anledningarna jag valde att börja plugga på BTH, innan dess pluggade jag på YHS elingenjörs utbildning men valde att byta riktning och nu är jag här.</p>
+      </div>
+      <div class="col-md-4">
+        <a href="{{ asset('img/wc3sniper.jpg') }}">
+          <img src="{{ asset('img/wc3sniper.jpg') }}" alt="">
+        </a>
+      </div>
+    </div>
+  </div>
+{% endblock %}

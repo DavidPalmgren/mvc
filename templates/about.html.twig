@@ -1,0 +1,25 @@
+{% extends "base.html.twig" %}
+
+{% block title %}About{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h1>About this Course</h1>
+            <a href="https://github.com/dbwebb-se/mvc/">Kursens GitHub repo</a>
+            <p>MVC är en kurs om model-view-controller som delar upp programmet i tre olika delar model för logiken, vyn som hanterar representationen typ frontend twig/template sidorna, och controller som står för routingen och att samman koppla delarna? som jag förstått det xd</p>
+            <p>Anledningarna till att en sån här kurs kan vara bra för oss finns det massor av t.ex. att lära oss strukturen och hur de olika delarna sammankopplas och erfarenhet av att bygga sidor med mvc baserade applikationer? xd</p>
+        </div>
+        <div class="col-md-6">
+            <h1>My GitHub</h1>
+            <p>Mitt github repo <a href="https://github.com/DavidPalmgren">Mitt GitHub</a>.</p>
+            <a href="https://github.com/DavidPalmgren">
+                <img src="{{ asset('img/mvc.jpg') }}" alt="" width="400" height="250">
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+

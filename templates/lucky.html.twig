@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container">
+    <div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+        <div class="card-body text-center">
+            <h1 class="card-title">Your Lucky Number Is: {{ lucky_num }}</h1>
+            <h2 class="card-subtitle mb-2 text-muted">Your Lucky Image will run away if you hover it:</h2>
+            <p>he's very crafty and will even escape outside the normal viewport at a speed of mach 57</p>
+            <div id="floating-container">
+                <img src="{{ asset('img/'~image) }}" alt="Random Image">
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/floaty.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="{{ asset('img/glider.svg') }}">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        {# <link rel="stylesheet" href="{{ asset('styles/app.css') }}"> #}
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+    </head>
+    <body style="display: flex; flex-direction: column; min-height: 100vh;">
+        <div class="wrapper" style="flex-grow: 1;">
+        <header class="site-header" style="background-image: url({{ asset('img/endless-clouds.svg') }}); height: 100px;">
+            <div class="container">
+            </div>
+        </header>
+        <div class="flex-grow-1">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="{{ path('home') }}">My Symfony Site</a>
+                </div>
+                <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="{{ path('home') }}">Home</a></li>
+                        <li><a href="{{ path('about') }}">About</a></li>
+                        <li><a href="{{ path('lucky') }}">Lucky</a></li>
+                        <li><a href="{{ path('report') }}">Report</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        </nav>
+    <div class="container">
+        {% block body %}{% endblock %}
+    </div>
+    </div>
+        {% include 'footer.html.twig' %}
+
+        <script src="{{ asset('node_modules/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    </body>
+</html>
