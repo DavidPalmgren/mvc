@@ -27,7 +27,7 @@ class LuckyControllerJson
     }
     #[Route("/api/quote", name: "quote")]
     public function quote(): Response
-    {   
+    {
         $random_num2 = random_int(0, 2);
         $quotes = [
             "In three words I can sum up everything I've learned about life: it goes on. -Robert Frost",
