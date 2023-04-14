@@ -3,10 +3,12 @@
 {% block title %}My Card Game{% endblock %}
 
 {% block body %}
-    <h1>Deck of Cards</h1>
+    <h1>Deck of Cards!!</h1>
     <ul>
         {% for i, card in cards %}
+        
             <li>{{ card.getRank() }} of {{ card.getSuit() }} - [{{ cardImages[i] }}]</li>
+
         {% endfor %}
     </ul>
 {% endblock %}

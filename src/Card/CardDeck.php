@@ -37,4 +37,28 @@ class CardDeck
     public function getCards() {
         return $this->cards;
     }
+
+    function getCardBySuitAndRank($suit, $rank) {
+        foreach ($this->cards as $card) {
+            if ($card->getSuit() == $suit && $card->getRank() == $rank) {
+                return $card;
+            }
+        }
+        return null;
+    }
+
+    function getCardsByRank($rank) {
+        $matchingCards = [];
+        foreach ($this->cards as $key => $card) {
+            if ($card->getRank() == $rank) {
+                $matchingCards[] = $card;
+            }
+        }
+        // removing the cards with unset
+        foreach ($matchingCards as $card) {
+            $key = array_search($card, $this->cards);
+            unset($this->cards[$key]);
+        }
+        return $matchingCards;
+    }
 }

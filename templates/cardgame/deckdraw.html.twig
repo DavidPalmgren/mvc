@@ -1,0 +1,12 @@
+{% extends "./base.html.twig" %}
+
+{% block title %}My Card Game{% endblock %}
+
+{% block body %}
+<h1>CardDeckDraw</h1>
+
+<p>Drar ett kort från kortleken shufflar innan så det är helt på måfo och inte nästa i ordningen!</p>
+<p>CardCount: {{ cardcount }}</p>
+<p>Card: [{{ card }}]</p>
+
+{% endblock %}
