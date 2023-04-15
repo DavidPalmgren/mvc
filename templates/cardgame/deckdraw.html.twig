@@ -5,8 +5,10 @@
 {% block body %}
 <h1>CardDeckDraw</h1>
 
-<p>Drar ett kort från kortleken shufflar innan så det är helt på måfo och inte nästa i ordningen!</p>
+<p>Drar ett kort från toppen av kortleken</p>
 <p>CardCount: {{ cardcount }}</p>
 <p>Card: [{{ card }}]</p>
+
+<button onclick="window.location.reload()">Refresh</button>
 
 {% endblock %}

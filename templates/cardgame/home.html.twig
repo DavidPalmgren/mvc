@@ -3,14 +3,26 @@
 {% block title %}My Card Game{% endblock %}
 
 {% block body %}
-<h1>Card game TBD</h1>
+<h1>Card game</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
 
-<p>hej hallå min cardgame home</p>
-<p> berätta kort om strukturen på dina klasser, vilka klasser har du och hur är de relaterade till varandra. Rita ett UML klass diagram och visa i sidan. </p>
-<ul>
-    <li><a href="{{ path('card_deck') }}">Card Deck * shows an ordered deck</a></li>
-    <li><a href="{{ path('card_shuffle') }}">Card Shuffle * shows an shuffled deck</a></li>
-    <li><a href="{{ path('card_deck_draw') }}">Card Deck Draw * Draws a card from the deck</a></li>
-    <li><a href="{{ path('card_start') }}">This page</a></li>
-</ul>
+        <p> Det finns tre klasser Card CardDeck och CardGraphic.</p>
+        <p> Card har två egenskaper $suit och $rank klädsen och siffran venne vad det blir på svenska och en del metoder som använder dessa get suit/rank och en toString som kan va bra att ha</p>
+        <p> CardDeck har $cards som som är en array av Card's. några metoderna är shuffle som blandar leken, deal som dealar ett kort från toppen och tar väck det från arrayen, cardsLeft som räknar korten,getCards som returnerar korten,sort som sorterar korten och en del andra som jag inte använder.</p>
+        <p> CardGraphic ärver ifrån Card och CardGraphic och dess metod getCardImage returnerar en sträng med tecken som representerar korten.</p>
+    </div>
+        <div class="col-md-6">
+            <ul>
+                <li><a href="{{ path('card_deck') }}">Card Deck</a></li><p>Shows the deck and Sorts it</p>
+                <li><a href="{{ path('card_shuffle') }}">Card Shuffle</a></li><p> shows an shuffled deck. Also clears session like was requested</p>
+                <li><a href="{{ path('card_deck_draw') }}">Card Deck Draw</a></li><p>Draws a card from the deck/ add /:number to draw multiple cards</p>
+                <li><a href="{{ path('card_start') }}">This page</a></li><p>Home</p>
+                <li><a href="{{ path('card_clear_session') }}">Clear cardgame session</a></li><p>Clear session</p>
+            </ul>
+        </div>
+    </div>
+</div>
+
 {% endblock %}
