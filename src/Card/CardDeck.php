@@ -7,13 +7,14 @@ use App\Card\Card;
 class CardDeck
 {
     private $cards;
-  
-    function __construct() {
-    
+
+    public function __construct()
+    {
+
         $this->cards = array();
         $suits = array('Spades', 'Hearts', 'Diamonds', 'Clubs');
         $ranks = array('Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King');
-  
+
         foreach ($suits as $suit) {
             foreach ($ranks as $rank) {
                 $card = new Card($suit, $rank);
@@ -21,24 +22,29 @@ class CardDeck
             }
         }
     }
-  
-    function shuffle() {
+
+    public function shuffle()
+    {
         shuffle($this->cards);
     }
-  
-    function deal() {
+
+    public function deal()
+    {
         return array_pop($this->cards);
     }
-  
-    function cardsLeft() {
+
+    public function cardsLeft()
+    {
         return count($this->cards);
     }
 
-    public function getCards() {
+    public function getCards()
+    {
         return $this->cards;
     }
 
-    function getCardBySuitAndRank($suit, $rank) {
+    public function getCardBySuitAndRank($suit, $rank)
+    {
         // fixar ett specifierat kort ur kortleken väldigt användbart för tobbe trollkar
         foreach ($this->cards as $card) {
             if ($card->getSuit() == $suit && $card->getRank() == $rank) {
@@ -48,7 +54,8 @@ class CardDeck
         return null;
     }
 
-    function getCardsByRank($rank) {
+    public function getCardsByRank($rank)
+    {
         // använder ej denna
         // gets all card of same rank unuuused
         $matchingCards = [];
@@ -65,10 +72,11 @@ class CardDeck
         return $matchingCards;
     }
 
-    function sort() {
+    public function sort()
+    {
         // klassisk tom array
         $sortedCards = array();
-    
+
         // Loopar igenom suit och rank för att lägga till de i ordning
         $suits = array('Spades', 'Hearts', 'Diamonds', 'Clubs');
         $ranks = array('Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King');

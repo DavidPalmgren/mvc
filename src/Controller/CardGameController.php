@@ -18,8 +18,7 @@ class CardGameController extends AbstractController
     public function initCallback(
         Request $request,
         SessionInterface $session
-    ): Response
-    {
+    ): Response {
 
         $deck = new CardDeck();
         $session->set('deck', $deck);
@@ -47,7 +46,7 @@ class CardGameController extends AbstractController
         $cardImages = array_map(function (Card $card) {
             return CardGraphic::getCardImage($card);
         }, $cards);
-    
+
         return $this->render('cardgame/deck.html.twig', [
             'cards' => $cards,
             'cardImages' => $cardImages,
@@ -64,7 +63,7 @@ class CardGameController extends AbstractController
         }
         $deck->shuffle();
         $cards = $deck->getCards();
-        
+
         $cardImages = array_map(function (Card $card) {
             return CardGraphic::getCardImage($card);
         }, $cards);
@@ -100,14 +99,14 @@ class CardGameController extends AbstractController
             $deck = new CardDeck();
             $session->set('deck', $deck);
         }
-    
+
         $cards = array();
         for ($i = 0; $i < $number; $i++) {
             $card = $deck->deal();
             $cards[] = CardGraphic::getCardImage($card);
         }
         $cardcount = $deck->cardsLeft();
-    
+
         return $this->render('cardgame/deckdrawnumber.html.twig', [
             'cards' => $cards,
             'cardcount' => $cardcount,
