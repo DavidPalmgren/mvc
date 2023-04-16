@@ -51,13 +51,11 @@ class TjugoEttGame {
 
     private function playerWins() {
         $this->winner = "player";
-        $this->banker->lose();
         $this->gameOver = true;
     }
 
     private function bankerWins() {
         $this->winner = "banker";
-        $this->player->lose();
         $this->gameOver = true;
     }
 
