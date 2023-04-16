@@ -123,4 +123,11 @@ class CardGameControllerJson extends AbstractController
         );
         return $response;
     }
+    #[Route("/api/clear-session", name: "api_card_clear_session")]
+    public function clearSession(SessionInterface $session): Response
+    {
+        $session->clear();
+
+        return $this->redirectToRoute('api_home');
+    }
 }

@@ -7,7 +7,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-
+            <img src="{{ asset('img/jsonimg.png') }}" alt="">
     </div>
         <div class="col-md-6">
             <ul>
@@ -33,7 +33,7 @@
                     <button type="submit">Draw {{number}} Cards</button>
                 </form>
                 <br>
-                <li><a href="{{ path('card_clear_session') }}">Clear cardgame session</a></li><p>Clear session</p>
+                <li><a href="{{ path('api_card_clear_session') }}">Clear cardgame session</a></li><p>Clear session</p>
             </ul>
         </div>
     </div>
