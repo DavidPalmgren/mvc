@@ -1,6 +1,6 @@
 {% extends "base.html.twig" %}
 
-{% block title %}About{% endblock %}
+{% block title %}Report{% endblock %}
 
 {% block body %}
 <div class="container">
@@ -29,7 +29,8 @@
             <p>Vi har arbetat med det tidigare i oopython kursen men annars har jag nog ingen erfarenhet av det tror jag, det är väl mer så att man ska arbeta med klasser och göra objekt typ som jag förstår oo hittils.</p>
             <p>För att skapa en klass i php behöver man bara använda syntaxen sen kan man fylla på sin class mall med metoder attribut och sådant. Ett objekt är en instans av en klass tpy kopia av mallen som man fyller i med informationen man matat in. Jag märker inga markanta skillnader mellan typ python/php objekt det verkar vara väldigt likt bara litet syntax skillnad typ</p>
             <p>När jag först gjorde skelettet så blev jag rätt shockad på hur mycket saker det fanns och så men vi använder inte allting precis det är typ samma mängd som i andra kurser när vi gjort sånna sidor så det var lite överväldigande i början. Men det är väl en rätt logisk struktur som liknar sånt vi gjort förut i alla fall så det är väl bra.</p>
-            <p>Kan inte säga att jag läst igenom mycket av den artiklen bara lite översiktligt kollat igenom den snabby men jag kollade lite igenom templating med twig för att friska upp minnet om det vilket var nyttigt samt lite om hur komments på kod ser ut vilket var intressant kanske det var inte olikt sådant vi kollat på förrut. läste även lite om Secruty, data filtrering, bara för att förstå lite vad det handlade om det var också hyggligt intressant då jag inte redigt tänkt mycket på sidans säkerhet hitills.</p>
+            <p>Kan inte säga att jag läst igenom mycket av den artiklen bara lite översiktligt kollat igenom den snabby men jag kollade lite igenom templating med twig för att friska upp minnet om det vilket var nyttigt samt lite om hur komments på kod ser ut vilket var intressant kanske det var inte olikt sådant vi kollat på förrut. läste även lite om Secruty, data filtrering, bara för att förstå lite vad det handlade om det var också hyggligt intressant då jag inte redigt tänkt mycket på sidans säkerhet hitills. Ett interface är typ en sammling av metoder som en klass behöver implementera typ ett löfte om att dessa klasserna ska innehålla de metoder som listats i interfacet. Trait är väl typ ett sätt att återanvända och lägga till gemensamma beetende mellan klasser.</p>
+            
             <p>TIL: lärde mig lite om hur mvc ser ut i php och lite mapp orientering av vår arbetsmiljö för denna kursen. Så lärt mig hur jag kan göra routes friskat upp minnet med twig templates kört lite mer bootstrap lekt lite med js och sånt.</p>
             </div>
 
@@ -37,7 +38,10 @@
         <div class="card">
             <div class="card-body">
                 <h2 id="kmom02">Kmom02</h2>
-                <p>This is the report for Kmom02.</p>
+                <p>Arv är en teknik som möjligör att en klass kan ta egenskaper från en annan klass som är parent, medans klassen som ärver är child. Komposition är liksom där en annan klass består av en del av en annan klass? typ som Deck som har en samling Card's tillskillnad från typ graphicCard som är ett Card.</p>
+                <p>Jag gjorde en Card klass med suit/rank mönster/värde och sedan en CardDeck som innehöl de Card's samt en CardGraphic som stod för den visuella delen, blev mest vanliga tecken med några tecken för mönster. Det var inget speciellt konstigt med övning det tog en del tid men det var mycket likt det vi gjorde i oopython, jag hade lite svårt för att fixa get/post/session i php men det gick sedan. Jag bara implementerade delarna vi behövde deck,shuffle,draw,number och det gick mestadels utan problem, om jag hade velat ändra på något så vore det väl korten dem är lite tråkiga men jag har halkat efter lite så jag ville inte lägga för mycket tid på det.</p>
+                <p>Det känndes okej, jag tänkte inte på det jätta mycket direkt. Men det är bra för att få bra struktur på programmen och pseudokod är nice för brainstormning och man behöver bara tänka på funktioner och inte nödvändigtvist implementation själv är jag varken bra på att strukturera eller tänka på vad jag kommer behöva så det är väl ett arbetsätt jag borde försöka implementera själv då jag ofta saknar en plan och bara tar det som det kommer för det mesta.</p>
+                <p>Jag lärde mig en hel del om oop i php och i alla fall en grundlig förståelse för saker som arv, komp, interface och trait mer om hur man kan bygga dessa api sidorna.</p>
             </div>
         </div>
 

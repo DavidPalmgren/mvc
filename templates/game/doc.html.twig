@@ -1,0 +1,29 @@
+{% extends "./base.html.twig" %}
+
+{% block title %}Dokumentation{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h1>Flödesschema</h1>
+    
+    <img src="{{ asset('img/flödesschemaMVCkmom03tjugoett.png') }}" alt="">
+        </div>
+        <div class="col-md-6">
+            <h1>PseudoKod</h1>
+            <p>1. Spelplanen visas upp, visa kort om kort är i spel</p>
+            <p>2. Spelaren tar kort deal()</p>
+            <p>3. kortet visas cardGraphic getcardgraphic()</p>
+            <p>4. Spelaren tar kort deal(). getcardgraphic() ALT. spelare stays()</p>
+            <p>5. Om player sum av cards ÖVER 21, showWinner(banken)</p>
+            <p>6. Annars Banken deal(), getcardgraphic() om banken är under 16 tänker jag att han drar igen, lite likt blackjack men det blir en hyggligt bra computer man kan spela emot kanske</p>
+            <p>7. Om banken sum av cards ÖVER 21, showWinner(spelaren) ANNARS, compareCards(a, b), showWinner(?)</p>
+            <p>8. Visa restart knapp om spelet är över, restart() </p>
+
+            <p>Klasser jag kan behöva kanske är, TjugaEtt som står för själva spelet och reglerna, Spelare och dess hand, Banken och dess Hand, Card, CardDeck från föregående och möjligvist en CardHand får se.</p>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
