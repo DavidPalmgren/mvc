@@ -18,13 +18,11 @@
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </head>
-    <body style="display: flex; flex-direction: column; min-height: 100vh;">
-        <div class="wrapper" style="flex-grow: 1;">
+    <body class="d-flex flex-column">
         <header class="site-header" style="background-image: url({{ asset('img/endless-clouds.svg') }}); height: 100px;">
             <div class="container">
             </div>
         </header>
-        <div class="flex-grow-1">
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -47,14 +45,17 @@
                     </ul>
                 </div>
             </div>
-        </div>
         </nav>
-    <div class="container">
-        {% block body %} {%block main%} {%endblock main%}{% endblock %}
-    </div>
-    </div>
-        {% include 'footer.html.twig' %}
+        <div class="container flex-grow-1">
+            {% block body %} {%block main%} {%endblock main%}{% endblock %}
+        </div>
 
+        <footer class="footer py-3 bg-light fixed-bottom">
+            <div class="container">
+                <p class="text-center">&copy; 2023 Davv's CardCompany. All rights reserved by AzerothInc.</p>
+            </div>
+        </footer>
+    
         <script src="{{ asset('node_modules/bootstrap/dist/js/bootstrap.min.js') }}"></script>
     </body>
 </html>
