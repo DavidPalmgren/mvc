@@ -15,6 +15,7 @@ class TjugoEttGame {
         $this->player = $player;
         $this->banker = $banker;
         $this->gameOver = false;
+        $this->winner = "";
     }
 
     public function init() {
@@ -63,7 +64,7 @@ class TjugoEttGame {
     }
 
     public function getWinner() {
-        return $this->$winner;
+        return $this->winner;
     }
 
     public function isGameOver() {

@@ -49,13 +49,33 @@ class TjugoEttController extends AbstractController
     #[Route("/game/start", name: "game_start")]
     public function start(SessionInterface $session): Response
     {
+        //misc stuff
         $deck = $session->get('deck');
+        $game = $session->get('game');
+        
+        //player
         $player = $session->get('player');
-
+        $playercards = $player->getHand();
+        $playercardImages = array_map(function (Card $card) {
+            return CardGraphic::getCardImage($card);
+        }, $playercards);
+        //banker
+        $banker = $session->get('banker');
+        $bankercards = $banker->getHand();
+        $bankercardImages = array_map(function (Card $card) {
+            return CardGraphic::getCardImage($card);
+        }, $bankercards);
+        $winner = $game->getWinner();
         $data = [
             'playername' => $player->getName(),
             'playercard' => $player->getHand(),
+            'playercardimg' => $playercardImages,
             'playervalue' => $player->getHandValue(),
+            'bankername' => $banker->getName(),
+            'bankercard' => $banker->getHand(),
+            'bankercardimg' => $bankercardImages,
+            'bankervalue' => $banker->getHandValue(),
+            'winner' => $winner,
         ];
         return $this->render('game/start.html.twig',[
             'data'=>$data,
@@ -70,6 +90,18 @@ class TjugoEttController extends AbstractController
         $game = $session->get('game');
 
         $game->playerHits();
+
+        return $this->redirectToRoute('game_start');
+    }
+
+    #[Route("/game/stand", name: "game_stand")]
+    public function stand(SessionInterface $session): Response
+    {
+        $deck = $session->get('deck');
+        $player = $session->get('player');
+        $game = $session->get('game');
+
+        $game->playerStands();
 
         return $this->redirectToRoute('game_start');
     }
