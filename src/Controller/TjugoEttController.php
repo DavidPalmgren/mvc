@@ -11,6 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Card\Card;
 use App\Card\CardDeck;
 use App\Card\CardGraphic;
+use App\Card\CardGraphicTwo;
 
 use App\Game\Player;
 use App\Game\Banker;
@@ -59,6 +60,9 @@ class TjugoEttController extends AbstractController
         $playercardImages = array_map(function (Card $card) {
             return CardGraphic::getCardImage($card);
         }, $playercards);
+        $playercardImagesTwo = array_map(function (Card $card) {
+            return CardGraphicTwo::getCardImage($card);
+        }, $playercards);
         //banker
         $banker = $session->get('banker');
         $bankercards = $banker->getHand();
@@ -76,6 +80,7 @@ class TjugoEttController extends AbstractController
             'bankercardimg' => $bankercardImages,
             'bankervalue' => $banker->getHandValue(),
             'winner' => $winner,
+            'img2' => $playercardImagesTwo,
         ];
         return $this->render('game/start.html.twig',[
             'data'=>$data,

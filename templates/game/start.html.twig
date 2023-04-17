@@ -6,10 +6,14 @@
 <div class="container">
     <div class="row">
         {%if data.winner is defined%}
-        <div class="alert alert-primary" role="alert">
-        <h1>Winner is: {{ data.winner }}</h1>hej
+        <div class="alert alert-info" role="alert">
+        <h1 style="text-align:center;">{{ data.winner }} won</h1>
         </div>
         {%endif%}
+        <div style="text-align:center;">
+        <a href="{{path('game_hit')}}" class="btn btn-info" style="width: 49%;">Hit</a>
+        <a href="{{path('game_stand')}}" class="btn btn-info" style="width: 49%;">Stand</a>
+        </div>
         <div class="col-md-6">
             <h1>{{data.playername}}</h1>
             <p>Player Score: {{data.playervalue}}</p>
@@ -20,13 +24,13 @@
                     </li>
                 {% endfor %}
             </ul>
-            <ul>
-                {% for i, cardimg in data.playercardimg%}
-                    <li>
-                        {{ cardimg }}
-                    </li>
+            <p style="font-size:100px;">
+                {% for i, card in data.img2%}
+
+                        {{ card }}
+
                 {% endfor %}
-            </ul>
+            </p>
         </div>
         <div class="col-md-6">
             <h1>BankerBernard</h1>
@@ -48,6 +52,5 @@
             
     </div>
 </div>
-<p><a href="{{path('game_hit')}}">Hit</a></p>
-<p><a href="{{path('game_stand')}}">Stand</a></p>
+
 {% endblock %}
