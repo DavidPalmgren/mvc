@@ -1,5 +1,8 @@
 <?php
 
+namespace App\Game;
+use App\Card\CardDeck;
+
 class TjugoEttGame {
     private $deck;
     private $player;

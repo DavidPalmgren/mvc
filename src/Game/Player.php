@@ -1,12 +1,17 @@
 <?php
 
+namespace App\Game;
+use App\Card\Card;
+use App\Card\CardDeck;
+
 class Player
 {
-    private $hand;
-    private $name;
+    protected $hand;
+    protected $name;
     
     public function __construct($name) {
         $this->hand = array();
+        $this->name = $name;
     }
 
     /**
@@ -37,7 +42,7 @@ class Player
         foreach($this->hand as $card) {
             $value += $card->getValue();
 
-            if ($card->getRank() === 'A') {
+            if ($card->getRank() === 'Ace') {
                 $aces++;
             }
         }

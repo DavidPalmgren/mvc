@@ -6,11 +6,18 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <h1></h1>
+            <h1>{{data.playername}}</h1>
+            <p>Player Score: {{data.playervalue}}</p>
         </div>
         <div class="col-md-6">
             <h1></h1>
-
+            <ul>
+                {% for i, card in data.playercard%}
+                {{ card }}
+                {% endfor %}
+            </ul>
+            
+            <p><a href="{{path('game_hit')}}">Hit</a></p>
     </div>
 </div>
 {% endblock %}
