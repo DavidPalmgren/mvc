@@ -17,7 +17,6 @@ class TjugoEttGame {
         $this->banker = $banker;
         $this->gameOver = false;
         $this->winner = "";
-        $this->bet = 0;
         $this->moneyPot = 0;
     }
 
@@ -38,12 +37,16 @@ class TjugoEttGame {
         if ($this->gameOver) {
             return;
         }
+        if ($this->player->isBust()) {
+            $this->playerStands();
+            return;
+        }
 
         $this->player->addCard($this->deck->deal());
 
-        if ($this->player->getHandValue() > 21) {
-            $this->bankerWins();
-        }
+        //if ($this->player->getHandValue() > 21) {
+        //    $this->bankerWins();
+        //}
     }
 
     public function playerStands() {
