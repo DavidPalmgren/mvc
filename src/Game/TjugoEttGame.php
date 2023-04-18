@@ -7,6 +7,7 @@ class TjugoEttGame {
     private $deck;
     private $player;
     private $banker;
+    private $moneyPot;
     private $winner;
     private $gameOver;
 
@@ -16,13 +17,21 @@ class TjugoEttGame {
         $this->banker = $banker;
         $this->gameOver = false;
         $this->winner = "";
+        $this->bet = 0;
+        $this->moneyPot = 0;
     }
 
     public function init() {
         $this->deck->shuffle();
         $this->player->resetHand();
         $this->banker->resetHand();
-        $this->player->addCard($this->deck->deal());
+        $this->moneyPot = 0;
+        $this->player->hasBet = 0;
+        $this->banker->hasBet = 0;
+
+        //if ($this->banker->getMoney() <= 0) {
+        //    $this->banker->updateMoney(100);
+        //}
     }
 
     public function playerHits() {
@@ -53,13 +62,21 @@ class TjugoEttGame {
         }
     }
 
+    public function playerBets($bet) {
+        $this->player->bet($bet);
+        $this->banker->bet($bet);
+        $this->moneyPot = 2* $bet;
+    }
+
     private function playerWins() {
-        $this->winner = "player";
+        $this->winner = "Player";
+        $this->player->updateMoney($this->moneyPot);
         $this->gameOver = true;
     }
 
     private function bankerWins() {
-        $this->winner = "banker";
+        $this->winner = "Banker";
+        $this->banker->updateMoney($this->moneyPot);
         $this->gameOver = true;
     }
 
@@ -69,5 +86,9 @@ class TjugoEttGame {
 
     public function isGameOver() {
         return $this->gameOver;
+    }
+
+    public function getMoneyPot() {
+        return $this->moneyPot;
     }
 }

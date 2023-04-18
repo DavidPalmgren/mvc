@@ -5,18 +5,31 @@
 {% block body %}
 <div class="container">
     <div class="row">
-        {%if data.winner is defined%}
-        <div class="alert alert-info" role="alert">
-        <h1 style="text-align:center;">{{ data.winner }} won</h1>
+        <div class="text-center">
+            <a href="{{path('game_soft_reset')}}" class="btn btn-info" style="width: 49%;">Soft Reset</a>
+            </div>
+        <div class="text-center">
+        <a href="{{path('game_init')}}" class="btn btn-info" style="width: 49%;">Hard Reset</a>
         </div>
+        <br>
+        {%if data.winner|length > 1%}
+            <div class="alert alert-info" role="alert">
+                <h1 style="text-align:center;">{{ data.winner }} won</h1>
+            </div>
         {%endif%}
-        <div style="text-align:center;">
+        {%if data.winner|length < 1%}
+            <div class="alert alert-info" role="alert">
+                <h1 style="text-align:center;">Money pot: {{ data.moneypot }}</h1>
+            </div>
+        {% endif %}
+        <div class="text-center">
         <a href="{{path('game_hit')}}" class="btn btn-info" style="width: 49%;">Hit</a>
         <a href="{{path('game_stand')}}" class="btn btn-info" style="width: 49%;">Stand</a>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 text-center">
             <h1>{{data.playername}}</h1>
-            <p>Player Score: {{data.playervalue}}</p>
+            <h1>Money: {{data.playermoney}}</h1>
+            <p>Player HandValue:<strong> {{data.playervalue}}</strong></p>
             <ul>
                 {% for i, card in data.playercard%}
                     <li>
@@ -25,16 +38,26 @@
                 {% endfor %}
             </ul>
             <p style="font-size:100px;">
-                {% for i, card in data.img2%}
+                {% for i, card in data.playercardimg%}
 
                         {{ card }}
 
                 {% endfor %}
             </p>
+            {%if data.playercard|length == 1%}
+            {% if data.playerhasbet == 0 %}
+            <form onsubmit="return validateForm() method="post" action="{{ path('game_bet')}}">
+                <label for="number"></label>
+                <input type="number" value="10" id="number" name="number" min="10" max="{{data.playermoney}}" step="10">
+                <button type="submit">Bet</button>
+              </form>
+              {% endif %}
+            {%endif%}
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 text-center">
             <h1>BankerBernard</h1>
-            <p>Banker Score: {{data.bankervalue}}</p>
+            <h1>Money: {{data.bankermoney}}</h1>
+            <p>Banker HandValue:<strong> {{data.bankervalue}}</strong></p>
             <ul>
                 {% for i, card in data.bankercard%}
                     <li>
@@ -42,15 +65,27 @@
                     </li>
                 {% endfor %}
             </ul>
-            <ul>
+            <p style="font-size:100px;">
                 {% for i, cardimg in data.bankercardimg%}
-                    <li>
                         {{ cardimg }}
-                    </li>
                 {% endfor %}
-            </ul>
-            
+            </p>
     </div>
 </div>
+
+<script>
+    function validateForm() {
+      var input = document.getElementById("number-input");
+      var bankMoney = {{data.bankermoney}}
+      if (input.value % 10 !== 0) {
+        alert("Please enter a multiple of 10.");
+        return false;
+      } else if (input.value > bankMoney) {
+        alert("You can't bet more money than the bank has.")
+        return false;
+      }
+      return true;
+    }
+</script>
 
 {% endblock %}
