@@ -23,14 +23,6 @@ class Card
         return $this->rank;
     }
 
-    public function get_card_value($card)
-    {
-        // not in use
-        $suit = $card->getSuit();
-        $rank = $card->getRank();
-        return array($suit_values[$suit], $rank);
-    }
-
     public function getValue()
     {
         $string = $this->getRank();
@@ -46,11 +38,6 @@ class Card
             $value = intval($string);
         }
         return $value;
-        //$abc = $this->card->getRank();
-        //if (strlen($abc) > 1) {
-            
-        //}
-        //intval($abc);
     }
 
     public function __toString()

@@ -69,11 +69,32 @@
                 {% for i, cardimg in data.bankercardimg%}
                         {{ cardimg }}
                 {% endfor %}
-            </p>
+            </p>           
     </div>
 </div>
 
+<div>
+    <p>cards left: {{data.cardsleft}}</p>
+    <button class="my-btn btn btn-info">Cheat</button>
+        <ul class="cardcount" style="display: none;">
+            {% for rank, tally in data.cardcount%}
+            <li>
+            [{{ rank }} = {{ tally }}x] {{(tally / data.cardsleft * 100)|number_format(2)}}%
+            </li>
+            {% endfor %}
+        </ul>
+</div>
+
 <script>
+    const myList = document.querySelector('.cardcount');
+    const mybtn = document.querySelector('.my-btn')
+    mybtn.addEventListener('click', function() {
+      if (myList.style.display === 'none') {
+        myList.style.display = 'block';
+      } else {
+        myList.style.display = 'none';
+      }
+    });
     function validateForm() {
       var input = document.getElementById("number-input");
       var bankMoney = {{data.bankermoney}}

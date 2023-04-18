@@ -90,4 +90,21 @@ class CardDeck
         }
         $this->cards = $sortedCards;
     }
+
+    public function cardCount() {
+        $counts = array();
+        foreach ($this->cards as $card){
+            $rank = $card->getRank();
+            if (array_key_exists($rank, $counts)) {
+                $counts[$rank]++;
+            } else {
+                $counts[$rank] = 1;
+            }
+        }
+        return $counts;
+    }
+
+    public function bustProbability() {
+        $handval = $this->player->getHandValue();
+    }
 }

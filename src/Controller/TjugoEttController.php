@@ -98,6 +98,8 @@ class TjugoEttController extends AbstractController
             'bankermoney' => $banker->getMoney(),
             'winner' => $game->getWinner(),
             'moneypot' => $game->getMoneyPot(),
+            'cardcount' => $deck->cardCount(),
+            'cardsleft' => $deck->cardsLeft(),
         ];
         return $this->render('game/start.html.twig',[
             'data'=>$data,
