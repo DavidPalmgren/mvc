@@ -50,7 +50,8 @@ class TjugoEttController extends AbstractController
     #[Route("/game/softreset", name: "game_soft_reset")]
     public function softreset(SessionInterface $session): Response
     {
-        $deck = new CardDeck();
+        //$deck = new CardDeck();
+        $deck = $session->get('deck');
         $player = $session->get('player');
         $banker = $session->get('banker');
         $game = new TjugoEttGame($deck, $player, $banker);
@@ -100,6 +101,7 @@ class TjugoEttController extends AbstractController
             'moneypot' => $game->getMoneyPot(),
             'cardcount' => $deck->cardCount(),
             'cardsleft' => $deck->cardsLeft(),
+            'bustchance' => $game->bustProbability($player),
         ];
         return $this->render('game/start.html.twig',[
             'data'=>$data,

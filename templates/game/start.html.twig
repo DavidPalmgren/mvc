@@ -5,16 +5,18 @@
 {% block body %}
 <div class="container">
     <div class="row">
+        {%if data.winner|length > 1%}
         <div class="text-center">
-            <a href="{{path('game_soft_reset')}}" class="btn btn-info" style="width: 49%;">Soft Reset</a>
+            <a href="{{path('game_soft_reset')}}" class="btn btn-info" style="width: 49%;">Next Round</a>
             </div>
+            {%endif%}
         <div class="text-center">
         <a href="{{path('game_init')}}" class="btn btn-info" style="width: 49%;">Hard Reset</a>
         </div>
         <br>
         {%if data.winner|length > 1%}
             <div class="alert alert-info" role="alert">
-                <h1 style="text-align:center;">{{ data.winner }} won</h1>
+                <h1 style="text-align:center;">{{ data.winner }} won round</h1>
             </div>
         {%endif%}
         {%if data.winner|length < 1%}
@@ -75,8 +77,9 @@
 
 <div>
     <p>cards left: {{data.cardsleft}}</p>
-    <button class="my-btn btn btn-info">Cheat</button>
+    <button class="my-btn btn btn-info">Activate Cheats</button>
         <ul class="cardcount" style="display: none;">
+            <li><p> bust chance: {{data.bustchance|number_format(2)}}%</p></li>
             {% for rank, tally in data.cardcount%}
             <li>
             [{{ rank }} = {{ tally }}x] {{(tally / data.cardsleft * 100)|number_format(2)}}%

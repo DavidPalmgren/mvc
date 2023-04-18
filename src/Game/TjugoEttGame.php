@@ -91,4 +91,19 @@ class TjugoEttGame {
     public function getMoneyPot() {
         return $this->moneyPot;
     }
+
+    public function bustProbability($participant) {
+        $bust = 0;
+        $decksize = $this->deck->cardsLeft();
+        $handval = $participant->getHandValue2();
+        foreach($this->deck->getCards() as $card) {
+            if ($handval + $card->getValue2() > 21) {
+                $bust++;
+            }
+        }
+        if ($bust == 0) {
+            return 0;
+        }
+        return ($bust / $decksize) * 100;
+    }
 }

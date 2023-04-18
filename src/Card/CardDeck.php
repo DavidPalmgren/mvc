@@ -103,8 +103,4 @@ class CardDeck
         }
         return $counts;
     }
-
-    public function bustProbability() {
-        $handval = $this->player->getHandValue();
-    }
 }
