@@ -26,7 +26,7 @@ class CardGraphic extends Card
             'Ace' => html_entity_decode('&#x1D670;'),
         ];
 
-
+        // nog bara simplare att göra implementationen jag gjort i kmom03
         $suit_map = [
             'Clubs' => '♧',
             'Diamonds' => '♢',

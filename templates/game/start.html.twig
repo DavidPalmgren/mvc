@@ -5,6 +5,8 @@
 {% block body %}
 <div class="container">
     <div class="row">
+        hej
+        &#x1F0B1
         {%if data.winner|length > 1%}
         <div class="text-center">
             <a href="{{path('game_soft_reset')}}" class="btn btn-info" style="width: 49%;">Next Round</a>
@@ -28,6 +30,7 @@
         <a href="{{path('game_hit')}}" class="btn btn-info" style="width: 49%;">Hit</a>
         <a href="{{path('game_stand')}}" class="btn btn-info" style="width: 49%;">Stand</a>
         </div>
+
         <div class="col-md-6 text-center">
             <h1>{{data.playername}}</h1>
             <h1>Money: {{data.playermoney}}</h1>
@@ -41,8 +44,8 @@
             </ul>
             <p style="font-size:100px;">
                 {% for i, card in data.playercardimg%}
-
-                        {{ card }}
+                        {{ card|raw }}
+                        
 
                 {% endfor %}
             </p>

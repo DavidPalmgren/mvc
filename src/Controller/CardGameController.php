@@ -11,6 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Card\Card;
 use App\Card\CardDeck;
 use App\Card\CardGraphic;
+use App\Card\CardGraphicTwo;
 
 class CardGameController extends AbstractController
 {

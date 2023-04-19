@@ -11,7 +11,13 @@
 
 
 {% for card in cards%}
-<p>{{card}}</p>
+{% set suit = card|slice(1, 1)%}
+{% if suit == "♡" or suit == "♢"%}
+<p><span style="color:red;">[{{card}}]</span></p>
+{% endif %}
+{% if suit == "♧" or suit == "♤"%}
+<p><span>[{{card}}]</span></p>
+{%endif%}
 {% endfor %}
 
 {% endblock %}

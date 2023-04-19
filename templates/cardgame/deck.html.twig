@@ -4,11 +4,15 @@
 
 {% block body %}
     <h1>Deck of Cards!!</h1>
-    <ul>
-        {% for i, card in cards %}
         
-            <li>{{ card.getRank() }} of {{ card.getSuit() }} - [{{ cardImages[i] }}]</li>
+        {% for i, card in cards %}
+        {% if card.getSuit() == 'Hearts' or card.getSuit() == 'Diamonds' %}
+        {{ card.getRank() }} of {{ card.getSuit() }} - <span style="color:red;">[{{ cardImages[i]|raw }}]</span><br>
+        {%endif%}
+        {% if card.getSuit() == 'Clubs' or card.getSuit() == 'Spades' %}
+        <div>{{ card.getRank() }} of {{ card.getSuit() }} - [{{ cardImages[i]|raw }}]</div>
+        {%endif%}
 
         {% endfor %}
-    </ul>
+
 {% endblock %}
