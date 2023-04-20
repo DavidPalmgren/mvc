@@ -6,12 +6,12 @@ use App\Card\CardDeck;
 
 class TjugoEttGame
 {
-    private $deck;
-    private $player;
-    private $banker;
-    private $moneyPot;
-    private $winner;
-    private $gameOver;
+    private CardDeck $deck;
+    private Player $player;
+    private Banker $banker;
+    private int $moneyPot;
+    private string $winner;
+    private bool $gameOver;
 
     public function __construct(CardDeck $deck, Player $player, Banker $banker)
     {
@@ -23,7 +23,7 @@ class TjugoEttGame
         $this->moneyPot = 0;
     }
 
-    public function init()
+    public function init() :void
     {
         $this->deck->shuffle();
         $this->player->resetHand();
@@ -37,7 +37,7 @@ class TjugoEttGame
         //}
     }
 
-    public function playerHits()
+    public function playerHits() :void
     {
         if ($this->gameOver) {
             return;
@@ -57,7 +57,7 @@ class TjugoEttGame
         //}
     }
 
-    public function playerStands()
+    public function playerStands() :void
     {
         if ($this->gameOver) {
             return;
@@ -83,47 +83,48 @@ class TjugoEttGame
         $this->bankerWins();
     }
 
-    public function playerBets($bet)
+    public function playerBets(int $bet) :void
     {
         $this->player->bet($bet);
         $this->banker->bet($bet);
         $this->moneyPot = 2* $bet;
     }
 
-    private function playerWins()
+    private function playerWins() :void
     {
         $this->winner = "Player";
         $this->player->updateMoney($this->moneyPot);
         $this->gameOver = true;
     }
 
-    private function bankerWins()
+    private function bankerWins() :void
     {
         $this->winner = "Banker";
         $this->banker->updateMoney($this->moneyPot);
         $this->gameOver = true;
     }
 
-    public function getWinner()
+    public function getWinner() :string
     {
         return $this->winner;
     }
 
-    public function isGameOver()
+    public function isGameOver() :bool
     {
         return $this->gameOver;
     }
 
-    public function getMoneyPot()
+    public function getMoneyPot() :int
     {
         return $this->moneyPot;
     }
 
-    public function bustProbability($participant)
+    public function bustProbability(Player $participant) :float
     {
         $bust = 0;
         $decksize = $this->deck->cardsLeft();
         $handval = $participant->getHandValue2();
+        $handval = (int) $handval; //php stan fix
         foreach($this->deck->getCards() as $card) {
             if ($handval + $card->getValue2() > 21) {
                 $bust++;

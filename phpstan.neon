@@ -1,0 +1,11 @@
+parameters:
+    level: 8
+    paths:
+        - config
+        - src
+        - tests
+    bootstrapFiles:
+        #- .phpstan.constants.php
+    excludePaths:
+        - src/Dice
+        - src/Card

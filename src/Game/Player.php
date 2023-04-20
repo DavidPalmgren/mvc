@@ -7,12 +7,15 @@ use App\Card\CardDeck;
 
 class Player
 {
-    protected $hand;
-    protected $name;
-    protected $money;
-    public $hasBet;
+    /**
+     * @var Card[]
+     */
+    protected array $hand;
+    protected string $name;
+    protected int $money;
+    public int $hasBet;
 
-    public function __construct($name, $money = 100)
+    public function __construct(string $name, int $money = 100)
     {
         $this->hand = array();
         $this->name = $name;
@@ -23,17 +26,17 @@ class Player
     /**
      * trying to get better at adding comments
      *
-     * @param object $card the card to add
+     * @param Card $card to add to the hand.
      *
      * @return void
      */
-    public function addCard(Card $card)
+    public function addCard(Card $card) :void
     {
 
         $this->hand[] = $card;
     }
 
-    public function resetHand()
+    public function resetHand() :void
     {
         $this->hand = array();
     }
@@ -41,9 +44,9 @@ class Player
      * returns the value of the hand and calculates the ace value
      * idk if im gonna let the player sabotage himself or not but
      * im leaning towards not
-     * @return $value
+     * @return int
      */
-    public function getHandValue()
+    public function getHandValue() :int
     {
         $value = 0;
         $aces = 0;
@@ -65,7 +68,7 @@ class Player
         }
         return $value;
     }
-    public function getHandValue2()
+    public function getHandValue2() :int
     {
         // for calculating bust RISK i only need Ace to equal 1
         $value = 0;
@@ -88,15 +91,16 @@ class Player
      * returns name
      * @return string $name
      */
-    public function getName()
+    public function getName() :string
     {
         return $this->name;
     }
     /**
-     * returns hand
-     * @return array $hand
+     * Get the player's hand.
+     *
+     * @return Card[]
      */
-    public function getHand()
+    public function getHand() :array
     {
         return $this->hand;
     }
@@ -104,28 +108,28 @@ class Player
      * returns boolean indicating whether player is bust or not
      * @return boolean
      */
-    public function isBust()
+    public function isBust() :bool
     {
         return $this->getHandValue() > 21;
     }
 
-    public function getMoney()
+    public function getMoney() :int
     {
         return $this->money;
     }
 
-    public function getHasBet()
+    public function getHasBet() :int
     {
         return $this->hasBet;
     }
 
-    public function bet($bet)
+    public function bet(int $bet) :void
     {
         $this->money -= $bet;
         $this->hasBet = 1;
     }
 
-    public function updateMoney($update)
+    public function updateMoney(int $update) :void
     {
         $this->money += $update;
     }

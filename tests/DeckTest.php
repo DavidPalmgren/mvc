@@ -7,7 +7,7 @@ use App\Card\CardDeck;
 
 class DeckTest extends TestCase
 {
-    public function testGetCards()
+    public function testGetCards() :void
     {
         $deck = new CardDeck();
         $cards = $deck->getCards();
