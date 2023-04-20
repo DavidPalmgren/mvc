@@ -38,7 +38,7 @@ class Card
         }
 
         $value = intval($string);
-        
+
         return $value;
     }
 
@@ -57,12 +57,24 @@ class Card
         }
 
         $value = intval($string);
-        
+
         return $value;
     }
 
     public function __toString()
     {
         return $this->rank . ' of ' . $this->suit;
+    }
+    /**
+     * Get the player's card as parts
+     *
+     * @return string[]
+     */
+    public function toArray(): array
+    {
+        return [
+            'suit' => $this->suit,
+            'rank' => $this->rank,
+        ];
     }
 }

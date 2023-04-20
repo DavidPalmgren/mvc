@@ -102,7 +102,7 @@ class CardDeck
             }
 
             $counts[$rank] = 1;
-            
+
         }
         return $counts;
     }

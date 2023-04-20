@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
 use App\Card\Card;
@@ -72,14 +73,14 @@ class TjugoEttController extends AbstractController
         //request
         //  $number = $request->get('number');
         //player
-        
+
         $playercards = $player->getHand();
         $playercardImagesTwo = array_map(function (Card $card) {
             $card = new CardGraphicTwo($card->getSuit(), $card->getRank());
             return $card->getCardImage($card);
         }, $playercards);
         //banker
-        
+
         $bankercards = $banker->getHand();
         $bankercardImagesTwo = array_map(function (Card $card) {
             $card = new CardGraphicTwo($card->getSuit(), $card->getRank());
@@ -155,5 +156,50 @@ class TjugoEttController extends AbstractController
         return $this->redirectToRoute('game_home');
     }
 
+    #[Route("/api/game", name: "api_game")]
+    public function apigame(SessionInterface $session): Response
+    {
+        $deck = $session->get('deck');
+        $game = $session->get('game');
+        $player = $session->get('player');
+        $banker = $session->get('banker');
+        $playercards = $player->getHand();
+        $playercardImagesTwo = array_map(function (Card $card) {
+            $card = new CardGraphicTwo($card->getSuit(), $card->getRank());
+            return $card->getCardImage($card);
+        }, $playercards);
+        //banker
+
+        $bankercards = $banker->getHand();
+        $bankercardImagesTwo = array_map(function (Card $card) {
+            $card = new CardGraphicTwo($card->getSuit(), $card->getRank());
+            return $card->getCardImage($card);
+        }, $bankercards);
+
+        $data = [
+            'playerbetstatus' => $player,
+            'playername' => $player->getName(),
+            'playerhand' => $player->getHandJson(),
+            'playerhandimg' => $playercardImagesTwo,
+            'playerhandvalue' => $player->getHandValue(),
+            'playermoney' => $player->getMoney(),
+            'playerhasbet' => $player->getHasBet(),
+            'bankername' => $banker->getName(),
+            'bankerhand' => $banker->getHandJson(),
+            'bankerhandimg' => $bankercardImagesTwo,
+            'bankerhandvalue' => $banker->getHandValue(),
+            'bankermoney' => $banker->getMoney(),
+            'winner' => $game->getWinner(),
+            'moneypot' => $game->getMoneyPot(),
+            'cardcount' => $deck->cardCount(),
+            'cardsleft' => $deck->cardsLeft(),
+            'playerbustchance' => $game->bustProbability($player),
+        ];
+        $response = new JsonResponse($data);
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT
+        );
+        return $response;
+    }
 
 }

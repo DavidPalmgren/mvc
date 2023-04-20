@@ -30,13 +30,13 @@ class Player
      *
      * @return void
      */
-    public function addCard(Card $card) :void
+    public function addCard(Card $card): void
     {
 
         $this->hand[] = $card;
     }
 
-    public function resetHand() :void
+    public function resetHand(): void
     {
         $this->hand = array();
     }
@@ -46,7 +46,7 @@ class Player
      * im leaning towards not
      * @return int
      */
-    public function getHandValue() :int
+    public function getHandValue(): int
     {
         $value = 0;
         $aces = 0;
@@ -68,7 +68,7 @@ class Player
         }
         return $value;
     }
-    public function getHandValue2() :int
+    public function getHandValue2(): int
     {
         // for calculating bust RISK i only need Ace to equal 1
         $value = 0;
@@ -91,7 +91,7 @@ class Player
      * returns name
      * @return string $name
      */
-    public function getName() :string
+    public function getName(): string
     {
         return $this->name;
     }
@@ -100,36 +100,50 @@ class Player
      *
      * @return Card[]
      */
-    public function getHand() :array
+    public function getHand(): array
     {
         return $this->hand;
     }
+
+    /**
+     * phpstan has no chill at all lol
+     * @return mixed[]
+     */
+    public function getHandJson(): array
+    {
+        $hand2 = [];
+        foreach ($this->hand as $card) {
+            $hand2[] = $card->toArray();
+        }
+        return $hand2;
+    }
+
     /**
      * returns boolean indicating whether player is bust or not
      * @return boolean
      */
-    public function isBust() :bool
+    public function isBust(): bool
     {
         return $this->getHandValue() > 21;
     }
 
-    public function getMoney() :int
+    public function getMoney(): int
     {
         return $this->money;
     }
 
-    public function getHasBet() :int
+    public function getHasBet(): int
     {
         return $this->hasBet;
     }
 
-    public function bet(int $bet) :void
+    public function bet(int $bet): void
     {
         $this->money -= $bet;
         $this->hasBet = 1;
     }
 
-    public function updateMoney(int $update) :void
+    public function updateMoney(int $update): void
     {
         $this->money += $update;
     }
