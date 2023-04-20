@@ -72,7 +72,7 @@
             </ul>
             <p style="font-size:100px;">
                 {% for i, cardimg in data.bankercardimg%}
-                        {{ cardimg }}
+                        {{ cardimg|raw }}
                 {% endfor %}
             </p>           
     </div>

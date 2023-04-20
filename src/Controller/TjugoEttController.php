@@ -17,12 +17,10 @@ use App\Game\Player;
 use App\Game\Banker;
 use App\Game\TjugoEttGame;
 
-
 class TjugoEttController extends AbstractController
 {
     #[Route("/game/init", name: "game_init")]
     public function initCallback(
-        Request $request,
         SessionInterface $session
     ): Response {
 
@@ -59,7 +57,7 @@ class TjugoEttController extends AbstractController
 
         $session->set('deck', $deck);
         $session->set('game', $game);
-        
+
         return $this->redirectToRoute('game_start');
     }
 
@@ -69,19 +67,23 @@ class TjugoEttController extends AbstractController
         //sessions
         $deck = $session->get('deck');
         $game = $session->get('game');
+        $player = $session->get('player');
+        $banker = $session->get('banker');
         //request
         //  $number = $request->get('number');
         //player
-        $player = $session->get('player');
+        
         $playercards = $player->getHand();
         $playercardImagesTwo = array_map(function (Card $card) {
-            return CardGraphicTwo::getCardImage($card);
+            $card = new CardGraphicTwo($card->getSuit(), $card->getRank());
+            return $card->getCardImage($card);
         }, $playercards);
         //banker
-        $banker = $session->get('banker');
+        
         $bankercards = $banker->getHand();
         $bankercardImagesTwo = array_map(function (Card $card) {
-            return CardGraphicTwo::getCardImage($card);
+            $card = new CardGraphicTwo($card->getSuit(), $card->getRank());
+            return $card->getCardImage($card);
         }, $bankercards);
         //misc
         //forwarding to my template
@@ -103,7 +105,7 @@ class TjugoEttController extends AbstractController
             'cardsleft' => $deck->cardsLeft(),
             'bustchance' => $game->bustProbability($player),
         ];
-        return $this->render('game/start.html.twig',[
+        return $this->render('game/start.html.twig', [
             'data'=>$data,
         ]);
     }
@@ -111,10 +113,7 @@ class TjugoEttController extends AbstractController
     #[Route("/game/hit", name: "game_hit")]
     public function hit(SessionInterface $session): Response
     {
-        $deck = $session->get('deck');
-        $player = $session->get('player');
         $game = $session->get('game');
-
         $game->playerHits();
 
         return $this->redirectToRoute('game_start');
@@ -123,10 +122,7 @@ class TjugoEttController extends AbstractController
     #[Route("/game/stand", name: "game_stand")]
     public function stand(SessionInterface $session): Response
     {
-        $deck = $session->get('deck');
-        $player = $session->get('player');
         $game = $session->get('game');
-
         $game->playerStands();
 
         return $this->redirectToRoute('game_start');
@@ -135,8 +131,6 @@ class TjugoEttController extends AbstractController
     #[Route("/game/bet", name: "game_bet")]
     public function bet(Request $request, SessionInterface $session): Response
     {
-        $deck = $session->get('deck');
-        $player = $session->get('player');
         $game = $session->get('game');
         $number = $request->get('number');
 

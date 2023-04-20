@@ -7,7 +7,7 @@
 
 <p>Drar ett kort från toppen av kortleken</p>
 <p>CardCount: {{ cardcount }}</p>
-{% set suit = card|slice(1, 1)%}
+{% set suit = card|slice(-1)|first%}
 {% if suit == "♡" or suit == "♢"%}
 <p>Card:<span style="color:red;">[{{ card }}]</span></p>
 {%endif%}

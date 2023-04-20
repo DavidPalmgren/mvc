@@ -27,13 +27,13 @@ class CardGameControllerJson extends AbstractController
     #[Route("/api/quote", name: "api_quote")]
     public function quote(): Response
     {
-        $random_num2 = random_int(0, 2);
+        $randomNum2 = random_int(0, 2);
         $quotes = [
             "In three words I can sum up everything I've learned about life: it goes on. -Robert Frost",
             "The only thing we have to fear is fear itself. - Franklin D. Roosevelt",
             "Everything that irritates us about others can lead us to an understanding of ourselves. - Carl Jung"
         ];
-        $quote = $quotes[$random_num2];
+        $quote = $quotes[$randomNum2];
         $data = [
             'quote' => $quote,
             'date' => date("Y-m-d"),
@@ -56,10 +56,11 @@ class CardGameControllerJson extends AbstractController
 
         $cards = [];
         foreach ($deck->getCards() as $card) {
+            $card2 = new CardGraphic($card->getSuit(), $card->getRank());
             $cards[] = [
                 'rank' => $card->getRank(),
                 'suit' => $card->getSuit(),
-                'image' => CardGraphic::getCardImage($card),
+                'image' => $card2->getCardImage($card2),
             ];
         }
         $response = new JsonResponse($cards);
@@ -78,10 +79,11 @@ class CardGameControllerJson extends AbstractController
 
         $cards = [];
         foreach ($deck->getCards() as $card) {
+            $card2 = new CardGraphic($card->getSuit(), $card->getRank());
             $cards[] = [
                 'rank' => $card->getRank(),
                 'suit' => $card->getSuit(),
-                'image' => CardGraphic::getCardImage($card),
+                'image' => $card2->getCardImage($card2),
             ];
         }
         $response = new JsonResponse($cards);
@@ -102,10 +104,11 @@ class CardGameControllerJson extends AbstractController
         for ($i = 0; $i < $number; $i++) {
             $card = $deck->deal();
             if ($card) {
+                $card2 = new CardGraphic($card->getSuit(), $card->getRank());
                 $cards[] = [
                     'rank' => $card->getRank(),
                     'suit' => $card->getSuit(),
-                    'image' => CardGraphic::getCardImage($card),
+                    'image' => $card2->getCardImage($card2),
                 ];
             }
         }

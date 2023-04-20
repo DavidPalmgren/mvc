@@ -17,7 +17,6 @@ class CardGameController extends AbstractController
 {
     #[Route("/card/init", name: "card_init")]
     public function initCallback(
-        Request $request,
         SessionInterface $session
     ): Response {
 
@@ -45,7 +44,8 @@ class CardGameController extends AbstractController
         $cards = $deck->getCards();
 
         $cardImages = array_map(function (Card $card) {
-            return CardGraphic::getCardImage($card);
+            $card2 = new CardGraphic($card->getSuit(), $card->getRank());
+            return $card2 = $card2->getCardImage($card2);
         }, $cards);
 
         return $this->render('cardgame/deck.html.twig', [
@@ -66,7 +66,8 @@ class CardGameController extends AbstractController
         $cards = $deck->getCards();
 
         $cardImages = array_map(function (Card $card) {
-            return CardGraphic::getCardImage($card);
+            $card2 = new CardGraphic($card->getSuit(), $card->getRank());
+            return $card2 = $card2->getCardImage($card2);
         }, $cards);
         $session->clear(); // jag lägger till denna här missade det först
         return $this->render('cardgame/deck.html.twig', [
@@ -84,11 +85,13 @@ class CardGameController extends AbstractController
         }
         //$deck ->shuffle(); //shufflar så det är ett random kort
         $card = $deck->deal();
-        $card = CardGraphic::getCardImage($card);
+        //$card = CardGraphic::getCardImage($card);
+        $card2 = new CardGraphic($card->getSuit(), $card->getRank());
+        $card2 = $card2->getCardImage($card2);
         $cardcount = $deck->cardsLeft();
 
         return $this->render('cardgame/deckdraw.html.twig', [
-            'card' => $card,
+            'card' => $card2,
             'cardcount' => $cardcount,
         ]);
     }
@@ -104,7 +107,8 @@ class CardGameController extends AbstractController
         $cards = array();
         for ($i = 0; $i < $number; $i++) {
             $card = $deck->deal();
-            $cards[] = CardGraphic::getCardImage($card);
+            $card2 = new CardGraphic($card->getSuit(), $card->getRank());
+            $cards[] = $card2->getCardImage($card2);
         }
         $cardcount = $deck->cardsLeft();
 

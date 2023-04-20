@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Game;
+
 use App\Card\Card;
 use App\Card\CardDeck;
 
@@ -10,8 +11,9 @@ class Player
     protected $name;
     protected $money;
     public $hasBet;
-    
-    public function __construct($name, $money = 100) {
+
+    public function __construct($name, $money = 100)
+    {
         $this->hand = array();
         $this->name = $name;
         $this->money = $money;
@@ -20,17 +22,19 @@ class Player
 
     /**
      * trying to get better at adding comments
-     * 
+     *
      * @param object $card the card to add
-     * 
+     *
      * @return void
      */
-    public function addCard(Card $card) {
+    public function addCard(Card $card)
+    {
 
         $this->hand[] = $card;
     }
 
-    public function resetHand() {
+    public function resetHand()
+    {
         $this->hand = array();
     }
     /**
@@ -39,7 +43,8 @@ class Player
      * im leaning towards not
      * @return $value
      */
-    public function getHandValue() {
+    public function getHandValue()
+    {
         $value = 0;
         $aces = 0;
 
@@ -60,7 +65,8 @@ class Player
         }
         return $value;
     }
-    public function getHandValue2() {
+    public function getHandValue2()
+    {
         // for calculating bust RISK i only need Ace to equal 1
         $value = 0;
         $aces = 0;
@@ -82,38 +88,45 @@ class Player
      * returns name
      * @return string $name
      */
-    public function getName() {
+    public function getName()
+    {
         return $this->name;
     }
     /**
      * returns hand
      * @return array $hand
      */
-    public function getHand() {
+    public function getHand()
+    {
         return $this->hand;
     }
     /**
      * returns boolean indicating whether player is bust or not
      * @return boolean
      */
-    public function isBust() {
+    public function isBust()
+    {
         return $this->getHandValue() > 21;
     }
 
-    public function getMoney() {
+    public function getMoney()
+    {
         return $this->money;
     }
 
-    public function getHasBet() {
+    public function getHasBet()
+    {
         return $this->hasBet;
     }
 
-    public function bet($bet) {
+    public function bet($bet)
+    {
         $this->money -= $bet;
         $this->hasBet = 1;
     }
 
-    public function updateMoney($update) {
+    public function updateMoney($update)
+    {
         $this->money += $update;
     }
 }

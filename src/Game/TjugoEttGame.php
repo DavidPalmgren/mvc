@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Game;
+
 use App\Card\CardDeck;
 
-class TjugoEttGame {
+class TjugoEttGame
+{
     private $deck;
     private $player;
     private $banker;
@@ -11,7 +13,8 @@ class TjugoEttGame {
     private $winner;
     private $gameOver;
 
-    public function __construct(CardDeck $deck, Player $player, Banker $banker) {
+    public function __construct(CardDeck $deck, Player $player, Banker $banker)
+    {
         $this->deck = $deck;
         $this->player = $player;
         $this->banker = $banker;
@@ -20,7 +23,8 @@ class TjugoEttGame {
         $this->moneyPot = 0;
     }
 
-    public function init() {
+    public function init()
+    {
         $this->deck->shuffle();
         $this->player->resetHand();
         $this->banker->resetHand();
@@ -33,7 +37,8 @@ class TjugoEttGame {
         //}
     }
 
-    public function playerHits() {
+    public function playerHits()
+    {
         if ($this->gameOver) {
             return;
         }
@@ -45,14 +50,15 @@ class TjugoEttGame {
             return;
         }
 
-        
+
 
         //if ($this->player->getHandValue() > 21) {
         //    $this->bankerWins();
         //}
     }
 
-    public function playerStands() {
+    public function playerStands()
+    {
         if ($this->gameOver) {
             return;
         }
@@ -62,43 +68,59 @@ class TjugoEttGame {
         }
 
         if ($this->banker->getHandValue() > 21 || $this->player->getHandValue() > $this->banker->getHandValue()) {
+            if ($this->player->isBust()) {
+                if ($this->banker->isBust()) {
+                    $this->playerWins();
+                    return;
+                }
+                $this->bankerWins();
+                return;
+            }
             $this->playerWins();
-        } else {
-            $this->bankerWins();
+            return;
         }
+
+        $this->bankerWins();
     }
 
-    public function playerBets($bet) {
+    public function playerBets($bet)
+    {
         $this->player->bet($bet);
         $this->banker->bet($bet);
         $this->moneyPot = 2* $bet;
     }
 
-    private function playerWins() {
+    private function playerWins()
+    {
         $this->winner = "Player";
         $this->player->updateMoney($this->moneyPot);
         $this->gameOver = true;
     }
 
-    private function bankerWins() {
+    private function bankerWins()
+    {
         $this->winner = "Banker";
         $this->banker->updateMoney($this->moneyPot);
         $this->gameOver = true;
     }
 
-    public function getWinner() {
+    public function getWinner()
+    {
         return $this->winner;
     }
 
-    public function isGameOver() {
+    public function isGameOver()
+    {
         return $this->gameOver;
     }
 
-    public function getMoneyPot() {
+    public function getMoneyPot()
+    {
         return $this->moneyPot;
     }
 
-    public function bustProbability($participant) {
+    public function bustProbability($participant)
+    {
         $bust = 0;
         $decksize = $this->deck->cardsLeft();
         $handval = $participant->getHandValue2();

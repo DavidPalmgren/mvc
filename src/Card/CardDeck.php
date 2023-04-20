@@ -91,15 +91,18 @@ class CardDeck
         $this->cards = $sortedCards;
     }
 
-    public function cardCount() {
+    public function cardCount()
+    {
         $counts = array();
-        foreach ($this->cards as $card){
+        foreach ($this->cards as $card) {
             $rank = $card->getRank();
             if (array_key_exists($rank, $counts)) {
                 $counts[$rank]++;
-            } else {
-                $counts[$rank] = 1;
+                continue;
             }
+
+            $counts[$rank] = 1;
+            
         }
         return $counts;
     }

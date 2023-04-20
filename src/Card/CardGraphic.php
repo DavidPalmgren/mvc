@@ -10,7 +10,7 @@ class CardGraphic extends Card
         $suit = $card->getSuit();
 
         // Map the rank and suit to a Unicode character
-        $rank_map = [
+        $rankMap = [
             '2' => '2',
             '3' => '3',
             '4' => '4',
@@ -27,17 +27,17 @@ class CardGraphic extends Card
         ];
 
         // nog bara simplare att göra implementationen jag gjort i kmom03
-        $suit_map = [
+        $suitMap = [
             'Clubs' => '♧',
             'Diamonds' => '♢',
             'Hearts' => '♡',
             'Spades' => '♤',
         ];
 
-        $rank_letter = $rank_map[$rank] ?? '';
-        $suit_letter = $suit_map[$suit] ?? '';
+        $rankLetter = $rankMap[$rank] ?? '';
+        $suitLetter = $suitMap[$suit] ?? '';
 
-        return $rank_letter . $suit_letter;
+        return $rankLetter . $suitLetter;
     }
 
 }

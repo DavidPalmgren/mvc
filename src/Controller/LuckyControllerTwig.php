@@ -38,16 +38,16 @@ class LuckyControllerTwig extends AbstractController
     #[Route("/lucky", name: "lucky")]
     public function lucky(): Response
     {
-        $lucky_num = random_int(0, 100);
-        $lucky_num2 = random_int(0, 2);
+        $luckyNum = random_int(0, 100);
+        $luckyNum2 = random_int(0, 2);
         $images = [
             "thrall.webp",
             "peon.webp",
             "tinker.webp"
         ];
-        $image = $images[$lucky_num2];
+        $image = $images[$luckyNum2];
         return $this->render('lucky.html.twig', [
-            'lucky_num' => $lucky_num,
+            'lucky_num' => $luckyNum,
             'image' => $image
         ]);
     }
