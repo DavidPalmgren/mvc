@@ -61,6 +61,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Card-CardDeck.html#method___construct"
         },                {
+            "fqsen": "\\App\\Card\\CardDeck\u003A\u003AcreateDeck\u0028\u0029",
+            "name": "createDeck",
+            "summary": "",
+            "url": "classes/App-Card-CardDeck.html#method_createDeck"
+        },                {
             "fqsen": "\\App\\Card\\CardDeck\u003A\u003Ashuffle\u0028\u0029",
             "name": "shuffle",
             "summary": "",
@@ -555,6 +560,11 @@ Search.appendIndex(
             "name": "bankerWins",
             "summary": "",
             "url": "classes/App-Game-TjugoEttGame.html#method_bankerWins"
+        },                {
+            "fqsen": "\\App\\Game\\TjugoEttGame\u003A\u003AendGame\u0028\u0029",
+            "name": "endGame",
+            "summary": "",
+            "url": "classes/App-Game-TjugoEttGame.html#method_endGame"
         },                {
             "fqsen": "\\App\\Game\\TjugoEttGame\u003A\u003AgetWinner\u0028\u0029",
             "name": "getWinner",
