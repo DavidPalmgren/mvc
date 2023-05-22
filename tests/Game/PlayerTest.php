@@ -85,4 +85,73 @@ class PlayerTest extends TestCase
 
         $this->assertEquals('John', $player->getName());
     }
+    public function testGetHandJson(): void
+    {
+        $player = new Player('John');
+        $player->addCard(new Card('Spades', 'Ace'));
+        $player->addCard(new Card('Hearts', '2'));
+
+        $handJson = $player->getHandJson();
+
+        $this->assertIsArray($handJson);
+        $this->assertCount(2, $handJson);
+        $this->assertArrayHasKey('suit', $handJson[0]);
+        $this->assertArrayHasKey('rank', $handJson[0]);
+    }
+    public function testIsBust(): void
+    {
+
+        $player = new Player('John');
+        $player->addCard(new Card('Spades', '6'));
+        $player->addCard(new Card('Hearts', '10'));
+        $player->addCard(new Card('Diamonds', '9'));
+
+        $isBust = $player->isBust();
+
+        $this->assertTrue($isBust);
+    }
+    public function testIsNotBustWithAce(): void
+    {
+
+        $player = new Player('John');
+        $player->addCard(new Card('Spades', '6'));
+        $player->addCard(new Card('Hearts', 'Ace'));
+        $player->addCard(new Card('Diamonds', '9'));
+
+        $isBust = $player->isBust();
+
+        $this->assertFalse($isBust);
+    }
+    public function testGetMoney(): void
+    {
+        $player = new Player('John', 100);
+        $money = $player->getMoney();
+
+        $this->assertSame(100, $money);
+    }
+
+    public function testBetFalse(): void
+    {
+        $player = new Player('John');
+        $hasBet = $player->getHasBet();
+
+        $this->assertSame(0, $hasBet);
+    }
+
+    public function testBetTrue(): void
+    {
+        $player = new Player('John', 100);
+        $player->bet(50);
+
+        $this->assertSame(50, $player->getMoney());
+        $this->assertSame(1, $player->getHasBet());
+    }
+
+    public function testUpdateMoney(): void
+    {
+        $player = new Player('John', 100);
+        $player->updateMoney(50);
+
+        $this->assertSame(150, $player->getMoney());
+    }
 }
