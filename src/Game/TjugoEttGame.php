@@ -104,6 +104,12 @@ class TjugoEttGame
         $this->gameOver = true;
     }
 
+    public function endGame(): void
+    {
+        $this->gameOver = true;
+        $this->winner = "Banker";
+    }
+
     public function getWinner(): string
     {
         return $this->winner;
