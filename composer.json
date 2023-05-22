@@ -97,7 +97,9 @@
             "@auto-scripts"
         ],
         "csfix": ["tools/php-cs-fixer/vendor/bin/php-cs-fixer fix src"],
-        "csfix:dry": ["tools/php-cs-fixer/vendor/bin/php-cs-fixer fix src --dry-run -v"]
+        "csfix:dry": ["tools/php-cs-fixer/vendor/bin/php-cs-fixer fix src --dry-run -v"],
+        "phpdoc": "tools/phpdoc/phpdoc",
+        "phpunit": "XDEBUG_MODE=coverage vendor/bin/phpunit"
     },
     "conflict": {
         "symfony/symfony": "*"

@@ -197,7 +197,7 @@ class TjugoEttController extends AbstractController
         ];
         $response = new JsonResponse($data);
         $response->setEncodingOptions(
-            $response->getEncodingOptions() | JSON_PRETTY_PRINT
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES
         );
         return $response;
     }
