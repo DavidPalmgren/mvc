@@ -39,7 +39,6 @@ class PlayerTest extends TestCase
 
         $card = new Card('Spades', '9');
         $player->addCard($card);
-        $cards = $player->getHand($card);
         $handVal = $player->getHandValue();
         $this->assertEquals($handVal, 9);
 
@@ -63,7 +62,6 @@ class PlayerTest extends TestCase
         
         $card = new Card('Spades', '9');
         $player->addCard($card);
-        $cards = $player->getHand($card);
         $handVal = $player->getHandValue2();
         $this->assertEquals($handVal, 9);
 

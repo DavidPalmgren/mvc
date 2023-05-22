@@ -99,7 +99,8 @@
         "csfix": ["tools/php-cs-fixer/vendor/bin/php-cs-fixer fix src"],
         "csfix:dry": ["tools/php-cs-fixer/vendor/bin/php-cs-fixer fix src --dry-run -v"],
         "phpdoc": "tools/phpdoc/phpdoc",
-        "phpunit": "XDEBUG_MODE=coverage vendor/bin/phpunit"
+        "phpunit": "XDEBUG_MODE=coverage vendor/bin/phpunit",
+        "lint": "tools/phpmd/vendor/bin/phpmd . text phpmd.xml"
     },
     "conflict": {
         "symfony/symfony": "*"

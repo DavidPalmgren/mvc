@@ -60,25 +60,25 @@ class CardDeckTest extends TestCase
     public function testGetCardsByRankNSuit()
     {
         $deck = new CardDeck();
-        $AceOfSpades = $deck->getCardBySuitAndRank("Spades", "Ace");
-        $this->assertInstanceOf(Card::class, $AceOfSpades);
-        $this->assertEquals('Ace of Spades', $AceOfSpades->__toString());
+        $aceOfSpades = $deck->getCardBySuitAndRank("Spades", "Ace");
+        $this->assertInstanceOf(Card::class, $aceOfSpades);
+        $this->assertEquals('Ace of Spades', $aceOfSpades->__toString());
     }
     public function testGetCardsByRankNSuitNull()
     {
         $deck = new CardDeck();
-        $AceOfSpades = $deck->getCardBySuitAndRank("Monkey", "Wrench");
-        $this->assertNull($AceOfSpades);
+        $aceOfSpades = $deck->getCardBySuitAndRank("Monkey", "Wrench");
+        $this->assertNull($aceOfSpades);
     }
     public function testGetCardsByRank()
     {
         $deck = new CardDeck();
-        $Aces = $deck->getCardsByRank("Ace");
-        forEach($Aces as $Ace) {
-            $this->assertInstanceOf(Card::class, $Ace);
+        $aces = $deck->getCardsByRank("Ace");
+        forEach($aces as $ace) {
+            $this->assertInstanceOf(Card::class, $ace);
         }
-        forEach($Aces as $Ace) {
-            $this->assertEquals("Ace", $Ace->getRank());
+        forEach($aces as $ace) {
+            $this->assertEquals("Ace", $ace->getRank());
         }
     }
     public function testSort()
