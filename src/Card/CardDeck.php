@@ -22,6 +22,12 @@ class CardDeck
             }
         }
     }
+    public static function createDeck(array $cards): CardDeck
+    {
+        $deck = new self();
+        $deck->cards = $cards;
+        return $deck;
+    }
 
     public function shuffle()
     {

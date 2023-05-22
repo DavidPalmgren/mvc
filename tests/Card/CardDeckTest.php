@@ -92,8 +92,38 @@ class CardDeckTest extends TestCase
         $deck2->sort();
         $this->assertEquals($deck2, $deck);
     }
-    public function testCardCount() {
-
+    public function testCardCount()
+    {
+        // Create a sample deck with cards
+        $cards = [
+            new Card('Spades', 'Ace'),
+            new Card('Hearts', '2'),
+            new Card('Diamonds', '2'),
+            new Card('Clubs', '3'),
+            new Card('Spades', 'Ace'),
+            new Card('Hearts', 'King'),
+        ];
+    
+        // Create a CardDeck instance with the sample deck
+        $deck = CardDeck::createDeck($cards);
+    
+        // Invoke the cardCount method
+        $counts = $deck->cardCount();
+    
+        // Assert that the counts array is not empty
+        $this->assertNotEmpty($counts);
+    
+        // Assert the count for each rank
+        $expectedCounts = [
+            'Ace' => 2,
+            '2' => 2,
+            '3' => 1,
+            'King' => 1,
+        ];
+    
+        foreach ($expectedCounts as $rank => $count) {
+            $this->assertArrayHasKey($rank, $counts);
+            $this->assertEquals($count, $counts[$rank]);
         }
     }
 }
