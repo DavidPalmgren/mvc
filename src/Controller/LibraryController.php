@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Library;
 use App\Repository\LibraryRepository;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Doctrine\Persistence\ManagerRegistry;
 
 class LibraryController extends AbstractController
@@ -120,7 +121,7 @@ class LibraryController extends AbstractController
     #[Route('/api/library/books', name: 'library_show_all')]
     public function showAlllibrary(
         LibraryRepository $libraryRepository
-    ): Response {
+    ): JsonResponse {
         $librarys = $libraryRepository
             ->findAll();
 
@@ -131,17 +132,13 @@ class LibraryController extends AbstractController
         return $response;
     }
     #[Route('/api/library/book/{isbn}', name: 'library_show_one')]
-    public function showByISBN(
-        LibraryRepository $libraryRepository,
-        int $isbn,
-    ): Response {
-
-        $book = $libraryRepository->findOneBy(['ISBN' => 12312344]);
-
+    public function showByISBN(LibraryRepository $libraryRepository, string $isbn): Response {
+        $book = $libraryRepository->findOneBy(['ISBN' => $isbn]);
+    
         if (!$book) {
-            return new JsonResponse(['error' => 'None found'], 404);
+            throw $this->createNotFoundException('Book not found');
         }
-
+    
         $data = [
             'id' => $book->getId(),
             'title' => $book->getTitel(),
@@ -150,14 +147,23 @@ class LibraryController extends AbstractController
             'image' => $book->getBild(),
             'beskrivning' => $book->getBeskrivning(),
         ];
-
-
+    
         $response = $this->json($data);
-        $response->setEncodingOptions(
-            $response->getEncodingOptions() | JSON_PRETTY_PRINT
-        );
+        $response->setEncodingOptions($response->getEncodingOptions() | JSON_PRETTY_PRINT);
         return $response;
     }
+    #[Route('/api/library/book/', name: 'library_show_one_P', methods: ['POST'])]
+    public function showByISBNP(Request $request, LibraryRepository $libraryRepository): Response {
+        $isbn = $request->request->get('isbn');
+        $book = $libraryRepository->findOneBy(['ISBN' => $isbn]);
+    
+        if (!$book) {
+            throw $this->createNotFoundException('Book not found');
+        }
+    
+        return $this->redirectToRoute('library_show_one', ['isbn' => $isbn]);
+    }
+    
     #[Route('/library/delete/{id}', name: 'library_delete_by_id')]
     public function deleteLibraryById(
         ManagerRegistry $doctrine,

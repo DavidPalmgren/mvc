@@ -39,8 +39,15 @@
 
                 <li><a href="{{ path('api_card_clear_session') }}">Clear cardgame session</a></li><p>Clear session</p>
                 <br>
-                <h4>Show Books</h4>
-                <li><a href="{{path('library_show_all')}}">Library API</a></li>
+                <h4>Library API</h4>
+                <li><a href="{{path('library_show_all')}}">Show Books</a></li><br>
+                <form action="{{ path('library_show_one_P') }}" method="POST">
+                    <label for="isbn">ISBN:</label>
+                    <input type="text" id="isbn" name="isbn" value="671442422" required>
+                    <button type="submit">Go</button>
+                </form>
+                  <br>
+                  
             </ul>
         </div>
     </div>
