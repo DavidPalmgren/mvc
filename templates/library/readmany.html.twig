@@ -1,0 +1,26 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="my-4">
+        <h3>Add another book here!</h3>
+        <a href="{{ path('library_create_form') }}" class="btn btn-primary">Add Book</a>
+      </div>
+      <br>
+    <div class="row">
+        {% for book in books %}
+            <div class="col-md-4">
+                <a href="{{ path('app_library_read_one', {'id': book.id}) }}">
+                    <div class="book-item" style="overflow: auto;">
+                        <img src="{{ asset('img/bookcovers/' ~ book.bild) }}" alt="Book Cover">
+                        <h3>{{ book.titel }}</h3>
+                        <p>{{ book.författare }}</p>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

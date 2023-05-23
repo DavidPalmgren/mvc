@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Update book{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Update book</h1>
+
+    <form action="{{ path('app_library_update', {'id': book.id}) }}" method="POST">
+        <div class="form-group">
+        <label for="title">Title:</label>
+        <input class="form-control" type="text" id="title" name="title" value="{{ book.titel }}" required><br><br>
+        </div>
+        <div class="form-group">
+        <label for="isbn">ISBN:</label>
+        <input class="form-control" type="number" id="isbn" name="isbn" value="{{ book.ISBN }}" required><br><br>
+    </div>
+    <div class="form-group">
+        <label for="author">Author:</label>
+        <input class="form-control" type="text" id="author" name="author" value="{{ book.författare }}" required><br><br>
+    </div>
+    <div class="form-group">
+        <label for="image">Image URL:</label>
+        <input class="form-control" type="text" id="image" name="image" value="{{ book.bild }}" required><br><br>
+    </div>
+    <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea class="form-control" id="description" name="description">{{ book.beskrivning }}</textarea><br><br>
+    </div>
+        <input type="submit" class="btn btn-primary" value="Update">
+    </form>
+</div>
+{% endblock %}

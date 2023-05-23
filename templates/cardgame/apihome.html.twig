@@ -11,7 +11,9 @@
     </div>
         <div class="col-md-6">
             <ul>
+                <h4>MISC API</h4>
                 <li><a href="{{ path('api_quote') }}">API Quote</a></li><p>Shows a random quote aswell as current date and time</p>
+                <br><h4>Card/Game API</h4>
                 <li><a href="{{ path('api_deck') }}">Card Deck</a></li><p> shows an sorted deck</p>
                 <form method="POST" action="{{ path('api_deck_shuffle') }}">
                     <input type="hidden" name="_method" value="POST">
@@ -36,6 +38,9 @@
                 <li><a href="{{ path('api_game') }}">API Game</a></li><p>Check gamestate</p>
 
                 <li><a href="{{ path('api_card_clear_session') }}">Clear cardgame session</a></li><p>Clear session</p>
+                <br>
+                <h4>Show Books</h4>
+                <li><a href="{{path('library_show_all')}}">Library API</a></li>
             </ul>
         </div>
     </div>

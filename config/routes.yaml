@@ -1,3 +1,8 @@
 controllers:
     resource: ../src/Controller/
     type: attribute
+
+library_submit:
+    path: /library/submit
+    methods: [POST]
+    controller: App\Controller\LibraryController::submitLibrary
