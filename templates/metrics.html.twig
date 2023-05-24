@@ -45,7 +45,7 @@
                   <img src="{{ asset('img/PhpMetrics maintainability _ complexity.png') }}" alt="" width="500" height="500">
                   </div>
                   <p>Här är det dessa tre som representerar dem 3 yttersta cirklarna med från #1, Cyclomatic Complexity14, 54.27maintanability, CC12, 71m, cc12, 52m </p>
-                  <p>Svårt att hitta någon individuell grej med phpmetrics så sätter mitt mål på att försöka fina upp dessa klasserna något då det var mycket besvär med dem inom många kategorier</p>
+                  <p>Svårt att hitta någon individuell grej med phpmetrics så sätter mitt mål på att försöka fina upp dessa klasserna och sedan se om någon metod kan fixas till för att försöka förbättra dessa något.</p>
 
             </div>
         </div>
@@ -87,7 +87,21 @@
         <div class="card">
             <div class="card-body">
                 <h2 id="Förbättringar">Förbättringar</h2></div>
+                <p><strong>Player::getHandValue</strong></p>
                 <p>Jag väljer att fixa till getHandValue till en början och fixar den så att den evalueras som A också.</p>
+                <p>Det gick rätt bra jag bröt ut en av while looparna jag hade till en istället och gjorde en else if vilket verkade ge ett bättre resultat från scrutinizer.</p>
+                <div style="width: 500px; overflow: auto;">
+                    <img src="{{ asset('img/scrutinizerA.png') }}" alt="" width="" height="">
+                    </div>
+                    <br>
+                    <p><strong>TjugoEttGame::playerStands</strong></p>
+                    <p>Jag tar denna som den andra att fixa vilket passar bra den var lite för komplex och jobbig med många if satser.</p>
+                    <p>Jag tar och bryter ut delar av logiken till en ny metod som heter shouldPlayerWin vilket kollar vinst konditions åt playerstands och gör playerStands mer simpel att läsa och mindre komplex.</p>
+                    <p>När jag hållar på så gör jag en testcase för min nya helper metod och kollar att allt funkar och sådant.</p>
+                    <div style="width: 500px; overflow: auto;">
+                        <img src="{{ asset('img/scrutinizerB.png') }}" alt="" width="" height="">
+                        </div>
+                
         </div>
 
         <div class="card">

@@ -47,30 +47,30 @@ class Player
      * @return int
      */
     public function getHandValue(): int
-{
-    $value = 0;
-    $aces = 0;
-    
-    foreach ($this->hand as $card) {
-        $value += $card->getValue();
+    {
+        $value = 0;
+        $aces = 0;
         
-        if ($card->getRank() === 'Ace') {
-            $aces++;
-        }
-    }
-    
-    while ($aces > 0) {
-        if ($value <= 7) {
-            $value += 14;
-        } else {
-            $value += 1;
+        foreach ($this->hand as $card) {
+            $value += $card->getValue();
+            
+            if ($card->getRank() === 'Ace') {
+                $aces++;
+            }
         }
         
-        $aces--;
+        while ($aces > 0) {
+            if ($value <= 7) {
+                $value += 14;
+            } else {
+                $value += 1;
+            }
+            
+            $aces--;
+        }
+        
+        return $value;
     }
-    
-    return $value;
-}
     // public function getHandValue(): int
     // {
     //     $value = 0;

@@ -135,6 +135,30 @@ class TjugoEttGameTest extends TestCase
         $game->playerHits();
         $game->playerStands();
     }
+    /**make sure if both draw 21 that banker wins */
+    public function test21Draw()
+    {
+        $deck = new CardDeck();
+        $player = new Player("John");
+        $banker = new Banker("Banker");
+        $game = new TjugoEttGame($deck, $player, $banker);
+        $game->init();
+
+        $cards = [
+            new Card('Spades', 'Ace'),
+            new Card('Hearts', '10'),
+            new Card('Diamonds', '10')
+        ];
+        foreach($cards as $card) {
+            $banker->addCard($card);
+        }
+        foreach($cards as $card) {
+            $player->addCard($card);
+        }
+
+        $game->playerStands();
+        $this->assertEquals("Banker", $game->getWinner());
+    }
     /**if both are bust tests that player wins by def */
     public function testBothIsBust()
     {
