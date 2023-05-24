@@ -101,7 +101,8 @@
         "phpdoc": "tools/phpdoc/phpdoc",
         "phpunit": "XDEBUG_MODE=coverage vendor/bin/phpunit",
         "lint": "tools/phpmd/vendor/bin/phpmd . text phpmd.xml",
-        "sql": "sqlite3 -header -column var/data.db"
+        "sql": "sqlite3 -header -column var/data.db",
+        "phpmetrics": "tools/phpmetrics/vendor/bin/phpmetrics --config=phpmetrics.json"
     },
     "conflict": {
         "symfony/symfony": "*"
