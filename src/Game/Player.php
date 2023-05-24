@@ -15,6 +15,7 @@ class Player
     protected int $money;
     public int $hasBet;
 
+    /** constructor */
     public function __construct(string $name, int $money = 100)
     {
         $this->hand = array();
@@ -70,9 +71,15 @@ class Player
         
         return $value;
     }
+        /**
+     * Returns the value of the hand and calculates the ace value as 1.
+     * Primarily used for testcases.
+     * 
+     * @return int
+     */
     public function getHandValue2(): int
     {
-        // for calculating bust RISK i only need Ace to equal 1
+        // for calculating bust RISK i only need Ace to equal 1.
         $value = 0;
         $aces = 0;
 
@@ -90,7 +97,7 @@ class Player
         return $value;
     }
     /**
-     * returns name
+     * Gets the name
      * @return string $name
      */
     public function getName(): string
@@ -129,22 +136,40 @@ class Player
         return $this->getHandValue() > 21;
     }
 
+    /**
+     * @return integer Money that represents the amount of money player/banker has.
+     */
     public function getMoney(): int
     {
         return $this->money;
     }
 
+    /**
+     * bool in form of interger so not sure what to type here really
+     * 
+     * @return bool
+     */
     public function getHasBet(): int
     {
         return $this->hasBet;
     }
 
+    /**
+     * @param int $bet which is the amount that has been bet.
+     * 
+     * @return void
+     */
     public function bet(int $bet): void
     {
         $this->money -= $bet;
         $this->hasBet = 1;
     }
 
+    /**
+     * simply updates the money
+     * 
+     * @param int $update amount
+     */
     public function updateMoney(int $update): void
     {
         $this->money += $update;

@@ -87,6 +87,8 @@
         <div class="card">
             <div class="card-body">
                 <h2 id="Förbättringar">Förbättringar</h2></div>
+                <p><strong>Plan?</strong></p>
+                <p>Jag tänker att jag tar dem 2 klasserna som var utpekade som B till en början och sedan efter det så kollar jag på lite andra mindre grejer som går att fixa typ ratingen på scrutinizer så jag får den till en 10 och sedan förbättrar mina "planeter" från phpMetrics så mina tre värsta blir lite bättre i både cc och maintainability.</p>
                 <p><strong>Player::getHandValue</strong></p>
                 <p>Jag väljer att fixa till getHandValue till en början och fixar den så att den evalueras som A också.</p>
                 <p>Det gick rätt bra jag bröt ut en av while looparna jag hade till en istället och gjorde en else if vilket verkade ge ett bättre resultat från scrutinizer.</p>
@@ -109,26 +111,31 @@
                     <p><strong>Cyclomatic Complexity(CC) fix och annat komplimenterande</strong></p>
                     <p>Jag beslutar mig för att förbättre mina 3 värsta klasser på dessa problem.</p>
                     <p>Tar och börjar med CardDeck och tar bort en oanvänd metod vilket minskade CC12 till CC8 men gjorde inte särskillt stor skillnad på maintainabilityn jag simplifierar min getcardbysuit and rank som hjälper min sort funktion vilket även förbättrar värdet.</p>
-                    <p>Jag går igenom och gör lite små ändringar i allt möjligt tar väck gammla oanvända funktioner onödiga kommentarer simplifierar funktioner där jag kan tills scurtinizer ger mig en 10a.</p>
-                    <p>Efter allt lyckades jag få ner dem ifrån 14 till 12, 12 till 10 och 12 till 10 på tjugoEttGame, cardDeck, player </p>
+                    
+                    <p>Efter allt lyckades jag få ner dem ifrån 14 till 11, 12 till 10 och 12 till 10 på tjugoEttGame, cardDeck, player. Jag sitter och klurar ett tag men jag har svårt att hitta något som jag skulle kunna förenkla vid detta laget så jag nöjer mig med det som de är nu har trotts allt lyckats få ner dem 3 klasserna cyklomatiska komplexitet men en hel del. </p>
+                    
+                    <strong>Maintainability: </strong>
+                        <p>Nu lägger jag ner lite mer fokus på kommentarer då detta också påverkar maintainability de flesta fick då en rätt stor buff på maintainabilityn förutom player som redan var rätt bra kommenterat</p>
+                        <p>TjugoEttGame: från runt 50 till 71, CardDeck: från 49 till 78, Player: från 71 till 77</p>
+                        <p>Efter detta så blev dem 3 utvalde upp till gul färg i alla fall vilket var rätt mycket bättre än utgångsläget</p>
+                        <div style="width: 500px; overflow: auto;">
+                            <img src="{{ asset('img/PhpMetrics maintainability _ complexity (1).png') }}" alt="" width="500" height="500">
+                            </div>
+                    
+                    <strong>Ökar Indexvärdet för scrutinizer</strong>
+                    <p>Jag går igenom och gör lite små ändringar i allt möjligt tar väck gammla oanvända funktioner onödiga kommentarer simplifierar funktioner där jag kan tills scurtinizer ger mig en 10a, från typ 9.+~ något som var utgångspunkten</p>
                     <div style="width: 500px; overflow: auto;">
                         <img src="{{ asset('img/scrutinizerD.png') }}" alt="" width="" height="">
                         </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <h2 id="Diskussion">Diskussion</h2>
+                                <p>Det blir nog lite jobbigt om man aktivt sitter och tänker på "clean code" och jag tror inte att en sida kan objektivt utvärdera en kod och det enligt mig kanske bara pekar en åt rätt riktning då det är ju viktigt att kunna göra maintainbar och snygg kod då den som kommer efter en annars kommer få slita och så. Nja är lite osäker men man borde i alla fall använda det som en grund i alla fall och om saker ser rejält tokigt ut på testet borde man nog fixa till det och om man tänker på att koden ska vara snyff och tillgänglig osv ifrån det att man börjar får man nog mycket bättre resultat. Nackdelar vore att det tar lite extra tid om man har klurat ut ett sätt men bestämmer att det är för komplext eller så och fördelar vore att man gör det enklare för sig själv i framtiden att komma tillbaka och förstå vad man gjort samt för andra att förstå koden. Det bästa man kan göra är väl att tänka till lite extra innan man börjar skriva koden och se till att det är redan kommenterat inte över komplicerat och att klasser och metoder är utdelade på ett bra sätt osv så slipper man problem.</p>
+                            </div>
+                        </div>
         </div>
 
-        <div class="card">
-            <div class="card-body">
-                <h2 id="kmom06">Kmom06</h2>
-                <p>This is the report for Kmom06.</p>
-            </div>
-        </div>
 
-        <div class="card">
-            <div class="card-body">
-                <h2 id="kmom07">Kmom07</h2>
-                <p>This is the report for Kmom07.</p>
-            </div>
-        </div>
 
       </div>
     </div>
