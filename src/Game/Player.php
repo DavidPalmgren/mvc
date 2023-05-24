@@ -32,7 +32,6 @@ class Player
      */
     public function addCard(Card $card): void
     {
-
         $this->hand[] = $card;
     }
 
@@ -71,28 +70,6 @@ class Player
         
         return $value;
     }
-    // public function getHandValue(): int
-    // {
-    //     $value = 0;
-    //     $aces = 0;
-
-    //     foreach($this->hand as $card) {
-    //         $value += $card->getValue();
-
-    //         if ($card->getRank() === 'Ace') {
-    //             $aces++;
-    //         }
-    //     }
-    //     while ($aces > 0 && $value <= 7) {
-    //         $value += 14;
-    //         $aces--;
-    //     }
-    //     while ($aces > 0 && $value > 7) {
-    //         $value += 1;
-    //         $aces--;
-    //     }
-    //     return $value;
-    // }
     public function getHandValue2(): int
     {
         // for calculating bust RISK i only need Ace to equal 1

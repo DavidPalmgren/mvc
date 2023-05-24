@@ -31,10 +31,6 @@ class TjugoEttGame
         $this->moneyPot = 0;
         $this->player->hasBet = 0;
         $this->banker->hasBet = 0;
-
-        //if ($this->banker->getMoney() <= 0) {
-        //    $this->banker->updateMoney(100);
-        //}
     }
 
     public function playerHits(): void
@@ -49,39 +45,8 @@ class TjugoEttGame
             $this->playerStands();
             return;
         }
-
-
-
-        //if ($this->player->getHandValue() > 21) {
-        //    $this->bankerWins();
-        //}
     }
 
-    // public function playerStands(): void
-    // {
-    //     if ($this->gameOver) {
-    //         return;
-    //     }
-
-    //     while ($this->banker->getHandValue() < 17) {
-    //         $this->banker->addCard($this->deck->deal());
-    //     }
-
-    //     if ($this->banker->getHandValue() > 21 || $this->player->getHandValue() > $this->banker->getHandValue()) {
-    //         if ($this->player->isBust()) {
-    //             if ($this->banker->isBust()) {
-    //                 $this->playerWins();
-    //                 return;
-    //             }
-    //             $this->bankerWins();
-    //             return;
-    //         }
-    //         $this->playerWins();
-    //         return;
-    //     }
-
-    //     $this->bankerWins();
-    // }
     public function playerStands(): void
     {
         if ($this->gameOver) {
@@ -165,10 +130,10 @@ class TjugoEttGame
     {
         $bust = 0;
         $decksize = $this->deck->cardsLeft();
-        $handval = $participant->getHandValue2();
-        $handval = (int) $handval; //php stan fix
+        $handValue = $participant->getHandValue2();
+        $handValue = (int) $handValue; //php stan fix
         foreach($this->deck->getCards() as $card) {
-            if ($handval + $card->getValue2() > 21) {
+            if ($handValue + $card->getValue2() > 21) {
                 $bust++;
             }
         }

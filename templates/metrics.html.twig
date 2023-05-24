@@ -97,11 +97,23 @@
                     <p><strong>TjugoEttGame::playerStands</strong></p>
                     <p>Jag tar denna som den andra att fixa vilket passar bra den var lite för komplex och jobbig med många if satser.</p>
                     <p>Jag tar och bryter ut delar av logiken till en ny metod som heter shouldPlayerWin vilket kollar vinst konditions åt playerstands och gör playerStands mer simpel att läsa och mindre komplex.</p>
-                    <p>När jag hållar på så gör jag en testcase för min nya helper metod och kollar att allt funkar och sådant.</p>
+                    
                     <div style="width: 500px; overflow: auto;">
                         <img src="{{ asset('img/scrutinizerB.png') }}" alt="" width="" height="">
                         </div>
-                
+                        <p>När jag endå hållar på så gör jag en testcase för min nya helper metod och kollar att allt funkar och sådant bra.</p>
+                        <div style="width: 500px; overflow: auto;">
+                            <img src="{{ asset('img/scrutinizerC.png') }}" alt="" width="" height="">
+                            </div>
+                            <br>
+                    <p><strong>Cyclomatic Complexity(CC) fix och annat komplimenterande</strong></p>
+                    <p>Jag beslutar mig för att förbättre mina 3 värsta klasser på dessa problem.</p>
+                    <p>Tar och börjar med CardDeck och tar bort en oanvänd metod vilket minskade CC12 till CC8 men gjorde inte särskillt stor skillnad på maintainabilityn jag simplifierar min getcardbysuit and rank som hjälper min sort funktion vilket även förbättrar värdet.</p>
+                    <p>Jag går igenom och gör lite små ändringar i allt möjligt tar väck gammla oanvända funktioner onödiga kommentarer simplifierar funktioner där jag kan tills scurtinizer ger mig en 10a.</p>
+                    <p>Efter allt lyckades jag få ner dem ifrån 14 till 12, 12 till 10 och 12 till 10 på tjugoEttGame, cardDeck, player </p>
+                    <div style="width: 500px; overflow: auto;">
+                        <img src="{{ asset('img/scrutinizerD.png') }}" alt="" width="" height="">
+                        </div>
         </div>
 
         <div class="card">
