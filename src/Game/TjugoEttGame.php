@@ -62,26 +62,47 @@ class TjugoEttGame
         if ($this->gameOver) {
             return;
         }
-
+        
         while ($this->banker->getHandValue() < 17) {
             $this->banker->addCard($this->deck->deal());
         }
-
+        
         if ($this->banker->getHandValue() > 21 || $this->player->getHandValue() > $this->banker->getHandValue()) {
-            if ($this->player->isBust()) {
-                if ($this->banker->isBust()) {
-                    $this->playerWins();
-                    return;
-                }
-                $this->bankerWins();
-                return;
+            if ($this->player->isBust() || $this->banker->isBust()) {
+                $this->playerWins();
+            } else {
+                $this->playerWins();
             }
-            $this->playerWins();
-            return;
+        } else {
+            $this->bankerWins();
         }
-
-        $this->bankerWins();
     }
+
+    // public function playerStands(): void
+    // {
+    //     if ($this->gameOver) {
+    //         return;
+    //     }
+
+    //     while ($this->banker->getHandValue() < 17) {
+    //         $this->banker->addCard($this->deck->deal());
+    //     }
+
+    //     if ($this->banker->getHandValue() > 21 || $this->player->getHandValue() > $this->banker->getHandValue()) {
+    //         if ($this->player->isBust()) {
+    //             if ($this->banker->isBust()) {
+    //                 $this->playerWins();
+    //                 return;
+    //             }
+    //             $this->bankerWins();
+    //             return;
+    //         }
+    //         $this->playerWins();
+    //         return;
+    //     }
+
+    //     $this->bankerWins();
+    // }
 
     public function playerBets(int $bet): void
     {

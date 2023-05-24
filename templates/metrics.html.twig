@@ -11,9 +11,9 @@
         <ul class="list-group">
             <li class="list-group-item"><a href="#Introduktion">Introduktion</a></li>
             <li class="list-group-item"><a href="#Phpmetrics">Phpmetrics</a></li>
-            <li class="list-group-item"><a href="#kmom03">Kmom03</a></li>
-            <li class="list-group-item"><a href="#kmom04">Kmom04</a></li>
-            <li class="list-group-item"><a href="#kmom05">Kmom05</a></li>
+            <li class="list-group-item"><a href="#Scrutinizer">Scrutinizer</a></li>
+            <li class="list-group-item"><a href="#6c-Findings">6c-Findings</a></li>
+            <li class="list-group-item"><a href="#Förbättringar">Förbättringar</a></li>
 
         </ul>
 
@@ -37,26 +37,57 @@
         <div class="card">
             <div class="card-body">
                 <h2 id="Phpmetrics">Phpmetrics</h2>
+                <div style="width: 500px; overflow: auto;">
+                    <img src="{{ asset('img/phpmetricsreport.png') }}" alt="" width="" height="">
+                  </div>
+
+                  <div style="width: 500px; overflow: auto;">
+                  <img src="{{ asset('img/PhpMetrics maintainability _ complexity.png') }}" alt="" width="500" height="500">
+                  </div>
+                  <p>Här är det dessa tre som representerar dem 3 yttersta cirklarna med från #1, Cyclomatic Complexity14, 54.27maintanability, CC12, 71m, cc12, 52m </p>
+                  <p>Svårt att hitta någon individuell grej med phpmetrics så sätter mitt mål på att försöka fina upp dessa klasserna något då det var mycket besvär med dem inom många kategorier</p>
 
             </div>
         </div>
 
         <div class="card">
             <div class="card-body">
-                <h2 id="kmom03">Kmom03</h2>
-
+                <h2 id="Scrutinizer">Scrutinizer</h2>
+                <a href="https://scrutinizer-ci.com/g/DavidPalmgren/mvc/?branch=main">
+                    <img src="https://scrutinizer-ci.com/g/DavidPalmgren/mvc/badges/quality-score.png?b=main" alt="Scrutinizer Code Quality">
+                </a>
+            
+                <a href="https://scrutinizer-ci.com/g/DavidPalmgren/mvc/?branch=main">
+                    <img src="https://scrutinizer-ci.com/g/DavidPalmgren/mvc/badges/coverage.png?b=main" alt="Code Coverage">
+                </a>
+            
+                <a href="https://scrutinizer-ci.com/g/DavidPalmgren/mvc/build-status/main">
+                    <img src="https://scrutinizer-ci.com/g/DavidPalmgren/mvc/badges/build.png?b=main" alt="Build Status">
+                </a>
+            
+                <a href="https://scrutinizer-ci.com/code-intelligence">
+                    <img src="https://scrutinizer-ci.com/g/DavidPalmgren/mvc/badges/code-intelligence.svg?b=main" alt="Code Intelligence Status">
+                </a>
+                <br><br>
+                <div>
+                <img src="{{ asset('img/phpscrutinizerreport.png') }}" alt="" width="" height="">
+                </div>
+                <p>Sedan kan vi lägga till updateLibrary för den hade högt crap värde varför inte, gick igenom varför lite innan.</p>
             </div>
         </div>
 
         <div class="card">
             <div class="card-body">
-                <h2 id="kmom04">Kmom04</h2>
+                <h2 id="6c-Findings">6c-Findings</h2>
+                <p>Så dessa 3 klasserna stog ur rätt mycket inom typ alla tester för det mesta, högst complexity, med högst conditions, komplexitet med path antal osv, särskillt stog min kontroller ut också phpmetric flagga min TjugeEttGame som ett Godobjekt vilket ja typ är rätt beskrivande så det vore något att förbättra kanske men är lite osäker om det är så himmla fel tanken när jag gjorde spelet var att tillkalla alla andra delar igenom den och sköta själva spelet där vet inte redigt.</p>
+                <p>På dem specifika delarna under scrutinizer så var playerStands() och getHandValue() dem sämsta, det är rätt stort med if satser i dem båda och andra grenande delar och nestalingar så det förklarar sig självt typ. PlayerStands har rätt mycket skit då den handterar auto spelningen efter det att spelaren slutat ta nya kort.</p>
             </div>
         </div>
 
         <div class="card">
             <div class="card-body">
-                <h2 id="kmom05">Kmom05</h2></div>
+                <h2 id="Förbättringar">Förbättringar</h2></div>
+                <p>Jag väljer att fixa till getHandValue till en början och fixar den så att den evalueras som A också.</p>
         </div>
 
         <div class="card">
