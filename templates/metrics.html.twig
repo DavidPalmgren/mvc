@@ -1,0 +1,80 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Report{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+      <div class="col-md-2">
+        <h1>Links</h1>
+
+        <ul class="list-group">
+            <li class="list-group-item"><a href="#Introduktion">Introduktion</a></li>
+            <li class="list-group-item"><a href="#Phpmetrics">Phpmetrics</a></li>
+            <li class="list-group-item"><a href="#kmom03">Kmom03</a></li>
+            <li class="list-group-item"><a href="#kmom04">Kmom04</a></li>
+            <li class="list-group-item"><a href="#kmom05">Kmom05</a></li>
+
+        </ul>
+
+      </div>
+
+      <div class="col-md-6">
+        <h1>Reports</h1>
+
+        <div class="card">
+            <div class="card-body">
+                <h2 id="Introduktion">Introduktion</h2>
+                <p><strong>Codestyle:</strong> Codestyle menar typ att följa guidelines och normer som jag förstått det tanken är att man ska följa dessa guidelines så det blir enklare att förstå så att typ en ny kan komma in och inte vara helt vilse.</p>
+                <p><strong>Coverage:</strong> Är hur bra koden är täckt av test cases linjer,filer klasser metoder osv. Det är då bra att ha en stor täckning så man vet att koden funkar.</p>
+                <p><strong>Complexity:</strong> Står för hur komplicerat saken är om jag kollar på mina klasser så ser jag att player och tjugoettkontroller/tjugoettgame är högt uppe vilket känns rätt då det är sammlingspunkter som allt möjligt går in i som player, card, deck osv typ main spelet alltså. Komplexiteten verkar bero mycket på hur många conditions och vägar den kan gå liksom, hög komplexitet kan göra det svårare att skriva tester som jag själv märkt man får göra väldigt specifika test cases för att komma in i alla if/else osv.</p>
+                <p><strong>Cohesion/lcom:</strong> Cohesion kollar hur bra klasser sticker ihop med varandra och fungerar tillsammans. Ett lågt värde menar då att komponenterna är högt sammanbundna? inom lcom</p>
+                <p><strong>Coupling:</strong> Coupling handlar om hur klassen använder/används av andra klasser, AC: är numret av klasser som använder denna output typ. EC: Är klasser som ger till denna klassen input typ.</p>
+                <p><strong>CRAP:</strong> CRAP står för Change Risk Anti-Patterns den räknar ut hur mycket tid och arbeta det tar för att fixa crappy methods, om jag kollar på mina egna crappiga så kan jag se att min highscore är från libraryController::updateLibrary() då jag skrev in en del ifsatser för att skriva default värden om det var tomt och lite annat så det blir mkt testcases om man vill reducera crap scoren.</p>
+            </div>
+
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h2 id="Phpmetrics">Phpmetrics</h2>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <h2 id="kmom03">Kmom03</h2>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <h2 id="kmom04">Kmom04</h2>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <h2 id="kmom05">Kmom05</h2></div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <h2 id="kmom06">Kmom06</h2>
+                <p>This is the report for Kmom06.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <h2 id="kmom07">Kmom07</h2>
+                <p>This is the report for Kmom07.</p>
+            </div>
+        </div>
+
+      </div>
+    </div>
+</div>
+
+{% endblock %}
