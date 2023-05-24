@@ -12,7 +12,7 @@
     <div class="row">
         {% for book in books %}
             <div class="col-md-4">
-                <a href="{{ path('app_library_read_one', {'id': book.id}) }}">
+                <a href="{{ path('app_library_read_one', {'libraryId': book.id}) }}">
                     <div class="book-item" style="overflow: auto;">
                         <img src="{{ asset('img/bookcovers/' ~ book.bild) }}" alt="Book Cover">
                         <h3>{{ book.titel }}</h3>

@@ -6,7 +6,7 @@
 <div class="container">
     <h1>Update book</h1>
 
-    <form action="{{ path('app_library_update', {'id': book.id}) }}" method="POST">
+    <form action="{{ path('app_library_update', {'libraryId': book.id}) }}" method="POST">
         <div class="form-group">
         <label for="title">Title:</label>
         <input class="form-control" type="text" id="title" name="title" value="{{ book.titel }}" required><br><br>

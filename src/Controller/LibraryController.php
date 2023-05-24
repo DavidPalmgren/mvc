@@ -108,7 +108,7 @@ class LibraryController extends AbstractController
 
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_library_read_one', ['id' => $library->getId()]);
+            return $this->redirectToRoute('app_library_read_one', ['libraryId' => $library->getId()]);
         }
 
         return $this->render('library/update.html.twig', ['book' => $library]);
