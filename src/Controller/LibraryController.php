@@ -58,8 +58,7 @@ class LibraryController extends AbstractController
     #[Route('/library/read_many', name: 'app_library_read_many')]
     public function libraryReadMany(
         LibraryRepository $libraryRepository
-    ): Response
-    {
+    ): Response {
         $librarys = $libraryRepository
             ->findAll();
 
@@ -69,8 +68,7 @@ class LibraryController extends AbstractController
     public function libraryReadOne(
         LibraryRepository $libraryRepository,
         int $id
-    ): Response
-    {
+    ): Response {
         $librarys = $libraryRepository
             ->find($id);
 
@@ -83,8 +81,7 @@ class LibraryController extends AbstractController
         LibraryRepository $libraryRepository,
         ManagerRegistry $doctrine,
         int $id
-    ): Response
-    {
+    ): Response {
         $entityManager = $doctrine->getManager();
         $library = $libraryRepository
             ->find($id);
@@ -97,22 +94,22 @@ class LibraryController extends AbstractController
             $author = $request->request->get('author');
             $image = $request->request->get('image');
             $beskrivning = $request->request->get('description');
-    
+
             if (empty($image)) {
                 $image = 'default.jpg';
             }
             if (empty($beskrivning)) {
                 $beskrivning = '';
             }
-    
+
             $library->setTitel($title);
             $library->setISBN($isbn);
             $library->setFörfattare($author);
             $library->setBild($image);
             $library->setBeskrivning($beskrivning);
-    
+
             $entityManager->flush();
-    
+
             return $this->redirectToRoute('app_library_read_one', ['id' => $library->getId()]);
         }
 
@@ -132,13 +129,14 @@ class LibraryController extends AbstractController
         return $response;
     }
     #[Route('/api/library/book/{isbn}', name: 'library_show_one')]
-    public function showByISBN(LibraryRepository $libraryRepository, string $isbn): Response {
+    public function showByISBN(LibraryRepository $libraryRepository, string $isbn): Response
+    {
         $book = $libraryRepository->findOneBy(['ISBN' => $isbn]);
-    
+
         if (!$book) {
             throw $this->createNotFoundException('Book not found');
         }
-    
+
         $data = [
             'id' => $book->getId(),
             'title' => $book->getTitel(),
@@ -147,23 +145,24 @@ class LibraryController extends AbstractController
             'image' => $book->getBild(),
             'beskrivning' => $book->getBeskrivning(),
         ];
-    
+
         $response = $this->json($data);
         $response->setEncodingOptions($response->getEncodingOptions() | JSON_PRETTY_PRINT);
         return $response;
     }
     #[Route('/api/library/book/', name: 'library_show_one_P', methods: ['POST'])]
-    public function showByISBNP(Request $request, LibraryRepository $libraryRepository): Response {
+    public function showByISBNP(Request $request, LibraryRepository $libraryRepository): Response
+    {
         $isbn = $request->request->get('isbn');
         $book = $libraryRepository->findOneBy(['ISBN' => $isbn]);
-    
+
         if (!$book) {
             throw $this->createNotFoundException('Book not found');
         }
-    
+
         return $this->redirectToRoute('library_show_one', ['isbn' => $isbn]);
     }
-    
+
     #[Route('/library/delete/{id}', name: 'library_delete_by_id')]
     public function deleteLibraryById(
         ManagerRegistry $doctrine,
@@ -171,16 +170,16 @@ class LibraryController extends AbstractController
     ): Response {
         $entityManager = $doctrine->getManager();
         $library = $entityManager->getRepository(Library::class)->find($id);
-    
+
         if (!$library) {
             throw $this->createNotFoundException(
                 'No library found for id '.$id
             );
         }
-    
+
         $entityManager->remove($library);
         $entityManager->flush();
-    
+
         return $this->redirectToRoute('app_library_read_many');
     }
 }

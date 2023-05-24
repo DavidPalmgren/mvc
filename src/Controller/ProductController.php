@@ -57,7 +57,7 @@ class ProductController extends AbstractController
     ): Response {
         $product = $productRepository
             ->find($id);
-    
+
         return $this->json($product);
     }
     #[Route('/product/delete/{id}', name: 'product_delete_by_id')]
@@ -67,16 +67,16 @@ class ProductController extends AbstractController
     ): Response {
         $entityManager = $doctrine->getManager();
         $product = $entityManager->getRepository(Product::class)->find($id);
-    
+
         if (!$product) {
             throw $this->createNotFoundException(
                 'No product found for id '.$id
             );
         }
-    
+
         $entityManager->remove($product);
         $entityManager->flush();
-    
+
         return $this->redirectToRoute('product_show_all');
     }
 }
