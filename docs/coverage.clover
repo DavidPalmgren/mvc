@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1684964288">
-  <project timestamp="1684964288">
+<coverage generated="1684965800">
+  <project timestamp="1684965800">
     <file name="/home/davee3/dbwebb-kurser/mvc/me/report/src/Card/Card.php">
       <class name="App\Card\Card" namespace="global">
         <metrics complexity="9" methods="7" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="33" coveredstatements="33" elements="40" coveredelements="40"/>
@@ -847,12 +847,12 @@
       <line num="54" type="stmt" count="12"/>
       <line num="55" type="stmt" count="12"/>
       <line num="57" type="stmt" count="12"/>
-      <line num="58" type="stmt" count="8"/>
+      <line num="58" type="stmt" count="7"/>
       <line num="62" type="stmt" count="12"/>
-      <line num="63" type="stmt" count="8"/>
-      <line num="64" type="stmt" count="3"/>
-      <line num="66" type="stmt" count="7"/>
-      <line num="69" type="stmt" count="8"/>
+      <line num="63" type="stmt" count="7"/>
+      <line num="64" type="stmt" count="2"/>
+      <line num="66" type="stmt" count="6"/>
+      <line num="69" type="stmt" count="7"/>
       <line num="72" type="stmt" count="12"/>
       <line num="80" type="method" name="getHandValue2" visibility="public" complexity="5" crap="5" count="3"/>
       <line num="83" type="stmt" count="3"/>
