@@ -50,9 +50,7 @@ class LibraryController extends AbstractController
     }
     #[Route('/library/createform', name: 'library_create_form')]
     public function createLibraryForm(
-        ManagerRegistry $doctrine
     ): Response {
-        $entityManager = $doctrine->getManager();
         return $this->render('library/createform.html.twig', []);
     }
     #[Route('/library/read_many', name: 'app_library_read_many')]
@@ -64,27 +62,27 @@ class LibraryController extends AbstractController
 
         return $this->render('library/readmany.html.twig', ['books' => $librarys]);
     }
-    #[Route('/library/read_one/{id}', name: 'app_library_read_one')]
+    #[Route('/library/read_one/{libraryId}', name: 'app_library_read_one')]
     public function libraryReadOne(
         LibraryRepository $libraryRepository,
-        int $id
+        int $libraryId
     ): Response {
         $librarys = $libraryRepository
-            ->find($id);
+            ->find($libraryId);
 
         return $this->render('library/readone.html.twig', ['book' => $librarys]);
     }
-    #[Route('/library/update/{id}', name: 'app_library_update')]
+    #[Route('/library/update/{libraryId}', name: 'app_library_update')]
     public function updateLibrary(
         Request $request,
         ManagerRegistry $entityManager,
         LibraryRepository $libraryRepository,
         ManagerRegistry $doctrine,
-        int $id
+        int $libraryId
     ): Response {
         $entityManager = $doctrine->getManager();
         $library = $libraryRepository
-            ->find($id);
+            ->find($libraryId);
         if (!$library) {
             throw $this->createNotFoundException('Library not found');
         }
@@ -163,17 +161,17 @@ class LibraryController extends AbstractController
         return $this->redirectToRoute('library_show_one', ['isbn' => $isbn]);
     }
 
-    #[Route('/library/delete/{id}', name: 'library_delete_by_id')]
+    #[Route('/library/delete/{libraryId}', name: 'library_delete_by_id')]
     public function deleteLibraryById(
         ManagerRegistry $doctrine,
-        int $id
+        int $libraryId
     ): Response {
         $entityManager = $doctrine->getManager();
-        $library = $entityManager->getRepository(Library::class)->find($id);
+        $library = $entityManager->getRepository(Library::class)->find($libraryId);
 
         if (!$library) {
             throw $this->createNotFoundException(
-                'No library found for id '.$id
+                'No library found for id '.$libraryId
             );
         }
 
