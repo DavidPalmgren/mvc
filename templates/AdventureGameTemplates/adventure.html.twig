@@ -1,0 +1,19 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Adventure{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Adventure</h1>
+        <p>{{ currentRoom.getDescription() }}</p>
+        <form method="POST" action="{{ path("proj_adventure") }}">
+            <input type="text" name="command" placeholder="Enter a command">
+            <button type="submit">Submit</button>
+        </form>
+        <br>
+        <a class="btn btn-info" href="{{path("proj_adventure_clear_session")}}">Reset</a>
+        {% if response %}
+            <p>{{ response }}</p>
+        {% endif %}
+    </div>
+{% endblock %}
