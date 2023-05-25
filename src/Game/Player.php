@@ -137,7 +137,7 @@ class Player
     }
 
     /**
-     * @return integer Money that represents the amount of money player/banker has.
+     * @return int Money that represents the amount of money player/banker has.
      */
     public function getMoney(): int
     {
@@ -147,7 +147,7 @@ class Player
     /**
      * bool in form of interger so not sure what to type here really
      * 
-     * @return bool
+     * @return int
      */
     public function getHasBet(): int
     {
