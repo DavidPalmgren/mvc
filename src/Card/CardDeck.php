@@ -58,7 +58,7 @@ class CardDeck
     /**
      * Deals (pops) a card from the deck.
      *
-     * @return Card|null The dealt card, or null if the deck is empty i suppose
+     * @return Card The dealt card
      */
     public function deal()
     {

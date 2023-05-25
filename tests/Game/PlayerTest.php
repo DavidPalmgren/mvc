@@ -20,7 +20,7 @@ class PlayerTest extends TestCase
         $player = new Player('John');
         $card = new Card('Spades', '9');
         $player->addCard($card);
-        $cards = $player->getHand($card);
+        $cards = $player->getHand();
         $this->assertNotEmpty($cards);
     }
     public function testResetHand()
@@ -28,7 +28,7 @@ class PlayerTest extends TestCase
         $player = new Player('John');
         $card = new Card('Spades', '9');
         $player->addCard($card);
-        $cards = $player->getHand($card);
+        $cards = $player->getHand();
         $this->assertNotEmpty($cards);
         $player->resetHand();
         $this->assertEmpty($player->getHand());

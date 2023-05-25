@@ -45,7 +45,7 @@ class CardGameController extends AbstractController
 
         $cardImages = array_map(function (Card $card) {
             $card2 = new CardGraphic($card->getSuit(), $card->getRank());
-            return $card2 = $card2->getCardImage($card2);
+            return $card2->getCardImage($card2);
         }, $cards);
 
         return $this->render('cardgame/deck.html.twig', [
@@ -67,7 +67,7 @@ class CardGameController extends AbstractController
 
         $cardImages = array_map(function (Card $card) {
             $card2 = new CardGraphic($card->getSuit(), $card->getRank());
-            return $card2 = $card2->getCardImage($card2);
+            return $card2->getCardImage($card2);
         }, $cards);
         $session->clear(); // jag lägger till denna här missade det först
         return $this->render('cardgame/deck.html.twig', [

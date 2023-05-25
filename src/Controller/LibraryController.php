@@ -75,7 +75,6 @@ class LibraryController extends AbstractController
     #[Route('/library/update/{libraryId}', name: 'app_library_update')]
     public function updateLibrary(
         Request $request,
-        ManagerRegistry $entityManager,
         LibraryRepository $libraryRepository,
         ManagerRegistry $doctrine,
         int $libraryId
