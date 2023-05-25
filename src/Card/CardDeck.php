@@ -16,7 +16,7 @@ class CardDeck
         $this->cards = [];
         $this->initializeDeck();
     }
-    
+
     /**
      * Initializes the card deck by creating and adding all the cards.
      */
@@ -24,7 +24,7 @@ class CardDeck
     {
         $suits = ['Spades', 'Hearts', 'Diamonds', 'Clubs'];
         $ranks = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King'];
-    
+
         foreach ($suits as $suit) {
             foreach ($ranks as $rank) {
                 $card = new Card($suit, $rank);
@@ -97,7 +97,7 @@ class CardDeck
         $filteredCards = array_filter($this->cards, function ($card) use ($suit, $rank) {
             return $card->getSuit() === $suit && $card->getRank() === $rank;
         });
-    
+
         return reset($filteredCards) ?: null;
     }
 

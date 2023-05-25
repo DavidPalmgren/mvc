@@ -58,52 +58,52 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Card\\CardDeck\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "constructor\u0020which\u0020i\u0020hopelessly\u0020believed\u0020would\u0020increase\u0020my\u0020points\u0020but\u0020alas\nno\u0020points\u0020were\u0020given\u0020to\u0020griffyndor\u0020that\u0020day",
             "url": "classes/App-Card-CardDeck.html#method___construct"
+        },                {
+            "fqsen": "\\App\\Card\\CardDeck\u003A\u003AinitializeDeck\u0028\u0029",
+            "name": "initializeDeck",
+            "summary": "Initializes\u0020the\u0020card\u0020deck\u0020by\u0020creating\u0020and\u0020adding\u0020all\u0020the\u0020cards.",
+            "url": "classes/App-Card-CardDeck.html#method_initializeDeck"
         },                {
             "fqsen": "\\App\\Card\\CardDeck\u003A\u003AcreateDeck\u0028\u0029",
             "name": "createDeck",
-            "summary": "",
+            "summary": "Creates\u0020a\u0020new\u0020card\u0020deck\u0020using\u0020the\u0020provided\u0020array\u0020of\u0020cards.",
             "url": "classes/App-Card-CardDeck.html#method_createDeck"
         },                {
             "fqsen": "\\App\\Card\\CardDeck\u003A\u003Ashuffle\u0028\u0029",
             "name": "shuffle",
-            "summary": "",
+            "summary": "Shuffles\u0020the\u0020cards\u0020in\u0020the\u0020deck.",
             "url": "classes/App-Card-CardDeck.html#method_shuffle"
         },                {
             "fqsen": "\\App\\Card\\CardDeck\u003A\u003Adeal\u0028\u0029",
             "name": "deal",
-            "summary": "",
+            "summary": "Deals\u0020\u0028pops\u0029\u0020a\u0020card\u0020from\u0020the\u0020deck.",
             "url": "classes/App-Card-CardDeck.html#method_deal"
         },                {
             "fqsen": "\\App\\Card\\CardDeck\u003A\u003AcardsLeft\u0028\u0029",
             "name": "cardsLeft",
-            "summary": "",
+            "summary": "Retrieves\u0020the\u0020number\u0020of\u0020cards\u0020left\u0020in\u0020the\u0020deck.",
             "url": "classes/App-Card-CardDeck.html#method_cardsLeft"
         },                {
             "fqsen": "\\App\\Card\\CardDeck\u003A\u003AgetCards\u0028\u0029",
             "name": "getCards",
-            "summary": "",
+            "summary": "Retrieves\u0020all\u0020the\u0020cards\u0020in\u0020the\u0020deck.",
             "url": "classes/App-Card-CardDeck.html#method_getCards"
         },                {
             "fqsen": "\\App\\Card\\CardDeck\u003A\u003AgetCardBySuitAndRank\u0028\u0029",
             "name": "getCardBySuitAndRank",
-            "summary": "",
+            "summary": "Retrieves\u0020a\u0020specific\u0020card\u0020in\u0020the\u0020deck\u0020based\u0020on\u0020its\u0020suit\u0020and\u0020rank.",
             "url": "classes/App-Card-CardDeck.html#method_getCardBySuitAndRank"
-        },                {
-            "fqsen": "\\App\\Card\\CardDeck\u003A\u003AgetCardsByRank\u0028\u0029",
-            "name": "getCardsByRank",
-            "summary": "",
-            "url": "classes/App-Card-CardDeck.html#method_getCardsByRank"
         },                {
             "fqsen": "\\App\\Card\\CardDeck\u003A\u003Asort\u0028\u0029",
             "name": "sort",
-            "summary": "",
+            "summary": "Sorts\u0020the\u0020cards\u0020in\u0020the\u0020deck\u0020according\u0020to\u0020the\u0020order\u0020of\u0020suits\u0020and\u0020ranks.",
             "url": "classes/App-Card-CardDeck.html#method_sort"
         },                {
             "fqsen": "\\App\\Card\\CardDeck\u003A\u003AcardCount\u0028\u0029",
             "name": "cardCount",
-            "summary": "",
+            "summary": "Counts\u0020the\u0020occurrences\u0020of\u0020each\u0020rank\/number\u0020card\u0020in\u0020the\u0020deck.",
             "url": "classes/App-Card-CardDeck.html#method_cardCount"
         },                {
             "fqsen": "\\App\\Card\\CardDeck\u003A\u003A\u0024cards",
@@ -281,6 +281,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Controller-LuckyControllerTwig.html#method_report"
         },                {
+            "fqsen": "\\App\\Controller\\LuckyControllerTwig\u003A\u003Ametrics\u0028\u0029",
+            "name": "metrics",
+            "summary": "",
+            "url": "classes/App-Controller-LuckyControllerTwig.html#method_metrics"
+        },                {
             "fqsen": "\\App\\Controller\\LuckyControllerTwig\u003A\u003Alucky\u0028\u0029",
             "name": "lucky",
             "summary": "",
@@ -438,7 +443,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Game\\Player\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "constructor",
             "url": "classes/App-Game-Player.html#method___construct"
         },                {
             "fqsen": "\\App\\Game\\Player\u003A\u003AaddCard\u0028\u0029",
@@ -458,12 +463,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Game\\Player\u003A\u003AgetHandValue2\u0028\u0029",
             "name": "getHandValue2",
-            "summary": "",
+            "summary": "Returns\u0020the\u0020value\u0020of\u0020the\u0020hand\u0020and\u0020calculates\u0020the\u0020ace\u0020value\u0020as\u00201.",
             "url": "classes/App-Game-Player.html#method_getHandValue2"
         },                {
             "fqsen": "\\App\\Game\\Player\u003A\u003AgetName\u0028\u0029",
             "name": "getName",
-            "summary": "returns\u0020name",
+            "summary": "Gets\u0020the\u0020name",
             "url": "classes/App-Game-Player.html#method_getName"
         },                {
             "fqsen": "\\App\\Game\\Player\u003A\u003AgetHand\u0028\u0029",
@@ -488,7 +493,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Game\\Player\u003A\u003AgetHasBet\u0028\u0029",
             "name": "getHasBet",
-            "summary": "",
+            "summary": "bool\u0020in\u0020form\u0020of\u0020interger\u0020so\u0020not\u0020sure\u0020what\u0020to\u0020type\u0020here\u0020really",
             "url": "classes/App-Game-Player.html#method_getHasBet"
         },                {
             "fqsen": "\\App\\Game\\Player\u003A\u003Abet\u0028\u0029",
@@ -498,7 +503,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Game\\Player\u003A\u003AupdateMoney\u0028\u0029",
             "name": "updateMoney",
-            "summary": "",
+            "summary": "simply\u0020updates\u0020the\u0020money",
             "url": "classes/App-Game-Player.html#method_updateMoney"
         },                {
             "fqsen": "\\App\\Game\\Player\u003A\u003A\u0024hand",
@@ -533,57 +538,62 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Game\\TjugoEttGame\u003A\u003Ainit\u0028\u0029",
             "name": "init",
-            "summary": "",
+            "summary": "Initializes\u0020the\u0020game\u0020by\u0020shuffling\u0020the\u0020deck,\u0020resetting\u0020player\u0020and\u0020banker\u0020hands,\nand\u0020resetting\u0020the\u0020money\u0020pot\u0020and\u0020bets.",
             "url": "classes/App-Game-TjugoEttGame.html#method_init"
         },                {
             "fqsen": "\\App\\Game\\TjugoEttGame\u003A\u003AplayerHits\u0028\u0029",
             "name": "playerHits",
-            "summary": "",
+            "summary": "Handles\u0020the\u0020player\u0027s\u0020\u0022hit\u0022\u0020action.\u0020Adds\u0020a\u0020card\u0020to\u0020the\u0020player\u0027s\u0020hand\u0020from\u0020the\u0020deck.",
             "url": "classes/App-Game-TjugoEttGame.html#method_playerHits"
         },                {
             "fqsen": "\\App\\Game\\TjugoEttGame\u003A\u003AplayerStands\u0028\u0029",
             "name": "playerStands",
-            "summary": "",
+            "summary": "Handles\u0020the\u0020player\u0027s\u0020\u0022stand\u0022\u0020action.\u0020The\u0020banker\u0020takes\u0020cards\u0020from\u0020the\u0020deck\u0020until\ntheir\u0020hand\u0020value\u0020reaches\u002017\u0020or\u0020higher.\u0020Then\u0020determines\u0020the\u0020winner\u0020based\u0020on\u0020the\ngame\u0020rules.",
             "url": "classes/App-Game-TjugoEttGame.html#method_playerStands"
+        },                {
+            "fqsen": "\\App\\Game\\TjugoEttGame\u003A\u003AshouldPlayerWin\u0028\u0029",
+            "name": "shouldPlayerWin",
+            "summary": "Determines\u0020whether\u0020the\u0020player\u0020should\u0020win\u0020based\u0020on\u0020the\u0020game\u0020rules.",
+            "url": "classes/App-Game-TjugoEttGame.html#method_shouldPlayerWin"
         },                {
             "fqsen": "\\App\\Game\\TjugoEttGame\u003A\u003AplayerBets\u0028\u0029",
             "name": "playerBets",
-            "summary": "",
+            "summary": "Handles\u0020the\u0020player\u0027s\u0020betting\u0020action\u0020by\u0020updating\u0020the\u0020bets\u0020and\u0020the\u0020money\u0020pot.",
             "url": "classes/App-Game-TjugoEttGame.html#method_playerBets"
         },                {
             "fqsen": "\\App\\Game\\TjugoEttGame\u003A\u003AplayerWins\u0028\u0029",
             "name": "playerWins",
-            "summary": "",
+            "summary": "Handles\u0020the\u0020player\u0020winning\u0020the\u0020game.\u0020updates\u0020the\u0020winer,\u0020player\u0027s\u0020money,\u0020and\u0020sets\u0020the\u0020game\u0020over.",
             "url": "classes/App-Game-TjugoEttGame.html#method_playerWins"
         },                {
             "fqsen": "\\App\\Game\\TjugoEttGame\u003A\u003AbankerWins\u0028\u0029",
             "name": "bankerWins",
-            "summary": "",
+            "summary": "Handles\u0020the\u0020banker\u0020winning\u0020the\u0020game,\u0020updates\u0020the\u0020winer,\u0020banker\u0027s\u0020money,\u0020and\u0020sets\u0020the\u0020game\u0020over.",
             "url": "classes/App-Game-TjugoEttGame.html#method_bankerWins"
         },                {
             "fqsen": "\\App\\Game\\TjugoEttGame\u003A\u003AendGame\u0028\u0029",
             "name": "endGame",
-            "summary": "",
+            "summary": "Ends\u0020the\u0020game\u0020by\u0020setting\u0020the\u0020game\u0020over\u0020and\u0020declaring\u0020the\u0020banker\u0020as\u0020the\u0020winner.",
             "url": "classes/App-Game-TjugoEttGame.html#method_endGame"
         },                {
             "fqsen": "\\App\\Game\\TjugoEttGame\u003A\u003AgetWinner\u0028\u0029",
             "name": "getWinner",
-            "summary": "",
+            "summary": "Gets\u0020the\u0020winner\u0020of\u0020the\u0020game.",
             "url": "classes/App-Game-TjugoEttGame.html#method_getWinner"
         },                {
             "fqsen": "\\App\\Game\\TjugoEttGame\u003A\u003AisGameOver\u0028\u0029",
             "name": "isGameOver",
-            "summary": "",
+            "summary": "Checks\u0020if\u0020the\u0020game\u0020is\u0020over.",
             "url": "classes/App-Game-TjugoEttGame.html#method_isGameOver"
         },                {
             "fqsen": "\\App\\Game\\TjugoEttGame\u003A\u003AgetMoneyPot\u0028\u0029",
             "name": "getMoneyPot",
-            "summary": "",
+            "summary": "Gets\u0020the\u0020current\u0020money\u0020pot\u0020in\u0020the\u0020game.",
             "url": "classes/App-Game-TjugoEttGame.html#method_getMoneyPot"
         },                {
             "fqsen": "\\App\\Game\\TjugoEttGame\u003A\u003AbustProbability\u0028\u0029",
             "name": "bustProbability",
-            "summary": "",
+            "summary": "Calculates\u0020the\u0020probability\u0020of\u0020the\u0020participant\u0020\u0028player\u0020or\u0020banker\u0029\u0020going\u0020bust.",
             "url": "classes/App-Game-TjugoEttGame.html#method_bustProbability"
         },                {
             "fqsen": "\\App\\Game\\TjugoEttGame\u003A\u003A\u0024deck",

@@ -50,31 +50,31 @@ class Player
     {
         $value = 0;
         $aces = 0;
-        
+
         foreach ($this->hand as $card) {
             $value += $card->getValue();
-            
+
             if ($card->getRank() === 'Ace') {
                 $aces++;
             }
         }
-        
+
         while ($aces > 0) {
             if ($value <= 7) {
                 $value += 14;
             } else {
                 $value += 1;
             }
-            
+
             $aces--;
         }
-        
+
         return $value;
     }
         /**
      * Returns the value of the hand and calculates the ace value as 1.
      * Primarily used for testcases.
-     * 
+     *
      * @return int
      */
     public function getHandValue2(): int
@@ -146,7 +146,7 @@ class Player
 
     /**
      * bool in form of interger so not sure what to type here really
-     * 
+     *
      * @return int
      */
     public function getHasBet(): int
@@ -156,7 +156,7 @@ class Player
 
     /**
      * @param int $bet which is the amount that has been bet.
-     * 
+     *
      * @return void
      */
     public function bet(int $bet): void
@@ -167,7 +167,7 @@ class Player
 
     /**
      * simply updates the money
-     * 
+     *
      * @param int $update amount
      */
     public function updateMoney(int $update): void

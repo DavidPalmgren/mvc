@@ -87,15 +87,15 @@ class TjugoEttGame
     {
         $bankerHandValue = $this->banker->getHandValue();
         $playerHandValue = $this->player->getHandValue();
-    
+
         if ($bankerHandValue > 21) {
             return true;
         }
-    
+
         if ($playerHandValue > $bankerHandValue) {
             return !$this->player->isBust();
         }
-        
+
         return false;
     }
 
