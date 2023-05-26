@@ -38,4 +38,18 @@ class Player
     {
         return $this->inventory;
     }
+
+    public function findItemByName(string $itemName): ?Item
+    {
+        $lowercaseItemName = strtolower($itemName);
+    
+        foreach ($this->inventory as $item) {
+            $lowercaseItem = strtolower($item->getName());
+    
+            if (strpos($lowercaseItem, $lowercaseItemName) !== false) {
+                return $item;
+            }
+        }
+        return null;
+    }
 }

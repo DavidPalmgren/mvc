@@ -49,7 +49,8 @@ class GameMap
         $additionalRoom->setNeighbor('west', $eastRoom);
     
         $additionalRoom->addItem(new Item('first_half_note', 'First half of the note', 'A note seemingly ripped in half its hard to overlook the teethmarks and drool all over the piece'));
-        $westRoom->addItem(new Item('second_half_note', 'Second half of the note', 'A note seemingly ripped in half its hard to overlook the teethmarks and drool all over the piece'));
+        //moved to event
+        //$westRoom->addItem(new Item('second_half_note', 'Second half of the note', 'A note seemingly ripped in half its hard to overlook the teethmarks and drool all over the piece'));
         $centerRoom->addItem(new Item('golden_key', 'Golden key', 'It shines brilliant, most likely for the chains surrounding the exit door'));
         $eastRoom->addItem(new Item('piece_of_ham', 'Piece of ham', 'Smells great.'));
 
@@ -62,10 +63,11 @@ class GameMap
     
         return $gameMap;
     }
-    
 
     public function getStartingRoomId(): string
     {
         return $this->startingRoomId;
     }
+
+    
 }

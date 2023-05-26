@@ -1,33 +1,49 @@
-{% extends "base.html.twig" %}
+{% extends "AdventureGameTemplates/base2.html.twig" %}
 
 {% block title %}Adventure{% endblock %}
 
 {% block body %}
     <div class="container">
-        <h1>Adventure</h1>
-        <p>{{ currentRoom.getDescription() }}</p>
-        <img src="{{ asset('img' ~ currentRoom.getImage()) }}" alt="Room Image">
+        <div class="row">
+            <div class="col-md-4">
+                <h1>Adventure</h1>
+                <p>{{ currentRoom.getDescription() }}</p>
+                <form method="POST" action="{{ path("proj_adventure") }}">
+                    <input type="text" name="command" placeholder="Enter a command">
+                    <button type="submit">Submit</button>
+                </form>
 
-        <form method="POST" action="{{ path("proj_adventure") }}">
-            <input type="text" name="command" placeholder="Enter a command">
-            <button type="submit">Submit</button>
-        </form>
+                    <ul class="dark">
+                        <li>pickup (ex: pickup)</li>
+                        <li>move (ex: move north).</li>
+                        <li>password (while in pc room) ex: password redcar5.</li>
+                    </ul>
 
-        <br>
-        <a class="btn btn-info" href="{{path("proj_adventure_clear_session")}}">Reset</a>
-        {% if response %}
-            <p>{{ response }}</p>
-        {% endif %}
 
-        {% if player.getInventory() is not empty %}
-        <h3>Inventory:</h3>
-        <ul>
-            {% for item in player.getInventory() %}
-                <li>{{ item.getName() }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}
-    
+                <br>
+                <a class="btn btn-info" href="{{ path("proj_adventure_clear_session") }}">Reset</a>
+                {% if response %}
+                    <p>{{ response }}</p>
+                {% endif %}
 
+                {% if player.getInventory() is not empty %}
+                    <h3>Inventory:</h3>
+                    <ul>
+                        {% for item in player.getInventory() %}
+                            <li>{{ item.getName() }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+            <div class="col-md-8">
+                <img src="{{ asset('img' ~ currentRoom.getImage()) }}" alt="Room Image">
+            </div>
+        </div>
     </div>
+
+    <script>
+        window.onload = function() {
+            document.querySelector('input[name="command"]').focus();
+        };
+    </script>
 {% endblock %}

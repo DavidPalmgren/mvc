@@ -1,0 +1,17 @@
+body {
+    background-color: #333;
+    color: #fff;
+}
+
+input {
+    color:black;
+}
+
+button {
+    color: black;
+}
+
+.dark {
+    background-color: #350000;
+    color: #fff;
+}

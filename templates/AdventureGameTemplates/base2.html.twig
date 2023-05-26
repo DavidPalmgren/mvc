@@ -8,7 +8,7 @@
         {#har ni redan fixat med bootstrap på något annat sätt mitt skit spökar eller ngt #}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        {# <link rel="stylesheet" href="{{ asset('styles/app.css') }}"> #}
+        <link rel="stylesheet" href="{{ asset('/app2.css') }}">
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
@@ -18,12 +18,7 @@
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </head>
-    <body class="d-flex flex-column">
-        <header class="site-header" style="background-image: url({{ asset('img/endless-clouds.svg') }}); height: 100px;">
-            <div class="container">
-            </div>
-        </header>
-        <nav class="navbar navbar-default">
+        <nav class="navbar navbar-default dark">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
@@ -32,20 +27,12 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="{{ path('home') }}">My Symfony Site</a>
+                    <a class="navbar-brand" href="{{ path('proj_adventure') }}">Adventure Game</a>
                 </div>
                 <div class="collapse navbar-collapse" id="navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li><a href="{{ path('home') }}">Home</a></li>
-                        <li><a href="{{ path('about') }}">About</a></li>
-                        <li><a href="{{ path('lucky') }}">Lucky</a></li>
-                        <li><a href="{{ path('report') }}">Report</a></li>
-                        <li><a href="{{ path('card_start') }}">Card</a></li>
-                        <li><a href="{{ path('api_home') }}">API</a></li>
-                        <li><a href="{{ path('game_home') }}">TjugoEtt</a></li>
-                        <li><a href="{{ path('app_library') }}">Library</a></li>
-                        <li><a href="{{ path('metrics') }}">Metrics</a></li>
-                        <li><a href="{{ path('proj_adventure') }}">Adventure Game</a></li>
+                        <li><a href="{{ path('proj_adventure_clear_session') }}">Reset</a></li>
+                        <li><a href="{{ path('home') }}">Return</a></li>
                     </ul>
                 </div>
             </div>
@@ -53,13 +40,6 @@
         <div class="container flex-grow-1">
             {% block body %} {%block main%} {%endblock main%}{% endblock %}
         </div>
-
-        <footer class="footer py-3 bg-light fixed-bottom">
-            <div class="container">
-                <p class="text-center">&copy; 2023 Davv's CardCompany. All rights reserved by AzerothInc.</p>
-            </div>
-        </footer>
-    
         <script src="{{ asset('node_modules/bootstrap/dist/js/bootstrap.min.js') }}"></script>
     </body>
 </html>
