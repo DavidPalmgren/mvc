@@ -49,6 +49,7 @@ class AdventureGameController extends AbstractController
         return $this->render('AdventureGameTemplates/adventure.html.twig', [
             'currentRoom' => $currentRoom,
             'response' => $session->get('response'),
+            'player' => $player
         ]);
     }
     #[Route("/proj/adventure/clear-session", name: "proj_adventure_clear_session")]

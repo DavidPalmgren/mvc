@@ -8,7 +8,6 @@ class Commands
 {
     public function processCommand(string $command, Player $player, GameMap $gameMap): string
     {
-
         if ($command === 'north') {
             $player->move('north');
         } elseif ($command === 'east') {
@@ -17,10 +16,23 @@ class Commands
             $player->move('south');
         } elseif ($command === 'west') {
             $player->move('west');
+        } elseif ($command === 'pickup') {
+            $currentRoom = $player->getCurrentRoom();
+            $items = $currentRoom->getItems();
+    
+            $player->pickupItems($items);
+            $currentRoom->removeItems();
+    
+            $message = '';
+            foreach ($items as $item) {
+                $message .= "You've picked up {$item->getName()}\n";
+            }
+    
+            return $message;
         }
-
+    
         $currentRoom = $player->getCurrentRoom();
-
+    
         return 'You have moved to ' . $currentRoom->getDescription();
     }
 }

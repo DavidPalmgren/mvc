@@ -29,12 +29,12 @@ class GameMap
         $gameMap = new GameMap('center');
     
 
-        $centerRoom = new Room('center', 'You are in the hallway(center) room.');
-        $northRoom = new Room('north', 'You are in the exit(north) room.');
-        $southRoom = new Room('south', 'You are in the PCRoom(south) room.');
-        $eastRoom = new Room('east', 'You are in the kitchen(east) room.');
-        $westRoom = new Room('west', 'You are in the bedroom(west) room.');
-        $additionalRoom = new Room('additional', 'You are in the livingroom(east-additional) room.');
+        $centerRoom = new Room('center', 'You are in the hallway(center) room.', "/adventuregame/scenes/hallway.png");
+        $northRoom = new Room('north', 'You are in the exit(north) room.', "/adventuregame/scenes/door.png");
+        $southRoom = new Room('south', 'You are in the PCRoom(south) room.', "/adventuregame/scenes/pcroom.png");
+        $eastRoom = new Room('east', 'You are in the kitchen(east) room.', "/adventuregame/scenes/kitchen.png");
+        $westRoom = new Room('west', 'You are in the bedroom(west) room.', "/adventuregame/scenes/bedroomdog.png");
+        $additionalRoom = new Room('additional', 'You are in the livingroom(east-additional) room.', "/adventuregame/scenes/livingroom.png");
     
         $centerRoom->setNeighbor('north', $northRoom);
         $centerRoom->setNeighbor('south', $southRoom);
@@ -48,6 +48,11 @@ class GameMap
         $eastRoom->setNeighbor('east', $additionalRoom);
         $additionalRoom->setNeighbor('west', $eastRoom);
     
+        $additionalRoom->addItem(new Item('first_half_note', 'First half of the note', 'A note seemingly ripped in half its hard to overlook the teethmarks and drool all over the piece'));
+        $westRoom->addItem(new Item('second_half_note', 'Second half of the note', 'A note seemingly ripped in half its hard to overlook the teethmarks and drool all over the piece'));
+        $centerRoom->addItem(new Item('golden_key', 'Golden key', 'It shines brilliant, most likely for the chains surrounding the exit door'));
+        $eastRoom->addItem(new Item('piece_of_ham', 'Piece of ham', 'Smells great.'));
+
         $gameMap->addRoom($centerRoom);
         $gameMap->addRoom($northRoom);
         $gameMap->addRoom($southRoom);

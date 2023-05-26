@@ -1,14 +1,17 @@
 <?php
 
 namespace App\Adventure;
+use App\Adventure\Item;
 
 class Player
 {
     private Room $currentRoom;
+    private array $inventory;
 
     public function __construct(Room $startingRoom)
     {
         $this->currentRoom = $startingRoom;
+        $this->inventory = [];
     }
 
     public function getCurrentRoom(): Room
@@ -16,13 +19,21 @@ class Player
         return $this->currentRoom;
     }
 
-    public function move(string $direction): bool
+    public function move(string $direction): void
     {
-        $neighborRoom = $this->currentRoom->getNeighbor($direction);
-        if ($neighborRoom) {
-            $this->currentRoom = $neighborRoom;
-            return true;
+        $neighbor = $this->currentRoom->getNeighbor($direction);
+        if ($neighbor) {
+            $this->currentRoom = $neighbor;
         }
-        return false;
+    }
+
+    public function pickupItems(array $item): void
+    {
+        $this->inventory[] = $item;
+    }
+
+    public function getInventory(): array
+    {
+        return $this->inventory;
     }
 }

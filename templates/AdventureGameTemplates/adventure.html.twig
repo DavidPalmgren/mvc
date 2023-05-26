@@ -6,14 +6,27 @@
     <div class="container">
         <h1>Adventure</h1>
         <p>{{ currentRoom.getDescription() }}</p>
+        <img src="{{ asset('img' ~ currentRoom.getImage()) }}" alt="Room Image">
+
         <form method="POST" action="{{ path("proj_adventure") }}">
             <input type="text" name="command" placeholder="Enter a command">
             <button type="submit">Submit</button>
         </form>
+
         <br>
         <a class="btn btn-info" href="{{path("proj_adventure_clear_session")}}">Reset</a>
         {% if response %}
             <p>{{ response }}</p>
         {% endif %}
+
+        {% if player.Getinventory() %}
+            <h3>Inventory:</h3>
+            <ul>
+                {% for item in player.Getinventory() %}
+                    <li>{{ item[0].getName() }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
     </div>
 {% endblock %}
