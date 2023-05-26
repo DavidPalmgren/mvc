@@ -27,9 +27,11 @@ class Player
         }
     }
 
-    public function pickupItems(array $item): void
+    public function pickupItems(array $items): void
     {
-        $this->inventory[] = $item;
+        foreach ($items as $item) {
+            $this->inventory[] = $item;
+        }
     }
 
     public function getInventory(): array

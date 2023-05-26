@@ -19,16 +19,20 @@ class Commands
         } elseif ($command === 'pickup') {
             $currentRoom = $player->getCurrentRoom();
             $items = $currentRoom->getItems();
-    
-            $player->pickupItems($items);
-            $currentRoom->removeItems();
-    
-            $message = '';
-            foreach ($items as $item) {
-                $message .= "You've picked up {$item->getName()}\n";
+        
+            if (!empty($items)) {
+                $player->pickupItems($items);
+                $currentRoom->removeItems();
+        
+                $message = '';
+                foreach ($items as $item) {
+                    $message .= "You've picked up {$item->getName()}\n";
+                }
+        
+                return $message;
+            } else {
+                return "There are no items to pick up in this room.";
             }
-    
-            return $message;
         }
     
         $currentRoom = $player->getCurrentRoom();

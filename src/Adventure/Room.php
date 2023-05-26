@@ -10,7 +10,7 @@ class Room
     private string $image;
     private array $items;
 
-    public function __construct(string $id, string $description, string $image, Item $item = null)
+    public function __construct(string $id, string $description, string $image, Item $items = null)
     {
         $this->id = $id;
         $this->description = $description;
@@ -21,7 +21,7 @@ class Room
             'west' => null,
         ];
         $this->image = $image;
-        $this->item = $item;
+        $this->items = [];
     }
 
     public function getId(): string

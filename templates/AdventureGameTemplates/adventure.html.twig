@@ -19,14 +19,15 @@
             <p>{{ response }}</p>
         {% endif %}
 
-        {% if player.Getinventory() %}
-            <h3>Inventory:</h3>
-            <ul>
-                {% for item in player.Getinventory() %}
-                    <li>{{ item[0].getName() }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
+        {% if player.getInventory() is not empty %}
+        <h3>Inventory:</h3>
+        <ul>
+            {% for item in player.getInventory() %}
+                <li>{{ item.getName() }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    
 
     </div>
 {% endblock %}
