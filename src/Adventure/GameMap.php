@@ -23,6 +23,10 @@ class GameMap
         return $this->rooms[$roomId] ?? null;
     }
 
+    public function getRooms() {
+        return $this->rooms;
+    }
+
     //preset map for my project
     public function initializeGameMap(): GameMap
     {

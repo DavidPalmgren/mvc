@@ -49,7 +49,7 @@ class Item
         if ($this->getName() === 'second half of the note') {
             return 'The note has 5 letters written boldly across it: a, d, e, r, o. But the left side of the note is missing.';
         }
-        return 'You used ' . $this->getName() . 'nothing happens.';
+        return 'You used ' . $this->getName() . ', nothing happens.';
         
     }
 

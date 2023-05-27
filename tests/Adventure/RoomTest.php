@@ -23,4 +23,20 @@ class RoomTest extends TestCase
 
         $this->assertSame($room2, $neighbor);
     }
+
+    public function testRemoveItems()
+    {
+        $room = new Room('center', 'You are in the hallway(center) room.');
+        $item1 = new Item('item1', 'Item 1', 'Description of item 1');
+        $item2 = new Item('item2', 'Item 2', 'Description of item 2');
+
+        $room->addItem($item1);
+        $room->addItem($item2);
+
+        $room->removeItems();
+
+        $items = $room->getItems();
+
+        $this->assertCount(0, $items);
+    }
 }

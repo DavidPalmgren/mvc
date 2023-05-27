@@ -10,7 +10,7 @@ class Room
     private string $image;
     private array $items;
 
-    public function __construct(string $id, string $description, string $image, Item $items = null)
+    public function __construct(string $id, string $description, string $image = "", Item $items = null)
     {
         $this->id = $id;
         $this->description = $description;
@@ -42,6 +42,11 @@ class Room
     public function getNeighbor(string $direction): ?Room
     {
         return $this->neighbors[$direction];
+    }
+
+    public function getNeighbors(): array
+    {
+        return $this->neighbors;
     }
 
     public function getImage() {
