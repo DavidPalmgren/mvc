@@ -17,7 +17,7 @@ class AdventureGameController extends AbstractController
     #[Route("/proj", name: "proj_home")]
     public function home(): Response
     {
-        return $this->render('AdventureGame/home.html.twig');
+        return $this->render('AdventureGameTemplates/home.html.twig');
     }
 
     #[Route("/proj/adventure", name: "proj_adventure")]

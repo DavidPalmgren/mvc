@@ -27,10 +27,12 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="{{ path('proj_adventure') }}">Adventure Game</a>
+                    <a class="navbar-brand" href="{{ path('proj_home') }}">Adventure Game</a>
                 </div>
                 <div class="collapse navbar-collapse" id="navbar-collapse-1">
                     <ul class="nav navbar-nav">
+                        <li><a href="{{ path('proj_adventure') }}">Game</a></li>
+                        <li><a href="{{ path('proj_api') }}">Api</a></li>
                         <li><a href="{{ path('proj_adventure_clear_session') }}">Reset</a></li>
                         <li><a href="{{ path('home') }}">Return</a></li>
                     </ul>

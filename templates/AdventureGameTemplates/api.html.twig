@@ -1,0 +1,30 @@
+{% extends "AdventureGameTemplates/base2.html.twig" %}
+
+{% block title %}Project Home{% endblock %}
+
+{% block body %}
+<div class="container">
+    <a class="btn btn-info" href="{{ path("proj_adventure") }}">Go to Game</a>
+
+    <a class="btn btn-info" href="{{ path("proj_api_map") }}">Api Map/All rooms</a>
+    <a class="btn btn-info" href="{{ path("proj_api_items") }}">Api items in rooms</a>
+    <a class="btn btn-info" href="{{ path("proj_api_inventory") }}">Api inventory from session</a>
+    <a class="btn btn-info" href="{{ path("proj_adventure_clear_session") }}">Reset</a>
+    <a class="btn btn-info" href="{{ path("proj_adventure_clear_session") }}">Reset</a>
+    <a class="btn btn-info" href="{{ path("proj_adventure_clear_session") }}">Reset</a>
+  </div>
+  <div>
+    <form method="POST" action="{{ path('add_item') }}">
+        <label for="id">ID:</label>
+        <input type="text" name="id" id="id">
+    
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name">
+    
+        <label for="description">Description:</label>
+        <textarea name="description" id="description"></textarea>
+    
+        <button type="submit">Add Item</button>
+    </form>
+  </div>
+{% endblock %}

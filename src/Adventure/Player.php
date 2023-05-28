@@ -10,6 +10,7 @@ class Player
 
     public function __construct(Room $startingRoom)
     {
+        //dont manually set this it messes with tests!
         $this->currentRoom = $startingRoom;
         $this->inventory = [];
     }
@@ -32,6 +33,11 @@ class Player
         foreach ($items as $item) {
             $this->inventory[] = $item;
         }
+    }
+
+    public function addItem(Item $item)
+    {
+        $this->inventory[] = $item;
     }
 
     public function getInventory(): array

@@ -90,8 +90,6 @@ class Commands
             $response = $item->useItem($player);
             if ($response) {
                 return $response;
-            } else {
-                return 'You cannot use that item here.';
             }
         } else {
             return 'You have no such item.';
