@@ -131,6 +131,52 @@ class AdventureGameJsonController extends AbstractController
             return $this->redirectToRoute('proj_api_inventory');
         }
     
-        return $this->render('proj_api.html.twig');
+        return $this->render('AdventureGameTemplates/proj_api.html.twig');
+    }
+    #[Route('/proj/api/room-id', name: 'room_by_id', methods: ['GET', 'POST'])]
+    public function roomById(Request $request, SessionInterface $session): Response
+    {
+        if ($request->isMethod('POST')) {
+            $id = $request->request->get('id2');
+            $gameMap = new GameMap('center');
+            $gameMap = $gameMap->initializeGameMap();
+            $room = $gameMap->getRoom($id);
+    
+            $data = [
+                'id' => $room->getId(),
+                'description' => $room->getDescription(),
+                'neighbors' => $room->getNeighbors(),
+                'image' => $room->getImage(),
+                'items' => $room->getItems(),
+            ];
+
+
+            $processedItems = [];
+            $processedNeighbors = [];
+
+            foreach ($data['items'] as $item) {
+                $processedItems[] = [
+                    'name' => $item->getName(),
+                    'description' => $item->getDescription(),
+                ];
+            }
+
+            foreach ($data['neighbors'] as $direction => $neighbor) {
+                $processedNeighbors[$direction] = [
+                    'id' => $neighbor->getId(),
+                ];
+            }
+            $data['items'] = $processedItems;
+            $data['neighbors'] = $processedNeighbors;
+            
+            $response = new JsonResponse($data);
+            $response->setEncodingOptions(
+                $response->getEncodingOptions() | JSON_PRETTY_PRINT
+            );
+        
+            return $response;
+        }
+    
+        return $this->render('AdventureGameTemplates/proj_api.html.twig');
     }
 }

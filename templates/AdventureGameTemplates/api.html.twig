@@ -6,25 +6,36 @@
 <div class="container">
     <a class="btn btn-info" href="{{ path("proj_adventure") }}">Go to Game</a>
 
-    <a class="btn btn-info" href="{{ path("proj_api_map") }}">Api Map/All rooms</a>
-    <a class="btn btn-info" href="{{ path("proj_api_items") }}">Api items in rooms</a>
-    <a class="btn btn-info" href="{{ path("proj_api_inventory") }}">Api inventory from session</a>
-    <a class="btn btn-info" href="{{ path("proj_adventure_clear_session") }}">Reset</a>
-    <a class="btn btn-info" href="{{ path("proj_adventure_clear_session") }}">Reset</a>
-    <a class="btn btn-info" href="{{ path("proj_adventure_clear_session") }}">Reset</a>
+    <a class="btn btn-primary" href="{{ path("proj_api_map") }}">Api Map/All rooms</a>
+    <a class="btn btn-primary" href="{{ path("proj_api_items") }}">Api items in rooms</a>
+    <a class="btn btn-primary" href="{{ path("proj_api_inventory") }}">Api inventory from session</a>
+    <a class="btn btn-primary" href="{{ path("proj_adventure_clear_session") }}">Reset</a>
   </div>
   <div>
+    <h3>Add Item</h3>
     <form method="POST" action="{{ path('add_item') }}">
+        <div class="form-group">
         <label for="id">ID:</label>
-        <input type="text" name="id" id="id">
-    
+        <input type="text" value="rusty_key" name="id" id="id">
+        </div>
+        <div class="form-group">
         <label for="name">Name:</label>
-        <input type="text" name="name" id="name">
-    
+        <input type="text" value="rusty key" name="name" id="name">
+        </div>
+        <div class="form-group">
         <label for="description">Description:</label>
-        <textarea name="description" id="description"></textarea>
+        <textarea style="color:black;" name="description" placeholder="Ol rusty key" value="Old rusty key" id="description"></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">Add Item</button>
+    </form>
+    <h3>Room by Id</h3>
+    <form method="POST" action="{{ path('room_by_id') }}">
+        <div class="form-group">
+        <label for="id2">ID:</label>
+        <input type="text" value="center" name="id2" id="id2">
+        </div>
     
-        <button type="submit">Add Item</button>
+        <button class="btn btn-primary" type="submit">Find Room</button>
     </form>
   </div>
 {% endblock %}
