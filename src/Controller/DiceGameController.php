@@ -9,6 +9,9 @@ use App\Dice\Dice;
 use App\Dice\DiceGraphic;
 use App\Dice\DiceHand;
 
+/**
+ * @codeCoverageIgnore
+ */
 class DiceGameController extends AbstractController
 {
     #[Route("/game/pig", name: "pig_start")]

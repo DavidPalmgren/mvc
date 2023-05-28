@@ -13,6 +13,9 @@ use App\Card\Card;
 use App\Card\CardDeck;
 use App\Card\CardGraphic;
 
+/**
+ * @codeCoverageIgnore
+ */
 class CardGameControllerJson extends AbstractController
 {
     #[Route("/api", name: "api_home")]

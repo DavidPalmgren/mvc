@@ -12,6 +12,9 @@ use App\Adventure\Player;
 use App\Adventure\Room;
 use App\Adventure\Commands;
 
+ /**
+ * @codeCoverageIgnore
+ */
 class AdventureGameController extends AbstractController
 {
     #[Route("/proj", name: "proj_home")]

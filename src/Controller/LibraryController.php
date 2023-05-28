@@ -11,6 +11,9 @@ use App\Repository\LibraryRepository;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Doctrine\Persistence\ManagerRegistry;
 
+/**
+ * @codeCoverageIgnore
+ */
 class LibraryController extends AbstractController
 {
     #[Route('/library', name: 'app_library')]

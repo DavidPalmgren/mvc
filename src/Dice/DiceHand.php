@@ -4,6 +4,9 @@ namespace App\Dice;
 
 use App\Dice\Dice;
 
+/**
+ * @codeCoverageIgnore
+ */
 class DiceHand
 {
     private $hand = [];

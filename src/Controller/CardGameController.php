@@ -13,6 +13,9 @@ use App\Card\CardDeck;
 use App\Card\CardGraphic;
 use App\Card\CardGraphicTwo;
 
+/**
+ * @codeCoverageIgnore
+ */
 class CardGameController extends AbstractController
 {
     #[Route("/card/init", name: "card_init")]

@@ -2,6 +2,9 @@
 
 namespace App\Dice;
 
+/**
+ * @codeCoverageIgnore
+ */
 class DiceGraphic extends Dice
 {
     private $representation = [

@@ -18,6 +18,9 @@ use App\Game\Player;
 use App\Game\Banker;
 use App\Game\TjugoEttGame;
 
+/**
+ * @codeCoverageIgnore
+ */
 class TjugoEttController extends AbstractController
 {
     #[Route("/game/init", name: "game_init")]

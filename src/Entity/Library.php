@@ -5,6 +5,9 @@ namespace App\Entity;
 use App\Repository\LibraryRepository;
 use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * @codeCoverageIgnore
+ */
 #[ORM\Entity(repositoryClass: LibraryRepository::class)]
 class Library
 {

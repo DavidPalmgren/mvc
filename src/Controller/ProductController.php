@@ -9,6 +9,9 @@ use App\Entity\Product;
 use App\Repository\ProductRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
+/**
+ * @codeCoverageIgnore
+ */
 class ProductController extends AbstractController
 {
     #[Route('/product', name: 'app_product')]

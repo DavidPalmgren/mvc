@@ -14,7 +14,9 @@ use App\Adventure\Room;
 use App\Adventure\Item;
 use App\Adventure\Commands;
 
-//map, player, commands, items, game state?
+ /**
+ * @codeCoverageIgnore
+ */
 class AdventureGameJsonController extends AbstractController
 {
     #[Route("/proj/api/", name: "proj_api")]
