@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Adventure;
+
 use App\Adventure\Player;
 use App\Adventure\GameMap;
 
@@ -29,7 +30,7 @@ class Commands
                     $attempt = $this->parseItemName($command);
                     return $this->passwordCheck($attempt, $player);
                     break;
-                }else {
+                } else {
                     return "No computer to put that password into";
                     break;
                 }
@@ -62,11 +63,11 @@ class Commands
     {
         $currentRoom = $player->getCurrentRoom();
         $items = $currentRoom->getItems();
-    
+
         if (!empty($items)) {
             $player->pickupItems($items);
             $currentRoom->removeItems();
-    
+
             $message = '';
             foreach ($items as $item) {
                 $message .= "You've picked up {$item->getName()}\n";
@@ -84,7 +85,7 @@ class Commands
     {
         $lowercaseItemName = strtolower($itemName);
         $item = $player->findItemByName($lowercaseItemName);
-    
+
         if ($item) {
             $response = $item->useItem($player);
             if ($response) {

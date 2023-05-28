@@ -15,9 +15,9 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method Product[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 
- /**
- * @codeCoverageIgnore
- */
+/**
+* @codeCoverageIgnore
+*/
 class ProductRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)

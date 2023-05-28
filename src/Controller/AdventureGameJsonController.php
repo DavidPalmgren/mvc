@@ -14,9 +14,9 @@ use App\Adventure\Room;
 use App\Adventure\Item;
 use App\Adventure\Commands;
 
- /**
- * @codeCoverageIgnore
- */
+/**
+* @codeCoverageIgnore
+*/
 class AdventureGameJsonController extends AbstractController
 {
     #[Route("/proj/api/", name: "proj_api")]
@@ -29,19 +29,19 @@ class AdventureGameJsonController extends AbstractController
     {
         $gameMap = new GameMap('center');
         $gameMap = $gameMap->initializeGameMap();
-    
+
         $data = [
             'game-map' => [
                 'rooms' => [],
             ],
         ];
-    
+
         foreach ($gameMap->getRooms() as $room) {
             $neighbors = [];
             foreach ($room->getNeighbors() as $direction => $neighbor) {
                 $neighbors[$direction] = $neighbor ? $neighbor->getId() : null;
             }
-    
+
             $data['game-map']['rooms'][] = [
                 'id' => $room->getId(),
                 'description' => $room->getDescription(),
@@ -53,7 +53,7 @@ class AdventureGameJsonController extends AbstractController
         $response->setEncodingOptions(
             $response->getEncodingOptions() | JSON_PRETTY_PRINT
         );
-    
+
         return $response;
     }
     //items in room
@@ -62,7 +62,7 @@ class AdventureGameJsonController extends AbstractController
     {
         $gameMap = new GameMap('center');
         $gameMap = $gameMap->initializeGameMap();
-    
+
         $data = [
             'rooms' => [],
         ];
@@ -82,7 +82,7 @@ class AdventureGameJsonController extends AbstractController
                     'description' => $item->getDescription(),
                 ];
             }
-    
+
             $data['rooms'][] = $roomData;
         }
 
@@ -90,19 +90,19 @@ class AdventureGameJsonController extends AbstractController
         $response->setEncodingOptions(
             $response->getEncodingOptions() | JSON_PRETTY_PRINT
         );
-    
+
         return $response;
     }
-    
+
     #[Route("/proj/api/inventory", name: "proj_api_inventory")]
     public function jsonInventory(SessionInterface $session): JsonResponse
     {
         $player = $session->get('player');
-    
+
         $data = [
             'items' => [],
         ];
-    
+
         if ($player && $player->getInventory()) {
             foreach ($player->getInventory() as $item) {
                 $data['items'][] = [
@@ -112,12 +112,12 @@ class AdventureGameJsonController extends AbstractController
                 ];
             }
         }
-    
+
         $response = new JsonResponse($data);
         $response->setEncodingOptions(
             $response->getEncodingOptions() | JSON_PRETTY_PRINT
         );
-    
+
         return $response;
     }
     #[Route('/proj/api/add-item', name: 'add_item', methods: ['GET', 'POST'])]
@@ -127,14 +127,14 @@ class AdventureGameJsonController extends AbstractController
             $id = $request->request->get('id');
             $name = $request->request->get('name');
             $description = $request->request->get('description');
-    
+
             $item = new Item($id, $name, $description);
             $player = $session->get('player');
             $player->addItem($item);
-    
+
             return $this->redirectToRoute('proj_api_inventory');
         }
-    
+
         return $this->render('AdventureGameTemplates/proj_api.html.twig');
     }
     #[Route('/proj/api/room-id', name: 'room_by_id', methods: ['GET', 'POST'])]
@@ -145,7 +145,7 @@ class AdventureGameJsonController extends AbstractController
             $gameMap = new GameMap('center');
             $gameMap = $gameMap->initializeGameMap();
             $room = $gameMap->getRoom($id);
-    
+
             $data = [
                 'id' => $room->getId(),
                 'description' => $room->getDescription(),
@@ -172,15 +172,15 @@ class AdventureGameJsonController extends AbstractController
             }
             $data['items'] = $processedItems;
             $data['neighbors'] = $processedNeighbors;
-            
+
             $response = new JsonResponse($data);
             $response->setEncodingOptions(
                 $response->getEncodingOptions() | JSON_PRETTY_PRINT
             );
-        
+
             return $response;
         }
-    
+
         return $this->render('AdventureGameTemplates/proj_api.html.twig');
     }
 }

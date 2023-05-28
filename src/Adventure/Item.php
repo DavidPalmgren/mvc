@@ -4,7 +4,6 @@ namespace App\Adventure;
 
 class Item
 {
-
     private string $id;
     private string $name;
     private string $description;
@@ -16,15 +15,18 @@ class Item
         $this->description = $description;
     }
 
-    public function getId(): string {
+    public function getId(): string
+    {
         return $this->id;
     }
 
-    public function getName(): string {
+    public function getName(): string
+    {
         return strtolower($this->name);
     }
 
-    public function getDescription(): string {
+    public function getDescription(): string
+    {
         return $this->description;
     }
 
@@ -54,7 +56,7 @@ class Item
             return "This seemingly useless item spawns a spirit which tells you to go the eastern most room and look for a note.";
         }
         return 'You used ' . $this->getName() . ', nothing happens.';
-        
+
     }
 
 }

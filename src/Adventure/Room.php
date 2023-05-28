@@ -49,11 +49,13 @@ class Room
         return $this->neighbors;
     }
 
-    public function getImage() {
+    public function getImage()
+    {
         return $this->image;
     }
 
-    public function setImage(string $sentImage) {
+    public function setImage(string $sentImage)
+    {
         $this->image = $sentImage;
     }
 

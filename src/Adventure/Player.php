@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Adventure;
+
 use App\Adventure\Item;
 
 class Player
@@ -48,10 +49,10 @@ class Player
     public function findItemByName(string $itemName): ?Item
     {
         $lowercaseItemName = strtolower($itemName);
-    
+
         foreach ($this->inventory as $item) {
             $lowercaseItem = strtolower($item->getName());
-    
+
             if (strpos($lowercaseItem, $lowercaseItemName) !== false) {
                 return $item;
             }

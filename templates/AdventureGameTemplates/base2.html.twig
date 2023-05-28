@@ -32,6 +32,7 @@
                 <div class="collapse navbar-collapse" id="navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li><a href="{{ path('proj_adventure') }}">Game</a></li>
+                        <li><a href="{{ path('proj_about') }}">About</a></li>
                         <li><a href="{{ path('proj_api') }}">Api</a></li>
                         <li><a href="{{ path('proj_adventure_clear_session') }}">Reset</a></li>
                         <li><a href="{{ path('home') }}">Return</a></li>
@@ -42,6 +43,11 @@
         <div class="container flex-grow-1">
             {% block body %} {%block main%} {%endblock main%}{% endblock %}
         </div>
+        <footer class="footer bg-dark text-light">
+            <div class="container text-center">
+              <span class="text-muted">© 2023 My Adventuring Company. All rights reserved and so.</span>
+            </div>
+          </footer>
         <script src="{{ asset('node_modules/bootstrap/dist/js/bootstrap.min.js') }}"></script>
     </body>
 </html>

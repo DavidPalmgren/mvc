@@ -6,22 +6,29 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <h1>Adventure</h1>
+                <h1>Escape The House</h1>
                 <p>{{ currentRoom.getDescription() }}</p>
                 <form method="POST" action="{{ path("proj_adventure") }}">
                     <input type="text" name="command" placeholder="Enter a command">
                     <button type="submit">Submit</button>
                 </form>
-
-                    <ul class="dark">
-                        <li>pickup (ex: pickup)</li>
-                        <li>move (ex: move north).</li>
-                        <li>password (while in pc room) ex: password redcar5.</li>
+                
+                    <ul class="dark" id="hiddenc">
+                        <h3>Commands:</h3>
+                        <li>pickup (ex: pickup).</li>
+                        <li>use (ex:use piece of ham).</li>
+                        <li>move  (ex: move north).</li>
+                        <li>password (while in pc room) (ex: password redcar5).</li>
                     </ul>
+                    
 
 
                 <br>
-                <a class="btn btn-info" href="{{ path("proj_adventure_clear_session") }}">Reset</a>
+                <a class="btn dark-button" onclick="showCommands()">Commands</a>
+                <a class="btn dark-button" onclick="showList()">Cheat Sheet</a>
+                <a class="btn dark-button" href="{{ path("proj_adventure_clear_session") }}">Reset</a>
+                
+                
                 {% if response %}
                     <p>{{ response }}</p>
                 {% endif %}
@@ -35,8 +42,31 @@
                     </ul>
                 {% endif %}
             </div>
-            <div class="col-md-8">
+            <div class="col-md-6">
                 <img src="{{ asset('img' ~ currentRoom.getImage()) }}" alt="Room Image">
+            </div>
+            <div class="col-md-2">
+                <ul id="hidden" class="hidden-default">
+                    <h4>Fastest Route</h4>
+                    <li>move east</li>
+                    <li>pickup piece of ham</li>
+                    <li>move east</li>
+                    <li>pickup note</li>
+                    <li>move west</li>
+                    <li>move west</li>
+                    <li>move west</li>
+                    <li>use ham</li>
+                    <li>move east</li>
+                    <li>move south</li>
+                    <li>use first half of the note</li>
+                    <li>use second half of the note</li>
+                    <li>password trocadero</li>
+                    <li>pickup key</li>
+                    <li>move north</li>
+                    <li>move north</li>
+                    <li>use key</li>
+                    <li>Congratulations on you've won</li>
+                </ul>
             </div>
         </div>
     </div>
@@ -45,5 +75,14 @@
         window.onload = function() {
             document.querySelector('input[name="command"]').focus();
         };
+        function showList() {
+            var myList = document.getElementById('hidden');
+            myList.classList.toggle('hidden-default');
+        }
+        function showCommands() {
+            var myCommands = document.getElementById('hiddenc');
+            myCommands.classList.toggle('hidden-default');
+        }
+        
     </script>
 {% endblock %}

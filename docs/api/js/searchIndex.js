@@ -1046,6 +1046,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Adventure-Player.html#method_pickupItems"
         },                {
+            "fqsen": "\\App\\Adventure\\Player\u003A\u003AaddItem\u0028\u0029",
+            "name": "addItem",
+            "summary": "",
+            "url": "classes/App-Adventure-Player.html#method_addItem"
+        },                {
             "fqsen": "\\App\\Adventure\\Player\u003A\u003AgetInventory\u0028\u0029",
             "name": "getInventory",
             "summary": "",
@@ -1106,6 +1111,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Adventure-Room.html#method_getImage"
         },                {
+            "fqsen": "\\App\\Adventure\\Room\u003A\u003AsetImage\u0028\u0029",
+            "name": "setImage",
+            "summary": "",
+            "url": "classes/App-Adventure-Room.html#method_setImage"
+        },                {
             "fqsen": "\\App\\Adventure\\Room\u003A\u003AgetItems\u0028\u0029",
             "name": "getItems",
             "summary": "",
@@ -1156,6 +1166,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Controller-AdventureGameController.html#method_home"
         },                {
+            "fqsen": "\\App\\Controller\\AdventureGameController\u003A\u003Aabout\u0028\u0029",
+            "name": "about",
+            "summary": "",
+            "url": "classes/App-Controller-AdventureGameController.html#method_about"
+        },                {
             "fqsen": "\\App\\Controller\\AdventureGameController\u003A\u003Aadventure\u0028\u0029",
             "name": "adventure",
             "summary": "",
@@ -1165,6 +1180,41 @@ Search.appendIndex(
             "name": "clearSession",
             "summary": "",
             "url": "classes/App-Controller-AdventureGameController.html#method_clearSession"
+        },                {
+            "fqsen": "\\App\\Controller\\AdventureGameJsonController",
+            "name": "AdventureGameJsonController",
+            "summary": "",
+            "url": "classes/App-Controller-AdventureGameJsonController.html"
+        },                {
+            "fqsen": "\\App\\Controller\\AdventureGameJsonController\u003A\u003AjsonNumber\u0028\u0029",
+            "name": "jsonNumber",
+            "summary": "",
+            "url": "classes/App-Controller-AdventureGameJsonController.html#method_jsonNumber"
+        },                {
+            "fqsen": "\\App\\Controller\\AdventureGameJsonController\u003A\u003AjsonMap\u0028\u0029",
+            "name": "jsonMap",
+            "summary": "",
+            "url": "classes/App-Controller-AdventureGameJsonController.html#method_jsonMap"
+        },                {
+            "fqsen": "\\App\\Controller\\AdventureGameJsonController\u003A\u003AjsonItems\u0028\u0029",
+            "name": "jsonItems",
+            "summary": "",
+            "url": "classes/App-Controller-AdventureGameJsonController.html#method_jsonItems"
+        },                {
+            "fqsen": "\\App\\Controller\\AdventureGameJsonController\u003A\u003AjsonInventory\u0028\u0029",
+            "name": "jsonInventory",
+            "summary": "",
+            "url": "classes/App-Controller-AdventureGameJsonController.html#method_jsonInventory"
+        },                {
+            "fqsen": "\\App\\Controller\\AdventureGameJsonController\u003A\u003AaddItem\u0028\u0029",
+            "name": "addItem",
+            "summary": "",
+            "url": "classes/App-Controller-AdventureGameJsonController.html#method_addItem"
+        },                {
+            "fqsen": "\\App\\Controller\\AdventureGameJsonController\u003A\u003AroomById\u0028\u0029",
+            "name": "roomById",
+            "summary": "",
+            "url": "classes/App-Controller-AdventureGameJsonController.html#method_roomById"
         },                {
             "fqsen": "\\",
             "name": "\\",

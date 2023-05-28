@@ -12,9 +12,9 @@ use App\Adventure\Player;
 use App\Adventure\Room;
 use App\Adventure\Commands;
 
- /**
- * @codeCoverageIgnore
- */
+/**
+* @codeCoverageIgnore
+*/
 class AdventureGameController extends AbstractController
 {
     #[Route("/proj", name: "proj_home")]
@@ -23,18 +23,24 @@ class AdventureGameController extends AbstractController
         return $this->render('AdventureGameTemplates/home.html.twig');
     }
 
+    #[Route("/proj/about", name: "proj_about")]
+    public function about(): Response
+    {
+        return $this->render('AdventureGameTemplates/about.html.twig');
+    }
+
     #[Route("/proj/adventure", name: "proj_adventure")]
     public function adventure(Request $request, SessionInterface $session): Response
     {
         // Check session
         $gameMap = $session->get('gameMap');
         $player = $session->get('player');
-    
+
         if (!$gameMap || !$player) {
- 
+
             $gameMap = new GameMap('center');
             $gameMap = $gameMap->initializeGameMap();
-            $player = new Player($gameMap->getRoom($gameMap->getStartingRoomId())); 
+            $player = new Player($gameMap->getRoom($gameMap->getStartingRoomId()));
             $session->set('gameMap', $gameMap);
             $session->set('player', $player);
         }
