@@ -34,7 +34,7 @@ class GameMapTest extends TestCase
         $centerRoom = $rooms['center'];
         $this->assertInstanceOf(Room::class, $centerRoom);
         $this->assertEquals('center', $centerRoom->getId());
-        $this->assertEquals('You are in the hallway(center) room.', $centerRoom->getDescription());
+        $this->assertEquals("You are in the hallway(center) room. There is a path to the, North, South, East, West. Type move <direction> to get going. You find yourself in a hallway there is not much of note in here besides a [wooden leg] lying on the floor, it doesn't seem very usefull.", $centerRoom->getDescription());
         $this->assertEquals('/adventuregame/scenes/hallway.png', $centerRoom->getImage());
 
         // Test the neighbors of the center room
@@ -62,8 +62,8 @@ class GameMapTest extends TestCase
 
         $goldenKeyItem = $centerRoomItems[0];
         $this->assertInstanceOf(Item::class, $goldenKeyItem);
-        $this->assertEquals('golden_key', $goldenKeyItem->getId());
-        $this->assertEquals('golden key', $goldenKeyItem->getName());
-        $this->assertEquals('It shines brilliant, most likely for the chains surrounding the exit door', $goldenKeyItem->getDescription());
+        $this->assertEquals('Wirts_leg', $goldenKeyItem->getId());
+        $this->assertEquals("wirt's leg", $goldenKeyItem->getName());
+        $this->assertEquals('peg-leg of Wirt, who was revealed to have been killed in the siege of Tristram.', $goldenKeyItem->getDescription());
     }
 }

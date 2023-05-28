@@ -104,7 +104,9 @@ class AdventureGameJsonController extends AbstractController
         if ($player && $player->getInventory()) {
             foreach ($player->getInventory() as $item) {
                 $data['items'][] = [
+                    'id' => $item->getId(),
                     'name' => $item->getName(),
+                    'description' => $item->getDescription(),
                 ];
             }
         }

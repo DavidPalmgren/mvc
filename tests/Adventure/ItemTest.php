@@ -11,7 +11,7 @@ class ItemTest extends TestCase
         
         $response = $item->useItem($player);
         
-        $this->assertEquals('You won', $response);
+        $this->assertEquals("You shove the golden key into the lock and open the door you're finally free from the house. Congratulations player you've escaped succesfully!", $response);
     }
 
     public function testUseGoldenKeyInNonNorthRoom()
@@ -21,7 +21,7 @@ class ItemTest extends TestCase
         
         $response = $item->useItem($player);
         
-        $this->assertEquals('You swing the key aimlessly in the air, the door to heaven does not unlock.', $response);
+        $this->assertEquals('You swing the key aimlessly in the air, the door to heaven does not unlock. You might have better luck using it in the north room.', $response);
     }
 
     public function testUsePieceOfHamInWestRoom()

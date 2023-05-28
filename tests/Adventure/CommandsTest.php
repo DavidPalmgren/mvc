@@ -100,7 +100,7 @@ class CommandsTest extends TestCase
         $commands = new Commands();
         $result = $commands->processCommand("use key", $player, $gameMap);
 
-        $this->assertEquals("You won", $result);
+        $this->assertEquals("You shove the golden key into the lock and open the door you're finally free from the house. Congratulations player you've escaped succesfully!", $result);
     }
     
 }
