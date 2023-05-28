@@ -53,6 +53,10 @@ class Room
         return $this->image;
     }
 
+    public function setImage(string $sentImage) {
+        $this->image = $sentImage;
+    }
+
     public function getItems(): array
     {
         return $this->items;

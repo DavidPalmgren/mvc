@@ -37,8 +37,7 @@ class Commands
 
         }
 
-        $currentRoom = $player->getCurrentRoom();
-        return 'You have moved to ' . $currentRoom->getDescription();
+        return '';
     }
 
     private function parseCommand(string $command): string

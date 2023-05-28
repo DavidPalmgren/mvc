@@ -32,9 +32,10 @@ class Item
     {
         if ($this->getName() === 'golden key') {
             if ($player->getCurrentRoom()->getId() === 'north') {
-                return 'You won';
+                $player->getCurrentRoom()->setImage("/adventuregame/scenes/victory.png");
+                return "You shove the golden key into the lock and open the door you're finally free from the house. Congratulations player you've escaped succesfully!";
             }
-            return 'You swing the key aimlessly in the air, the door to heaven does not unlock.';
+            return 'You swing the key aimlessly in the air, the door to heaven does not unlock. You might have better luck using it in the north room.';
         }
         if ($this->getName() === 'piece of ham') {
             if ($player->getCurrentRoom()->getId() === 'west') {
@@ -48,6 +49,9 @@ class Item
         }
         if ($this->getName() === 'second half of the note') {
             return 'The note has 5 letters written boldly across it: a, d, e, r, o. But the left side of the note is missing.';
+        }
+        if ($this->getName() === "Wirt's Leg") {
+            return "This seemingly useless item spawns a spirit which tells you to go the eastern most room and look for a note.";
         }
         return 'You used ' . $this->getName() . ', nothing happens.';
         
