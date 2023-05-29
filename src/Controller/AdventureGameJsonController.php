@@ -140,42 +140,32 @@ class AdventureGameJsonController extends AbstractController
     public function roomById(Request $request, SessionInterface $session): Response
     {
         if ($request->isMethod('POST')) {
-            $id = $request->request->get('id2');
+            $roomId = $request->request->get('id2');
             $gameMap = new GameMap('center');
             $gameMap = $gameMap->initializeGameMap();
-            $room = $gameMap->getRoom($id);
-
-            $data = [
-                'id' => $room->getId(),
-                'description' => $room->getDescription(),
-                'neighbors' => $room->getNeighbors(),
-                'image' => $room->getImage(),
-                'items' => $room->getItems(),
-            ];
-
-            $processedItems = [];
-            $processedNeighbors = [];
-
-            foreach ($data['items'] as $item) {
-                $processedItems[] = [
-                    'name' => $item->getName(),
-                    'description' => $item->getDescription(),
+        
+            foreach ($gameMap->getRooms() as $room) {
+                if ($roomId !== null && $room->getId() !== $roomId) {
+                    continue;
+                }
+        
+                $neighbors = [];
+                foreach ($room->getNeighbors() as $direction => $neighbor) {
+                    $neighbors[$direction] = $neighbor ? $neighbor->getId() : null;
+                }
+        
+                $data['game-map']['rooms'][] = [
+                    'id' => $room->getId(),
+                    'description' => $room->getDescription(),
+                    'neighbors' => $neighbors,
                 ];
             }
-
-            foreach ($data['neighbors'] as $direction => $neighbor) {
-                $processedNeighbors[$direction] = [
-                    'id' => $neighbor->getId(),
-                ];
-            }
-            $data['items'] = $processedItems;
-            $data['neighbors'] = $processedNeighbors;
-
+        
             $response = new JsonResponse($data);
             $response->setEncodingOptions(
                 $response->getEncodingOptions() | JSON_PRETTY_PRINT
             );
-
+        
             return $response;
         }
 

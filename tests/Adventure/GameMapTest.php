@@ -20,15 +20,15 @@ class GameMapTest extends TestCase
 
         $this->assertEquals("roomUno", $gameMap->getStartingRoomId());
     }
-    //tests that game sets up properly even though im 100% shit owrks gotta get that purple parse
+    //Tests that game sets up properly even though im 100% shit works gotta get that purple parse
     public function testInitializeGameMap()
     {
         $gameMap = new GameMap("roomUno");
         $gameMap = $gameMap->initializeGameMap();
 
-        // Test the rooms
+        
         $rooms = $gameMap->getRooms();
-
+        // Test the room count
         $this->assertCount(6, $rooms);
 
         $centerRoom = $rooms['center'];
@@ -37,7 +37,7 @@ class GameMapTest extends TestCase
         $this->assertEquals("You are in the hallway(center) room. There is a path to the, North, South, East, West. Type move <direction> to get going. You find yourself in a hallway there is not much of note in here besides a [wooden leg] lying on the floor, it doesn't seem very usefull.", $centerRoom->getDescription());
         $this->assertEquals('/adventuregame/scenes/hallway.png', $centerRoom->getImage());
 
-        // Test the neighbors of the center room
+        // Test the neighbor count of the center room
         $this->assertCount(4, $centerRoom->getNeighbors());
 
         $northRoom = $centerRoom->getNeighbor('north');
@@ -61,6 +61,7 @@ class GameMapTest extends TestCase
         $this->assertCount(1, $centerRoomItems);
 
         $goldenKeyItem = $centerRoomItems[0];
+        // Asserting my non-existant Item!
         $this->assertInstanceOf(Item::class, $goldenKeyItem);
         $this->assertEquals('Wirts_leg', $goldenKeyItem->getId());
         $this->assertEquals("wirt's leg", $goldenKeyItem->getName());

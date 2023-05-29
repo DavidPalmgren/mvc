@@ -46,6 +46,7 @@ class Item
             if ($player->getCurrentRoom()->getId() === 'west') {
                 $item = new Item('second_half_note', 'Second half of the note', 'A note seemingly ripped in half its hard to overlook the teethmarks and drool all over the piece');
                 $player->pickupItems([$item]);
+                $player->removeItem($this);
                 return 'You give the piece of ham to the dog. He seems pleased and moves off the bed, revealing a crumpled up note with drool over it. You promptly pick it up.';
             }
         }

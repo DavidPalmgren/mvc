@@ -61,6 +61,7 @@ class GameMap
         $additionalRoom->addItem(new Item('first_half_note', 'First half of the note', 'A note seemingly ripped in half its hard to overlook the teethmarks and drool all over the piece'));
         //moved to event
         //$westRoom->addItem(new Item('second_half_note', 'Second half of the note', 'A note seemingly ripped in half its hard to overlook the teethmarks and drool all over the piece'));
+        //wirts leg is testing item doesnt reallt od anything
         $centerRoom->addItem(new Item("Wirts_leg", "Wirt's Leg", "peg-leg of Wirt, who was revealed to have been killed in the siege of Tristram."));
         $eastRoom->addItem(new Item('piece_of_ham', 'Piece of ham', 'Smells great.'));
 

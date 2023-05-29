@@ -74,4 +74,13 @@ class Player
         }
         return null;
     }
+    public function removeItem(Item $item): bool
+    {
+        $key = array_search($item, $this->inventory, true);
+        if ($key !== false) {
+            unset($this->inventory[$key]);
+            return true;
+        }
+        return false;
+    }
 }
