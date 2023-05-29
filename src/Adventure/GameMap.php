@@ -17,7 +17,11 @@ class GameMap
     {
         $this->rooms[$room->getId()] = $room;
     }
-
+    /**
+     * @param string $roomId gets room by id
+     * 
+     * @return Room|null retruns a room or null if not found
+     */
     public function getRoom(string $roomId): ?Room
     {
         return $this->rooms[$roomId] ?? null;
@@ -29,6 +33,7 @@ class GameMap
     }
 
     //preset map for my project
+    // my big blobby map which i was going to put into a db ill check if my time is right and try but no promises
     public function initializeGameMap(): GameMap
     {
         $gameMap = new GameMap('center');

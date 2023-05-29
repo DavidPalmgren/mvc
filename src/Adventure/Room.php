@@ -33,17 +33,18 @@ class Room
     {
         return $this->description;
     }
-
+    //set granne Room by direction like north to couple? them is
+    // that a good word perhaps dunno
     public function setNeighbor(string $direction, Room $room): void
     {
         $this->neighbors[$direction] = $room;
     }
-
+    //get granne/neighbor of direction
     public function getNeighbor(string $direction): ?Room
     {
         return $this->neighbors[$direction];
     }
-
+    //simply returns all neighbors/granne
     public function getNeighbors(): array
     {
         return $this->neighbors;

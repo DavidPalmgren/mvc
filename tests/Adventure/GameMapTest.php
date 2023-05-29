@@ -56,7 +56,7 @@ class GameMapTest extends TestCase
         $this->assertInstanceOf(Room::class, $westRoom);
         $this->assertEquals('west', $westRoom->getId());
 
-        // Test the items in the rooms
+        // Test the items in the rooms prayg
         $centerRoomItems = $centerRoom->getItems();
         $this->assertCount(1, $centerRoomItems);
 

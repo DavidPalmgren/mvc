@@ -127,7 +127,6 @@ class AdventureGameJsonController extends AbstractController
             $id = $request->request->get('id');
             $name = $request->request->get('name');
             $description = $request->request->get('description');
-
             $item = new Item($id, $name, $description);
             $player = $session->get('player');
             $player->addItem($item);
@@ -153,7 +152,6 @@ class AdventureGameJsonController extends AbstractController
                 'image' => $room->getImage(),
                 'items' => $room->getItems(),
             ];
-
 
             $processedItems = [];
             $processedNeighbors = [];

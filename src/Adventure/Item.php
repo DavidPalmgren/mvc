@@ -30,6 +30,9 @@ class Item
         return $this->description;
     }
 
+    //i sure like making huge blobs but im not convinced it's bad
+    //It's fairly straight forward and is just a bunch of if statements
+    //sure like i could break it up but this frankly seems simpler
     public function useItem(Player $player): bool|string
     {
         if ($this->getName() === 'golden key') {

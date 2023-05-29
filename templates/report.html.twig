@@ -15,7 +15,7 @@
             <li class="list-group-item"><a href="#kmom04">Kmom04</a></li>
             <li class="list-group-item"><a href="#kmom05">Kmom05</a></li>
             <li class="list-group-item"><a href="#kmom06">Kmom06</a></li>
-            <li class="list-group-item"><a href="#kmom07">Kmom07</a></li>
+            <li class="list-group-item"><a href="#kmom10">kmom10</a></li>
         </ul>
 
       </div>
@@ -92,8 +92,10 @@
 
         <div class="card">
             <div class="card-body">
-                <h2 id="kmom07">Kmom07</h2>
-                <p>This is the report for Kmom07.</p>
+                <h2 id="kmom10">kmom10</h2>
+                <p>Jag valde att göra ett adventure game som jag löste genom att göra ett antal klasser som. Room vilket representerar rummen i spelet den har attribut som neighbor för att se vilka rum som är tillgängliga till den, samt en description som står för texten i spelet och en bild som representerar rummet. GameMap klassen håller alla rummen och har en get/set metoder för rummen den har även en metod som initierar mappen som jag gjorde för spelet. Player klassen har metoder för hanteringen av items samt var spelaren befinner sig i vilket room. Item klassen för hantering av items get/set och en useItem metod som bestämmer vad som händer då man använder ett item beroende på vilket rum spelaren befinner sig eller om spelaren har itemet osv. Sedan klassen Commands som hanterar dem olika spelar kommandona som skickas in via post formuläret, om man skickar in move/use/password etc så använder jag case för det och sedan parsar strängarna och skickar det vidare till t.ex. useItem. Det var dem klasserna jag gjorde sedan för att ta in spelar inputen så använde jag ett form som nämnde innan. När spelaren förflyttar sig med move kommandot så om rummet är en granne i den riktningen så förflyttar spelaren sig och då läses det nya rummets img in tillsammans med rummets beskrivning och det är hur man tar sig runt i spelet och hur det flyter liksom. Utöver grundspelet så gjorde jag även krav 4 men inte mer, jag skapa tre get routes för spelet Map som laddar in alla Room och dess grannar, en Items route för att visa upp alla items som existerar. Inventory som tar spelaren session för att visa upp deras nuvarande inventory. en post routes först add-item som lägger till ett item från formuläret och en till route som visar rummet vars id man sökt på.</p>
+                <p>Det gick sådär jag ville göra ett spel för det lät kul men skulle igentligen nog ha gjort en fortsättning på blackjack spelet eller dylikt, jag hade inte jätte mycket tid på mig då jag började och skulle nog ha tänkt igenom innan jag valde att göra ett nytt spel från scratch liksom. Jag han inte med mycket saker som jag skulle velat göra typ bättre bilder, bättre gameplay tyckte spel genomgången inte blev särskillt intressant eller någonting i början hade jag tänkte att jag lägger till lite mini games för att lägga till lite spice loopen av att plocka upp items och gå någonstans liksom men har inte redigt tid för det och så, hade redan gott med problem med att få sakerna att fungera som jag ville. Det gick hyggligt snabbt att göra men min vision av vad spelet skulle bli var rätt krossade efter första dagarna. I alla fall jag är inte helt missnöjd och det blev ett spel av det endå med ett visst flöde osv. Det var endå rätt roligt och något jag vill göra mer av.</p>
+                <p>Jag tyckte att kursen var rätt bra och visade nog några av dem fräckaste verktygen vi har användt hittils som scrutinizer/phpmetrics och sätta upp lite grejer själva var inte redigt något vi gjort så mycket av innan det kanske inte är så svårt eller viktigt men det känndes bra för att få lite kunskap om att sätta upp vissa grejer själv och redigera i .json .xml och sånna config filer var något jag inte hade gjort så mycket av innan och känner mig lite mera bekväm med dessa filerna som var något jag inte ens visste vad det gjorde liksom. Vi gjorde även en hel del med api/json responses, mer oop och orm som var nytt men rätt häftigt i alla fall jag gillade kursen tyckte den bra och har lärt mig saker som jag tror jag kommer vara glad över framöver! 9/10</p>
             </div>
         </div>
 

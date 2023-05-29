@@ -4,6 +4,7 @@ use PHPUnit\Framework\TestCase;
 
 class CommandsTest extends TestCase
 {
+    //kollar att spelaren verkligen förflyttar sig
     public function testProcessCommandMove()
     {
         $gameMap = new GameMap('center');
@@ -16,7 +17,7 @@ class CommandsTest extends TestCase
         $this->assertEquals('north', $player->getCurrentRoom()->getId());
     }
     
-
+    //check that shiz works
     public function testProcessCommandPickupNoItems()
     {
         $player = new Player(new Room('center', 'You are in the hallway(center) room.'));
