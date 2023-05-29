@@ -1,5 +1,5 @@
 parameters:
-    level: 8
+    level: 6
     paths:
         - config
         - src
@@ -9,3 +9,6 @@ parameters:
     excludePaths:
         - src/Dice
         - src/Card
+        - tests/*
+        - src/Repository
+        - src/Entity

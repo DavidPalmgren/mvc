@@ -24,7 +24,7 @@ class Player
      * Checks if the current room has a neighbor in the direction of your movement
      * say you move north it checks that it has a connection to said room then moves you
      * by setting your current room to requested room if all checks pan out
-     * 
+     *
      * @param string $direction you want to move in
      */
     public function move(string $direction): void
@@ -47,7 +47,7 @@ class Player
      * I decided that the item should just get picked up if ur in the room for simplicity
      * i didnt particularly feel like the player had to spell said item out so im really
      * only using this for some later tests since it made stuff simpler for me
-     * 
+     *
      * @param Item $item picks up said item
      */
     public function addItem(Item $item)

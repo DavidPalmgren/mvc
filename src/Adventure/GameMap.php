@@ -19,7 +19,7 @@ class GameMap
     }
     /**
      * @param string $roomId gets room by id
-     * 
+     *
      * @return Room|null retruns a room or null if not found
      */
     public function getRoom(string $roomId): ?Room
@@ -32,8 +32,8 @@ class GameMap
         return $this->rooms;
     }
 
-    //preset map for my project
-    // my big blobby map which i was going to put into a db ill check if my time is right and try but no promises
+    // Preset map for my project
+    // My big blobby map which i was going to put into a db ill check if my time is right and try but no promises
     public function initializeGameMap(): GameMap
     {
         $gameMap = new GameMap('center');

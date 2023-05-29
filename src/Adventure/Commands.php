@@ -11,7 +11,7 @@ class Commands
      * @param string $command from suer input
      * @param Player $player instance
      * @param GameMap $gameMap instance in use
-     * 
+     *
      * @return string Which describes what happend after you used command can be seen below the command buttons.
      */
     public function processCommand(string $command, Player $player, GameMap $gameMap): string
@@ -71,10 +71,10 @@ class Commands
     /**
      * Processes pickup command and returns a string of what happend
      * say you use pickup in dog room/bedroom the dog barks at you as a mini event? lol
-     * 
-     * 
+     *
+     *
      * @param Player $player ur character
-     * 
+     *
      * @return string describing what happend usually what item you picked up
      */
     private function processPickupCommand(Player $player): string
@@ -121,7 +121,7 @@ class Commands
     /**
      * @param string $password checks that password is entered correctly
      * @param Player $player checks that player is in correct room while PCRoom while using command.
-     * 
+     *
      * @return string
      */
     private function passwordCheck(string $password, Player $player)

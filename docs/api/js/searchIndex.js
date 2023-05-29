@@ -918,7 +918,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Adventure\\Commands\u003A\u003AprocessPickupCommand\u0028\u0029",
             "name": "processPickupCommand",
-            "summary": "",
+            "summary": "Processes\u0020pickup\u0020command\u0020and\u0020returns\u0020a\u0020string\u0020of\u0020what\u0020happend\nsay\u0020you\u0020use\u0020pickup\u0020in\u0020dog\u0020room\/bedroom\u0020the\u0020dog\u0020barks\u0020at\u0020you\u0020as\u0020a\u0020mini\u0020event\u003F\u0020lol",
             "url": "classes/App-Adventure-Commands.html#method_processPickupCommand"
         },                {
             "fqsen": "\\App\\Adventure\\Commands\u003A\u003AprocessUseCommand\u0028\u0029",
@@ -1038,7 +1038,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Adventure\\Player\u003A\u003Amove\u0028\u0029",
             "name": "move",
-            "summary": "",
+            "summary": "Checks\u0020if\u0020the\u0020current\u0020room\u0020has\u0020a\u0020neighbor\u0020in\u0020the\u0020direction\u0020of\u0020your\u0020movement\nsay\u0020you\u0020move\u0020north\u0020it\u0020checks\u0020that\u0020it\u0020has\u0020a\u0020connection\u0020to\u0020said\u0020room\u0020then\u0020moves\u0020you\nby\u0020setting\u0020your\u0020current\u0020room\u0020to\u0020requested\u0020room\u0020if\u0020all\u0020checks\u0020pan\u0020out",
             "url": "classes/App-Adventure-Player.html#method_move"
         },                {
             "fqsen": "\\App\\Adventure\\Player\u003A\u003ApickupItems\u0028\u0029",
@@ -1048,7 +1048,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Adventure\\Player\u003A\u003AaddItem\u0028\u0029",
             "name": "addItem",
-            "summary": "",
+            "summary": "I\u0020decided\u0020that\u0020the\u0020item\u0020should\u0020just\u0020get\u0020picked\u0020up\u0020if\u0020ur\u0020in\u0020the\u0020room\u0020for\u0020simplicity\ni\u0020didnt\u0020particularly\u0020feel\u0020like\u0020the\u0020player\u0020had\u0020to\u0020spell\u0020said\u0020item\u0020out\u0020so\u0020im\u0020really\nonly\u0020using\u0020this\u0020for\u0020some\u0020later\u0020tests\u0020since\u0020it\u0020made\u0020stuff\u0020simpler\u0020for\u0020me",
             "url": "classes/App-Adventure-Player.html#method_addItem"
         },                {
             "fqsen": "\\App\\Adventure\\Player\u003A\u003AgetInventory\u0028\u0029",
@@ -1060,6 +1060,11 @@ Search.appendIndex(
             "name": "findItemByName",
             "summary": "",
             "url": "classes/App-Adventure-Player.html#method_findItemByName"
+        },                {
+            "fqsen": "\\App\\Adventure\\Player\u003A\u003AremoveItem\u0028\u0029",
+            "name": "removeItem",
+            "summary": "",
+            "url": "classes/App-Adventure-Player.html#method_removeItem"
         },                {
             "fqsen": "\\App\\Adventure\\Player\u003A\u003A\u0024currentRoom",
             "name": "currentRoom",

@@ -143,29 +143,34 @@ class AdventureGameJsonController extends AbstractController
             $roomId = $request->request->get('id2');
             $gameMap = new GameMap('center');
             $gameMap = $gameMap->initializeGameMap();
-        
+
             foreach ($gameMap->getRooms() as $room) {
                 if ($roomId !== null && $room->getId() !== $roomId) {
                     continue;
                 }
-        
+
                 $neighbors = [];
                 foreach ($room->getNeighbors() as $direction => $neighbor) {
                     $neighbors[$direction] = $neighbor ? $neighbor->getId() : null;
                 }
-        
+
                 $data['game-map']['rooms'][] = [
                     'id' => $room->getId(),
                     'description' => $room->getDescription(),
                     'neighbors' => $neighbors,
                 ];
             }
-        
+            if (!isset($data)) {
+                $data = [
+                    'msg' => 'no room found with: ' . $roomId
+                ];
+            }
+
             $response = new JsonResponse($data);
             $response->setEncodingOptions(
                 $response->getEncodingOptions() | JSON_PRETTY_PRINT
             );
-        
+
             return $response;
         }
 
