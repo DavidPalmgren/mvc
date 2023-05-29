@@ -14,6 +14,9 @@ class Commands
         switch ($action) {
             case 'move':
                 $direction = $this->parseDirection($command);
+                if ($direction === null) {
+                    return "please specify direction, example: move north";
+                };
                 $player->move($direction);
                 break;
 
@@ -28,16 +31,16 @@ class Commands
             case 'password':
                 if ($player->getCurrentRoom()->getId() === 'south') {
                     $attempt = $this->parseItemName($command);
+                    if ($attempt === null) {
+                        return "please specify password, example: password mittlösenord";
+                    }
                     return $this->passwordCheck($attempt, $player);
                     break;
                 } else {
                     return "No computer to put that password into";
                     break;
                 }
-
-
         }
-
         return '';
     }
 
@@ -47,16 +50,16 @@ class Commands
         return strtolower($parts[0]);
     }
 
-    private function parseDirection(string $command): string
+    private function parseDirection(string $command): string|null
     {
         $parts = explode(' ', $command);
-        return strtolower($parts[1]);
+        return isset($parts[1]) ? strtolower($parts[1]) : null;
     }
 
-    private function parseItemName(string $command): string
+    private function parseItemName(string $command): string|null
     {
         $parts = explode(' ', $command);
-        return strtolower($parts[1]);
+        return isset($parts[1]) ? strtolower($parts[1]) : null;
     }
 
     private function processPickupCommand(Player $player): string
@@ -81,8 +84,12 @@ class Commands
         }
     }
 
-    private function processUseCommand(Player $player, string $itemName): string
+    private function processUseCommand(Player $player, string|null $itemName): string
     {
+        if ($itemName === null) {
+            return "Please specify an item, example: use wirt's leg.";
+        }
+
         $lowercaseItemName = strtolower($itemName);
         $item = $player->findItemByName($lowercaseItemName);
 
