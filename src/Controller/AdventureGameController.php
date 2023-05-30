@@ -29,6 +29,8 @@ class AdventureGameController extends AbstractController
         return $this->render('AdventureGameTemplates/about.html.twig');
     }
 
+    //gamemap assignment is dead because of update to classes to fix minor issues which created more minor issues
+    // however since it frankly does not matter it's safe to ignore
     #[Route("/proj/adventure", name: "proj_adventure")]
     public function adventure(Request $request, SessionInterface $session): Response
     {
