@@ -12,7 +12,7 @@ class CommandsTest extends TestCase
         $player = new Player($gameMap->getRoom($gameMap->getStartingRoomId()));
         $commands = new Commands();
 
-        $commands->processCommand("move north", $player, $gameMap);
+        $commands->processCommand("move north", $player);
 
         $this->assertEquals('north', $player->getCurrentRoom()->getId());
     }
@@ -24,7 +24,7 @@ class CommandsTest extends TestCase
         $gameMap = new GameMap('center');
         $commands = new Commands();
 
-        $result = $commands->processCommand('pickup', $player, $gameMap);
+        $result = $commands->processCommand('pickup', $player);
 
         $this->assertEquals('There are no items to pick up in this room.', $result);
         $this->assertCount(0, $player->getInventory());
@@ -41,7 +41,7 @@ class CommandsTest extends TestCase
         $room->addItem($item2);
         $commands = new Commands();
 
-        $result = $commands->processCommand('pickup', $player, $gameMap);
+        $result = $commands->processCommand('pickup', $player);
 
         $this->assertEquals("You've picked up item 1\nYou've picked up item 2\n", $result);
         $this->assertCount(2, $player->getInventory());
@@ -57,7 +57,7 @@ class CommandsTest extends TestCase
         $room->addItem($item);
 
         $commands = new Commands();
-        $result = $commands->processCommand("pickup", $player, $gameMap);
+        $result = $commands->processCommand("pickup", $player);
 
         $this->assertEquals("The dog is laying on top of something but barks as you try to approach.", $result);
     }
@@ -67,7 +67,7 @@ class CommandsTest extends TestCase
         $gameMap = new GameMap('south');
         $player = new Player(new Room('south', 'You are in the computer(south) room.'));
         $commands = new Commands();
-        $result = $commands->processCommand("password trocadero", $player, $gameMap);
+        $result = $commands->processCommand("password trocadero", $player);
 
         $this->assertEquals("You logged in succesfully and hear a small noise behind you the vault which was closed has been opened and reveals a golden key, you should [pickup].", $result);
         $this->assertNotEmpty($player->getCurrentRoom()->getItems());
@@ -78,7 +78,7 @@ class CommandsTest extends TestCase
         $gameMap = new GameMap('south');
         $player = new Player(new Room('center', 'You are in the hallway(center) room.'));
         $commands = new Commands();
-        $result = $commands->processCommand("password wrongpassword", $player, $gameMap);
+        $result = $commands->processCommand("password wrongpassword", $player);
 
         $this->assertEquals("No computer to put that password into", $result);
     }
@@ -88,7 +88,7 @@ class CommandsTest extends TestCase
         $gameMap = new GameMap('south');
         $player = new Player(new Room('center', 'You are in the hallway(center) room.'));
         $commands = new Commands();
-        $result = $commands->processCommand("use key", $player, $gameMap);
+        $result = $commands->processCommand("use key", $player);
         $this->assertEquals("You have no such item.", $result);
     }
 
@@ -99,7 +99,7 @@ class CommandsTest extends TestCase
         $item = new Item('golden_key', 'golden key', 'All shiny and what not');
         $player->pickupItems([$item]);
         $commands = new Commands();
-        $result = $commands->processCommand("use key", $player, $gameMap);
+        $result = $commands->processCommand("use key", $player);
 
         $this->assertEquals("You shove the golden key into the lock and open the door you're finally free from the house. Congratulations player you've escaped succesfully!", $result);
     }

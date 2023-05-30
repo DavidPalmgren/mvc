@@ -3,7 +3,6 @@
 namespace App\Adventure;
 
 use App\Adventure\Player;
-use App\Adventure\GameMap;
 
 class Commands
 {
