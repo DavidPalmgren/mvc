@@ -24,7 +24,7 @@ class PlayerTest extends TestCase
         $gameMap->addRoom($room2);
 
         $room1->setNeighbor('north', $room2);
-        $result = $player->move('north');
+        $player->move('north');
         $currentRoom = $player->getCurrentRoom();
 
         $this->assertSame($room2, $currentRoom);
@@ -35,7 +35,7 @@ class PlayerTest extends TestCase
         $room1 = new Room('room1', 'You are in a dark cave.');
         $player = new Player($room1);
 
-        $result = $player->move('north');
+        $player->move('north');
         $currentRoom = $player->getCurrentRoom();
 
         $this->assertSame($room1, $currentRoom);

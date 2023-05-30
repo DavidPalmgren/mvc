@@ -12,7 +12,7 @@ class CommandsTest extends TestCase
         $player = new Player($gameMap->getRoom($gameMap->getStartingRoomId()));
         $commands = new Commands();
 
-        $result = $commands->processCommand("move north", $player, $gameMap);
+        $commands->processCommand("move north", $player, $gameMap);
 
         $this->assertEquals('north', $player->getCurrentRoom()->getId());
     }
@@ -41,7 +41,7 @@ class CommandsTest extends TestCase
         $room->addItem($item2);
         $commands = new Commands();
 
-        $commands->processCommand('pickup', $player, $gameMap);
+        $result = $commands->processCommand('pickup', $player, $gameMap);
 
         $this->assertEquals("You've picked up item 1\nYou've picked up item 2\n", $result);
         $this->assertCount(2, $player->getInventory());
