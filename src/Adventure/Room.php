@@ -11,6 +11,7 @@ class Room
     private array $items;
 
     //im just gonna leave as is rest of phpstan is just to specify array value type there really is no need since they're already specified in the the methods which use them.
+    //item can be removed but just gonna leave it here since i might want to use it, since im adding items with the method instead of on creation but having this here seems better for future use will leave it, not an actual issue scrutinizer.
     public function __construct(string $roomId, string $description, string $image = "", Item $items = null)
     {
         $this->roomId = $roomId;

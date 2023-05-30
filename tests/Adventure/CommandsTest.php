@@ -41,7 +41,7 @@ class CommandsTest extends TestCase
         $room->addItem($item2);
         $commands = new Commands();
 
-        $result = $commands->processCommand('pickup', $player, $gameMap);
+        $commands->processCommand('pickup', $player, $gameMap);
 
         $this->assertEquals("You've picked up item 1\nYou've picked up item 2\n", $result);
         $this->assertCount(2, $player->getInventory());

@@ -8,17 +8,16 @@ use App\Adventure\GameMap;
 class Commands
 {
     /**
-     * @param string $command from suer input
+     * @param string $command from user input
      * @param Player $player instance
-     * @param GameMap $gameMap instance in use (unused) but cant be assed to remove at this point kinda thought id use it but there wasnt really a need.
      *
      * @return string Which describes what happend after you used command can be seen below the command buttons.
      */
-    public function processCommand(string $command, Player $player, GameMap $gameMap): string
+    public function processCommand(string $command, Player $player): string
     {
         $action = $this->parseCommand($command);
 
-        // dont need breaks hopefully should work fine was only here originally when i used the command to generate the string description
+        // dont need breaks hopefully should work fine was only here originally when i used the command to generate the string description did actually create an issue so readding it partially.
         switch ($action) {
             case 'move':
                 $direction = $this->parseDirection($command);
@@ -26,6 +25,7 @@ class Commands
                     return "please specify direction, example: move north";
                 };
                 $player->move($direction);
+                break;
 
             case 'pickup':
                 return $this->processPickupCommand($player);
@@ -108,6 +108,7 @@ class Commands
             if ($response) {
                 return $response;
             }
+            return 'no response';
         }
         return 'You have no such item.';
     }
