@@ -49,7 +49,7 @@ class AdventureGameController extends AbstractController
             $command = $request->request->get('command');
 
             $commands = new Commands();
-            $response = $commands->processCommand($command, $player, $gameMap);
+            $response = $commands->processCommand($command, $player);
             $session->set('response', $response);
         }
 
