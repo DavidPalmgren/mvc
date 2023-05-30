@@ -4,20 +4,20 @@ namespace App\Adventure;
 
 class Item
 {
-    private string $id;
+    private string $itemId;
     private string $name;
     private string $description;
 
-    public function __construct(string $id, string $name, string $description)
+    public function __construct(string $itemId, string $name, string $description)
     {
-        $this->id = $id;
+        $this->itemId = $itemId;
         $this->name = $name;
         $this->description = $description;
     }
 
     public function getId(): string
     {
-        return $this->id;
+        return $this->itemId;
     }
 
     public function getName(): string

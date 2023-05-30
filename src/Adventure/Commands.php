@@ -10,7 +10,7 @@ class Commands
     /**
      * @param string $command from suer input
      * @param Player $player instance
-     * @param GameMap $gameMap instance in use
+     * @param GameMap $gameMap instance in use (unused) but cant be assed to remove at this point kinda thought id use it but there wasnt really a need.
      *
      * @return string Which describes what happend after you used command can be seen below the command buttons.
      */
@@ -43,10 +43,9 @@ class Commands
                     }
                     return $this->passwordCheck($attempt, $player);
                     break;
-                } else {
-                    return "No computer to put that password into";
-                    break;
                 }
+                return "No computer to put that password into";
+                break;
         }
         return '';
     }
@@ -91,12 +90,11 @@ class Commands
                 $message .= "You've picked up {$item->getName()}\n";
             }
             return $message;
-        } else {
-            if ($player->getCurrentRoom()->getId() === "west") {
-                return "The dog is laying on top of something but barks as you try to approach.";
-            }
-            return "There are no items to pick up in this room.";
         }
+        if ($player->getCurrentRoom()->getId() === "west") {
+            return "The dog is laying on top of something but barks as you try to approach.";
+        }
+        return "There are no items to pick up in this room.";
     }
 
     private function processUseCommand(Player $player, string|null $itemName): string
@@ -113,9 +111,8 @@ class Commands
             if ($response) {
                 return $response;
             }
-        } else {
-            return 'You have no such item.';
         }
+        return 'You have no such item.';
     }
 
     /**
@@ -127,7 +124,7 @@ class Commands
     private function passwordCheck(string $password, Player $player)
     {
         $lowercaseItemName = strtolower($password);
-        if ($password === 'trocadero') {
+        if ($lowercaseItemName === 'trocadero') {
             $room = $player->getCurrentRoom();
             $room->addItem(new Item('golden_key', 'Golden key', 'It shines brilliant, most likely for the chains surrounding the exit door'));
             return "You logged in succesfully and hear a small noise behind you the vault which was closed has been opened and reveals a golden key, you should [pickup].";

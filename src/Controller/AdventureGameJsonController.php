@@ -124,10 +124,10 @@ class AdventureGameJsonController extends AbstractController
     public function addItem(Request $request, SessionInterface $session): Response
     {
         if ($request->isMethod('POST')) {
-            $id = $request->request->get('id');
+            $itemId = $request->request->get('id');
             $name = $request->request->get('name');
             $description = $request->request->get('description');
-            $item = new Item($id, $name, $description);
+            $item = new Item($itemId, $name, $description);
             $player = $session->get('player');
             $player->addItem($item);
 
@@ -137,7 +137,7 @@ class AdventureGameJsonController extends AbstractController
         return $this->render('AdventureGameTemplates/proj_api.html.twig');
     }
     #[Route('/proj/api/room-id', name: 'room_by_id', methods: ['GET', 'POST'])]
-    public function roomById(Request $request, SessionInterface $session): Response
+    public function roomById(Request $request): Response
     {
         if ($request->isMethod('POST')) {
             $roomId = $request->request->get('id2');

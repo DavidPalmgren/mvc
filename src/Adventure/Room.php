@@ -4,15 +4,15 @@ namespace App\Adventure;
 
 class Room
 {
-    private string $id;
+    private string $roomId;
     private string $description;
     private array $neighbors;
     private string $image;
     private array $items;
 
-    public function __construct(string $id, string $description, string $image = "", Item $items = null)
+    public function __construct(string $roomId, string $description, string $image = "", Item $items = null)
     {
-        $this->id = $id;
+        $this->roomId = $roomId;
         $this->description = $description;
         $this->neighbors = [
             'north' => null,
@@ -26,7 +26,7 @@ class Room
 
     public function getId(): string
     {
-        return $this->id;
+        return $this->roomId;
     }
 
     public function getDescription(): string
