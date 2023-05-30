@@ -6,7 +6,7 @@
 Detta är mitt repo för mvc kursen här har vi lite olika spel som tjugoett(svensk blackjack), simpelt tärningsspel, adventure spelet, och lite api routes typ.
 
 git clone https://github.com/DavidPalmgren/mvc.git
-cda till roten och kör:
+cda till roten av mappen och kör:
 composer install
 
 start servern:
