@@ -18,6 +18,7 @@ class Commands
     {
         $action = $this->parseCommand($command);
 
+        // dont need breaks hopefully should work fine was only here originally when i used the command to generate the string description
         switch ($action) {
             case 'move':
                 $direction = $this->parseDirection($command);
@@ -25,16 +26,14 @@ class Commands
                     return "please specify direction, example: move north";
                 };
                 $player->move($direction);
-                break;
 
             case 'pickup':
                 return $this->processPickupCommand($player);
-                break;
 
             case 'use':
                 $itemName = $this->parseItemName($command);
                 return $this->processUseCommand($player, $itemName);
-                break;
+
             case 'password':
                 if ($player->getCurrentRoom()->getId() === 'south') {
                     $attempt = $this->parseItemName($command);
@@ -42,10 +41,8 @@ class Commands
                         return "please specify password, example: password mittlösenord";
                     }
                     return $this->passwordCheck($attempt, $player);
-                    break;
                 }
                 return "No computer to put that password into";
-                break;
         }
         return '';
     }

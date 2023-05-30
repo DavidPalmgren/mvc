@@ -1006,10 +1006,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Adventure-Item.html#method_useItem"
         },                {
-            "fqsen": "\\App\\Adventure\\Item\u003A\u003A\u0024id",
-            "name": "id",
+            "fqsen": "\\App\\Adventure\\Item\u003A\u003A\u0024itemId",
+            "name": "itemId",
             "summary": "",
-            "url": "classes/App-Adventure-Item.html#property_id"
+            "url": "classes/App-Adventure-Item.html#property_itemId"
         },                {
             "fqsen": "\\App\\Adventure\\Item\u003A\u003A\u0024name",
             "name": "name",
@@ -1136,10 +1136,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Adventure-Room.html#method_removeItems"
         },                {
-            "fqsen": "\\App\\Adventure\\Room\u003A\u003A\u0024id",
-            "name": "id",
+            "fqsen": "\\App\\Adventure\\Room\u003A\u003A\u0024roomId",
+            "name": "roomId",
             "summary": "",
-            "url": "classes/App-Adventure-Room.html#property_id"
+            "url": "classes/App-Adventure-Room.html#property_roomId"
         },                {
             "fqsen": "\\App\\Adventure\\Room\u003A\u003A\u0024description",
             "name": "description",

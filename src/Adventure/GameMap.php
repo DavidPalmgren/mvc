@@ -27,7 +27,7 @@ class GameMap
         return $this->rooms[$roomId] ?? null;
     }
 
-    public function getRooms()
+    public function getRooms() :array
     {
         return $this->rooms;
     }

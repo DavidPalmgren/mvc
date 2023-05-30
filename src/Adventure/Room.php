@@ -10,6 +10,7 @@ class Room
     private string $image;
     private array $items;
 
+    //im just gonna leave as is rest of phpstan is just to specify array value type there really is no need since they're already specified in the the methods which use them.
     public function __construct(string $roomId, string $description, string $image = "", Item $items = null)
     {
         $this->roomId = $roomId;
@@ -50,12 +51,12 @@ class Room
         return $this->neighbors;
     }
 
-    public function getImage()
+    public function getImage(): string
     {
         return $this->image;
     }
 
-    public function setImage(string $sentImage)
+    public function setImage(string $sentImage): void
     {
         $this->image = $sentImage;
     }
@@ -70,7 +71,7 @@ class Room
         $this->items[] = $item;
     }
 
-    public function removeItems()
+    public function removeItems(): void
     {
         $this->items = [];
     }
